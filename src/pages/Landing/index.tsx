@@ -10,7 +10,7 @@ export default function Landing() {
           class={css({ margin: "1rem", display: "block" })}
           href="https://halocrypt-20.herokuapp.com"
         >
-          Looking for the older version?
+          Looking for the older version? click here
         </a>
       </div>
     </div>
