@@ -18,7 +18,7 @@
   "dependencies": {
     "@hydrophobefireman/j-utils": "^2.1.6",
     "@hydrophobefireman/qwc": "^0.0.6",
-    "@hydrophobefireman/ui-lib": "^1.8.9",
+    "@hydrophobefireman/ui-lib": "^1.9.0",
     "statedrive": "^0.0.12"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.4.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "postcss": "^8.2.9",
+    "postcss": "^8.2.10",
     "postcss-loader": "^5.2.0",
     "style-ext-html-webpack-plugin": "^4.1.3",
     "terser": "^5.6.1",
