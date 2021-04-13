@@ -18,7 +18,7 @@
   "dependencies": {
     "@hydrophobefireman/j-utils": "^2.1.6",
     "@hydrophobefireman/qwc": "^0.0.6",
-    "@hydrophobefireman/ui-lib": "^1.9.0",
+    "@hydrophobefireman/ui-lib": "^1.9.1",
     "statedrive": "^0.0.12"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "terser-webpack-plugin": "^5.1.1",
     "typescript": "^4.2.4",
     "url-loader": "^4.1.1",
-    "webpack": "^5.31.2",
+    "webpack": "^5.32.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },

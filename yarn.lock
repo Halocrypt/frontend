@@ -1030,10 +1030,10 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/qwc/-/qwc-0.0.6.tgz#e1028ffa3ad0c9f05afb368b03cb10082c84d68e"
   integrity sha512-ofxA3P5Ztx2y+fvJ6nFrWnuimUSjOphmE+7klrgqpDWgfB1t9wPGo51jmGb/eSMzIhPM1TV98//+/WkkSGE0FQ==
 
-"@hydrophobefireman/ui-lib@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.9.0.tgz#318f14bef224eaaf85b8ab7f8d349278eec42425"
-  integrity sha512-GJRjV+lGe3gNpx8V1OB9ZDkYl7PmkteK6Vo+c8JK7q4+04RM/izjHpBpMb0Nq5HfgeW41XYYZiXYtpgR/ZwG8Q==
+"@hydrophobefireman/ui-lib@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.9.1.tgz#0ba5fb6c17e2abcb93c58caacdd517706471041c"
+  integrity sha512-s5BKxsB60dEGhXnkgj8IAe2wybHf1r1/v/FXlIiLjkXhbDaFEAd4Fa+9eT8ad7AxlYpLNRX1qmyMopOOFjyNXA==
 
 "@trysound/sax@0.1.1":
   version "0.1.1"
@@ -6137,10 +6137,10 @@ webpack-sources@^2.1.1:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack@^5.31.2:
-  version "5.31.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.31.2.tgz#40d9b9d15b7d76af73d3f1cae895b82613a544d6"
-  integrity sha512-0bCQe4ybo7T5Z0SC5axnIAH+1WuIdV4FwLYkaAlLtvfBhIx8bPS48WHTfiRZS1VM+pSiYt7e/rgLs3gLrH82lQ==
+webpack@^5.32.0:
+  version "5.32.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.32.0.tgz#f013932d778dad81bd51292d0ea00865056dc22c"
+  integrity sha512-jB9PrNMFnPRiZGnm/j3qfNqJmP3ViRzkuQMIf8za0dgOYvSLi/cgA+UEEGvik9EQHX1KYyGng5PgBTTzGrH9xg==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"
