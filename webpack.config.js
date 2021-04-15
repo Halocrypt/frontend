@@ -93,7 +93,7 @@ function getCfg(isLegacy) {
       path: `${__dirname}/${outputDir}/`,
       filename: `${staticFilePrefix}/${
         isLegacy ? "legacy" : "es6"
-      }/[name]-[chunkhash].js`,
+      }/[name]-[contenthash].js`,
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".json"],
@@ -107,6 +107,7 @@ function getCfg(isLegacy) {
         chunks: "all",
       },
       runtimeChunk: "single",
+      realContentHash: false,
     },
     plugins: [
       new HtmlWebpackPlugin({
