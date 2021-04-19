@@ -8,7 +8,7 @@ export default function Landing() {
       <div>
         <a
           class={css({ margin: "1rem", display: "block" })}
-          href="https://halocrypt-20.herokuapp.com"
+          href="https://2020.halocrypt.com"
         >
           Looking for the older version? click here
         </a>
