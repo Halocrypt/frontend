@@ -28,6 +28,7 @@ export function Footer() {
         Think you're ready?{" "}
         <A
           href="/register"
+          tabIndex={-1}
           class={[
             css({ color: "#7a90ff", display: "inline-block" }),
             hoverable,

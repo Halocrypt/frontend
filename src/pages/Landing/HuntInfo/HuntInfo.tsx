@@ -84,7 +84,7 @@ function Faq() {
           question="What are the prizes?"
           answer={
             IS_INTRA ? (
-              "This is Halocrypt(intra), check the FAQ below for more details"
+              "This is Halocrypt (intra), check the FAQ below for more details"
             ) : (
               <>
                 <p>
@@ -102,9 +102,23 @@ function Faq() {
             )
           }
         />
+        <FaqItem
+          question="I played Halocrypt 2020, do I have to create a new account?"
+          answer={
+            <>
+              I played Halocrypt 2020, do I have to create a new account?"
+              answer="Yes. While we did consider keeping previous accounts, it
+              causes unnecessary confusion to users. This is a clean slate,
+              however, you can still use your old account on{" "}
+              <Link href="https://2020.halocrypt.com">
+                https://2020.halocrypt.com
+              </Link>
+            </>
+          }
+        />
         {IS_INTRA && (
           <FaqItem
-            question="What is Halocrypt(intra)?"
+            question="What is Halocrypt (intra)?"
             answer="If you can see this, you're on the Intra Event of Halocrypt, it's for the students of DPS Indore, an internal event with no prizes, but a small chance to be a part of the core Team Halocrypt"
           />
         )}
