@@ -10,7 +10,7 @@ export function Hero() {
       <HaloIcon className={landingLogo} height={height * 0.75} />
       <div class={landingContentWrap}>
         <h1 class={landingHeading}>
-          The cryptic hunt is back, bigger, better and zttcugpf
+          The cryptic hunt is back, bigger, better and ztccugpf
         </h1>
       </div>
     </>
