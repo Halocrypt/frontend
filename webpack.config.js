@@ -12,6 +12,7 @@ const babel = require("./.babelconfig");
 const uiConfig = require("./ui.config.json");
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
+const { EnvironmentPlugin } = require("webpack");
 
 const { outputDir, staticFilePrefix, inlineCSS, enableCatom } = uiConfig;
 
@@ -157,6 +158,7 @@ function getCfg(isLegacy) {
         new OptimizeCSSAssetsPlugin({ cssProcessor: require("cssnano")() }),
       isProd && inlineCSS && new HTMLInlineCSSWebpackPlugin({}),
       new WebpackModuleNoModulePlugin(isLegacy ? "legacy" : "modern"),
+      new EnvironmentPlugin({ IS_INTRA: false }),
     ].filter(Boolean),
   };
 }
