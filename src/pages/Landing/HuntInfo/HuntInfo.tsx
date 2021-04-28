@@ -1,3 +1,7 @@
+import {
+  AnimateLayout,
+  DeclarativeTransform,
+} from "@hydrophobefireman/ui-anim";
 import { DISCORD_URL, IS_INTRA } from "@/util/constants";
 import {
   anchorLink,
@@ -10,7 +14,6 @@ import {
 import { useRef, useState } from "@hydrophobefireman/ui-lib";
 
 import { AnchorIcon } from "@/components/Icons/Anchor";
-import { AnimateLayout } from "@hydrophobefireman/ui-anim";
 import { LessIcon } from "@/components/Icons/Less";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { MoreIcon } from "@/components/Icons/More";
@@ -119,6 +122,7 @@ function Faq() {
   );
 }
 
+const snapshot = new DeclarativeTransform({ translateY: -40 });
 function FaqItem({
   question,
   answer,
@@ -145,14 +149,16 @@ function FaqItem({
           {question}
         </h1>
       </div>
-      <AnimateLayout
-        element="div"
-        animId={question}
-        class={css({ background: "var(--bg)" })}
-        style={!active ? { height: 0, width: 0, overflow: "hidden" } : {}}
-      >
-        <p>{answer}</p>
-      </AnimateLayout>
+      {active && (
+        <AnimateLayout
+          initialSnapshot={snapshot}
+          element="div"
+          animId={question}
+          class={css({ background: "var(--bg)" })}
+        >
+          <p>{answer}</p>
+        </AnimateLayout>
+      )}
       <hr />
     </div>
   );

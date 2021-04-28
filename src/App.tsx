@@ -26,7 +26,7 @@ function App() {
     </main>
   );
 }
-const FE_READY = true;
+const FE_READY = location.host.includes("localhost");
 
 const out = !IS_INTRA && !FE_READY ? <Halo2020 /> : <App />;
 render(out, document.getElementById("app-mount"));
