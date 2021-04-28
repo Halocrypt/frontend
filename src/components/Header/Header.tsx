@@ -10,7 +10,7 @@ import { useViewportSize } from "@/hooks/use-viewport-size";
 export function Header() {
   const { path } = useLocation();
   const [, width] = useViewportSize();
-  const isWideScreen = width > 800;
+  const isWideScreen = IS_INTRA ? width > 860 : width > 800;
   const isMobile = width < 650;
   if (isMobile) return <MobileHeader />;
   return <DesktopHeader path={path} isWideScreen={isWideScreen} />;
@@ -29,7 +29,7 @@ function DesktopHeader({
       <div class={headerNW}>
         {(isWideScreen || !isIndex) && (
           <A href="/" class={homeLink}>
-            halocrypt{IS_INTRA && "(intra)"}
+            Halocrypt{IS_INTRA && "(intra)"}
           </A>
         )}
         {isIndex && <SocialLinks />}

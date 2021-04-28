@@ -1,7 +1,3 @@
-import {
-  AnimateLayout,
-  DeclarativeTransform,
-} from "@hydrophobefireman/ui-anim";
 import { DISCORD_URL, IS_INTRA } from "@/util/constants";
 import {
   anchorLink,
@@ -11,9 +7,9 @@ import {
   faqQuestion,
   infoCardGradient,
 } from "./HuntInfo.style";
-import { useRef, useState } from "@hydrophobefireman/ui-lib";
 
 import { AnchorIcon } from "@/components/Icons/Anchor";
+import { DeclarativeTransform } from "@hydrophobefireman/ui-anim";
 import { LessIcon } from "@/components/Icons/Less";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { MoreIcon } from "@/components/Icons/More";
@@ -21,6 +17,7 @@ import { copy } from "@/util/copy";
 import { css } from "catom";
 import { useRerender } from "@/hooks/use-rerender";
 import { useScrolltoAnchor } from "@/hooks/use-scroll-to-anchor";
+import { useState } from "@hydrophobefireman/ui-lib";
 
 export function HuntInfo() {
   useScrolltoAnchor();
@@ -60,22 +57,18 @@ function Faq() {
       </a>
       <div>
         <FaqItem
-          rerender={rerender}
           question="What is a Cryptic Hunt?"
           answer="Cryptic hunts are online treasure hunts, you will be provided a question, maybe a hint or two and you have to find the answer, you can expect yourself to look for clues all over the internet, using ciphers, extracting metadata or just figuring out the popculture reference."
         />
         <FaqItem
-          rerender={rerender}
           question="Do I need to be a programmer to participate?"
           answer="Not at all! While some questions CAN be solved with code, but there's no 1 way to arrive at the solution, the team will try its best to ensure questions are approachable by non programming folk as well"
         />
         <FaqItem
-          rerender={rerender}
           question="How are the winners decided?"
           answer="There are 50 questions, first one to solve the 50th question or the person on the top of the leaderboard when the hunt ends is the winner."
         />
         <FaqItem
-          rerender={rerender}
           question="Any place where I can practice?"
           answer={
             <p>
@@ -88,7 +81,6 @@ function Faq() {
           }
         />
         <FaqItem
-          rerender={rerender}
           question="What are the prizes?"
           answer={
             IS_INTRA ? (
@@ -112,7 +104,6 @@ function Faq() {
         />
         {IS_INTRA && (
           <FaqItem
-            rerender={rerender}
             question="What is Halocrypt(intra)?"
             answer="If you can see this, you're on the Intra Event of Halocrypt, it's for the students of DPS Indore, an internal event with no prizes, but a small chance to be a part of the core Team Halocrypt"
           />
@@ -123,26 +114,17 @@ function Faq() {
 }
 
 const snapshot = new DeclarativeTransform({ translateY: -40 });
-function FaqItem({
-  question,
-  answer,
-  rerender,
-}: {
-  question: any;
-  answer: any;
-  rerender(): void;
-}) {
-  const activeRef = useRef(false);
-  const active = activeRef.current;
+function FaqItem({ question, answer }: { question: any; answer: any }) {
+  const [active, setActive] = useState(false);
+
   function handleClick() {
-    rerender();
-    activeRef.current = !active;
+    setActive(!active);
   }
 
   return (
     <div class={faqContainer}>
       <div onClick={handleClick} class={faqQuestion}>
-        <button>
+        <button aria-label="Toggle FAQ">
           {active ? <LessIcon size="1rem" /> : <MoreIcon size="1rem" />}
         </button>
         <h1 class={css({ marginLeft: "5px", fontSize: "1.2rem" })}>
@@ -150,14 +132,9 @@ function FaqItem({
         </h1>
       </div>
       {active && (
-        <AnimateLayout
-          initialSnapshot={snapshot}
-          element="div"
-          animId={question}
-          class={css({ background: "var(--bg)" })}
-        >
+        <div class={css({ background: "var(--bg)" })}>
           <p>{answer}</p>
-        </AnimateLayout>
+        </div>
       )}
       <hr />
     </div>

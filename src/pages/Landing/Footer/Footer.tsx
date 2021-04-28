@@ -4,7 +4,15 @@ import { hoverable } from "@/style";
 
 export function Footer() {
   return (
-    <div class={css({ maxWidth: "50%", margin: "auto", position: "relative" })}>
+    <div
+      class={css({
+        maxWidth: "500px",
+        width: "80%",
+        margin: "auto",
+        position: "relative",
+      })}
+      aria-hidden
+    >
       <div
         class={css({
           position: "absolute",
@@ -21,7 +29,7 @@ export function Footer() {
         <A
           href="/register"
           class={[
-            css({ color: "var(--fg)", display: "inline-block" }),
+            css({ color: "#7a90ff", display: "inline-block" }),
             hoverable,
           ].join(" ")}
         >

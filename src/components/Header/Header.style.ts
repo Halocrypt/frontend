@@ -5,7 +5,7 @@ export const homeLink = css({
   fontWeight: "bold",
   fontSize: "1.5rem",
   margin: ".5rem",
-  media: {},
+  fontFamily: "var(--font-heading)",
 });
 
 export const header = css({

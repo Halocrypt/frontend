@@ -5,8 +5,10 @@ import { AnimateLayout } from "@hydrophobefireman/ui-anim";
 import { NextIcon } from "../Icons/Next";
 import { css } from "catom";
 import { flex } from "@/style";
+import { useIsLoggedIn } from "@/bridge";
 
 export function Nav({ path }: { path: string }) {
+  const isLoggedIn = useIsLoggedIn();
   return (
     <nav class={flex}>
       <NavLink href="/u/me" path={path}>
@@ -18,8 +20,15 @@ export function Nav({ path }: { path: string }) {
       <NavLink href="/leaderboard" path={path}>
         Leaderboard
       </NavLink>
-      <NavLink href="/login" path={path} className={mainAction} hideonActive>
-        <span class={css({ marginRight: "5px" })}>Login</span>
+      <NavLink
+        href={isLoggedIn ? "/play" : "/login"}
+        path={path}
+        className={mainAction}
+        hideonActive
+      >
+        <span class={css({ marginRight: "5px" })}>
+          {isLoggedIn ? "Play" : "Login"}
+        </span>
         <NextIcon size="10px" />
       </NavLink>
     </nav>

@@ -14,6 +14,7 @@ import { useSharedStateValue } from "statedrive";
 export default function Landing() {
   const [started, setStarted] = useState(false);
   const isLoggedIn = useIsLoggedIn();
+  console.log(isLoggedIn);
   const event = useSharedStateValue(eventAtom);
   return (
     <>
