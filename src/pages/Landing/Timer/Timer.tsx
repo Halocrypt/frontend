@@ -21,7 +21,7 @@ function parseTime(timeLeft: number) {
   const inSeconds = timeLeft / 1000;
 
   const days = Math.floor(inSeconds / secInADay);
-  _left = inSeconds & secInADay;
+  _left = inSeconds % secInADay;
 
   const hours = Math.floor(inSeconds / secInAnHour);
   _left = inSeconds % secInAnHour;

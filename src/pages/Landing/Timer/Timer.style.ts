@@ -1,4 +1,3 @@
-import { center } from "@/style";
 import { css } from "catom";
 export const timerBox = [
   css({
