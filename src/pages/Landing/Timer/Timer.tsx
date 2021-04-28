@@ -23,7 +23,7 @@ function parseTime(timeLeft: number) {
   const days = Math.floor(inSeconds / secInADay);
   _left = inSeconds % secInADay;
 
-  const hours = Math.floor(inSeconds / secInAnHour);
+  const hours = Math.floor(_left / secInAnHour);
   _left = inSeconds % secInAnHour;
 
   const mins = Math.floor(_left / minsInAnHour);
