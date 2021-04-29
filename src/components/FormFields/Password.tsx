@@ -45,11 +45,13 @@ export function PasswordInput({
   setPassword,
   setError,
   noFocus,
+  wrapperClass,
 }: {
   password: string;
   setPassword(s: string): void;
   setError?(a: any): void;
   noFocus?: boolean;
+  wrapperClass?: string;
 }) {
   const [type, setType] = useState("password");
   const toggle = () => setType(type === "password" ? "text" : "password");
@@ -59,6 +61,7 @@ export function PasswordInput({
       $ref={!noFocus && ref}
       type={type}
       value={password}
+      wrapperClass={wrapperClass}
       onInput={(p) => {
         setError && setError("");
         setPassword(p);

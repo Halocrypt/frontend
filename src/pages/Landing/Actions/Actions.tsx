@@ -6,12 +6,14 @@ import { PlayIcon } from "@/components/Icons/Play";
 import { css } from "catom";
 import { glassLink } from "@/style";
 
-export function Actions() {
+export function Actions({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <div class={actionContainer}>
-      <A href="/register" class={glassLink} title="Register for Halocrypt">
-        Register
-      </A>
+      {!isLoggedIn && (
+        <A href="/register" class={glassLink} title="Register for Halocrypt">
+          Register
+        </A>
+      )}
       <Link
         class={ytLink}
         href="https://www.youtube.com/watch?v=xaESGE5SvkQ"

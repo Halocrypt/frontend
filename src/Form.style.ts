@@ -25,31 +25,25 @@ export const actionButton = css({
   borderRadius: "10px",
   transition: "0.3s ease",
 });
-export const formContainer500px = css({
+
+export const buttonWrapper = css({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: "1rem",
   width: "80%",
   margin: "auto",
   maxWidth: "500px",
 });
-export const buttonWrapper = [
-  css({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "1rem",
-  }),
-  formContainer500px,
-].join(" ");
 
-export const altLinkBox = [
-  css({
-    marginTop: "1rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  }),
-].join(" ");
+export const altLinkBox = css({
+  marginTop: "1rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+});
 
-export const formContainer600px = [
+export const formContainer = [
   center,
   css({ width: "80vw", maxWidth: "600px", marginTop: "2rem" }),
 ].join(" ");
@@ -60,7 +54,7 @@ export const localError = css({
   color: "red",
 });
 
-export const loginButton = css({
+export const themeSubmitButton = css({
   background: "var(--fg)",
   borderRadius: "10px",
   width: "100%",
@@ -72,3 +66,5 @@ export const loginButton = css({
 });
 
 export const suggestionLink = css({ color: "var(--fg)", fontWeight: "bold" });
+
+export const inputMargin = css({ marginTop: "2rem", marginBottom: "1.6rem" });

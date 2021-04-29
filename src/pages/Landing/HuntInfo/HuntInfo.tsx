@@ -14,7 +14,6 @@ import { FaqIcon } from "./FaqIcon";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { copy } from "@/util/copy";
 import { css } from "catom";
-import { useRerender } from "@/hooks/use-rerender";
 import { useScrolltoAnchor } from "@/hooks/use-scroll-to-anchor";
 import { useState } from "@hydrophobefireman/ui-lib";
 
@@ -44,7 +43,6 @@ function InfoCard() {
 }
 
 function Faq() {
-  const rerender = useRerender();
   const copyTarget = new URL(location.href);
   copyTarget.hash = "faq";
   return (
@@ -55,30 +53,6 @@ function Faq() {
         </h1>
       </a>
       <div>
-        <FaqItem
-          question="What is a Cryptic Hunt?"
-          answer="Cryptic hunts are online treasure hunts, you will be provided a question, maybe a hint or two and you have to find the answer, you can expect yourself to look for clues all over the internet, using ciphers, extracting metadata or just figuring out the popculture reference."
-        />
-        <FaqItem
-          question="Do I need to be a programmer to participate?"
-          answer="Not at all! While some questions CAN be solved with code, but there's no 1 way to arrive at the solution, the team will try its best to ensure questions are approachable by non programming folk as well"
-        />
-        <FaqItem
-          question="How are the winners decided?"
-          answer="There are 50 questions, first one to solve the 50th question or the person on the top of the leaderboard when the hunt ends is the winner."
-        />
-        <FaqItem
-          question="Any place where I can practice?"
-          answer={
-            <p>
-              Glad you asked, Check out{" "}
-              <Link href="https://2020.halocrypt.com/" class={extLink}>
-                Halocrypt 2020
-              </Link>{" "}
-              the previous edition of Halocrypt.
-            </p>
-          }
-        />
         <FaqItem
           question="What are the prizes?"
           answer={
@@ -101,6 +75,37 @@ function Faq() {
             )
           }
         />
+        {IS_INTRA && (
+          <FaqItem
+            question="What is Halocrypt (intra)?"
+            answer="If you can see this, you're on the Intra Event of Halocrypt, it's for the students of DPS Indore, an internal event with no prizes, but a small chance to be a part of the core Team Halocrypt"
+          />
+        )}
+        <FaqItem
+          question="What is a Cryptic Hunt?"
+          answer="Cryptic hunts are online treasure hunts, you will be provided a question, maybe a hint or two and you have to find the answer, you can expect yourself to look for clues all over the internet, using ciphers, extracting metadata or just figuring out the popculture reference."
+        />
+        <FaqItem
+          question="Do I need to be a programmer to participate?"
+          answer="Not at all! While some questions CAN be solved with code, there are multiple ways to arrive at the solution, the team will try its best to ensure questions are approachable and can be solved by non programming folk."
+        />
+        <FaqItem
+          question="How are the winners decided?"
+          answer="There are 50 questions, first one to solve the 50th question or the person on the top of the leaderboard when the hunt ends is the winner."
+        />
+        <FaqItem
+          question="Any place where I can practice?"
+          answer={
+            <p>
+              Glad you asked, Check out{" "}
+              <Link href="https://2020.halocrypt.com/" class={extLink}>
+                Halocrypt 2020
+              </Link>{" "}
+              the previous edition of Halocrypt.
+            </p>
+          }
+        />
+
         <FaqItem
           question="I played Halocrypt 2020, do I have to create a new account?"
           answer={
@@ -114,12 +119,18 @@ function Faq() {
             </>
           }
         />
-        {IS_INTRA && (
-          <FaqItem
-            question="What is Halocrypt (intra)?"
-            answer="If you can see this, you're on the Intra Event of Halocrypt, it's for the students of DPS Indore, an internal event with no prizes, but a small chance to be a part of the core Team Halocrypt"
-          />
-        )}
+        <FaqItem
+          question="Can I see the code?"
+          answer={
+            <>
+              Yes. Check out our{" "}
+              <Link href="https://github.com/Halocrypt" class={extLink}>
+                Github
+              </Link>
+              , every part of this event will be fully open sourced
+            </>
+          }
+        />
       </div>
     </section>
   );

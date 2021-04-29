@@ -9,6 +9,7 @@ export const appPopopClose = css({
   outline: "none",
   padding: "0.6rem",
   paddingLeft: "1rem",
+  transition: "0.1s ease",
   paddingRight: "1rem",
 });
 
@@ -27,12 +28,13 @@ export const modalPopup = css({
   background: "#000",
   fontSize: "1.2rem",
   zIndex: 100,
-  transition: "0.35s linear",
+  transition: "0.1s ease",
   maxWidth: "700px",
   color: "#fff",
 });
 
 export const modalInactive = css({
-  transform: "translateY(-35vh)",
+  transform: "scale(0.5)",
   pointerEvents: "none",
+  visibility: "hidden",
 });

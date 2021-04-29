@@ -28,7 +28,11 @@ function DesktopHeader({
     <header class={header}>
       <div class={headerNW}>
         {(isWideScreen || !isIndex) && (
-          <A href="/" class={homeLink}>
+          <A
+            href="/"
+            class={homeLink}
+            style={IS_INTRA ? { fontSize: "1.2rem" } : null}
+          >
             Halocrypt{IS_INTRA && " (intra)"}
           </A>
         )}

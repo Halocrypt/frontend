@@ -12,6 +12,7 @@ const babel = require("./.babelconfig");
 const uiConfig = require("./ui.config.json");
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
+const science = require("./inject/science");
 const { EnvironmentPlugin } = require("webpack");
 
 const { outputDir, staticFilePrefix, inlineCSS, enableCatom } = uiConfig;
@@ -118,6 +119,7 @@ function getCfg(isLegacy) {
           tags,
           options
         ) {
+          let script = await science.script();
           let css = uiConfig.enableCatom
             ? `<style>
                 ${await autoPrefixCSS()}
@@ -132,6 +134,7 @@ function getCfg(isLegacy) {
               files,
               options: Object.assign(options, {
                 css,
+                script,
               }),
             },
           };

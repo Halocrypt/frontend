@@ -11,5 +11,5 @@
     "jsx": "preserve",
     "paths": { "@/*": ["./src/*"] }
   },
-  "exclude": [".babelconfig.js", "webpack.config.js", "./scripts/"]
+  "exclude": [".babelconfig.js", "webpack.config.js", "./scripts/", "inject/"]
 }

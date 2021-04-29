@@ -1,5 +1,5 @@
 import { A, redirect, useState } from "@hydrophobefireman/ui-lib";
-import { altLinkBox, formContainer600px, suggestionLink } from "@/Form.style";
+import { altLinkBox, formContainer, suggestionLink } from "@/Form.style";
 
 import { EVENT } from "@/util/constants";
 import { Email } from "@/components/FormFields/Email";
@@ -72,11 +72,8 @@ export function RegisterForm() {
     <LoadingContext.Provider value={isLoading as any}>
       <Snackbar message={success} onClose={() => redirect("/login")} />
       <Snackbar message={error} onClose={reset} isError />
-      <div class={formContainer600px}>
-        <div class={!isLoading ? css({ visibility: "hidden" }) : ""}>
-          Loading..
-        </div>
-        <StepProgress step={step} />
+      <div class={formContainer}>
+        <StepProgress step={step} setStep={setStep} />
         {STEP_ELEMENTS[step]}
         <div class={altLinkBox}>
           <A href="/login" class={suggestionLink}>

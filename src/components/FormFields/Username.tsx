@@ -1,10 +1,11 @@
+import { inputMargin, localError } from "@/Form.style";
+
 import { AnimatedInput } from "@/components/AnimatedInput";
 import { Form } from "@/components/Form";
 import { InputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { UserIcon } from "@/components/Icons/User";
 import { css } from "catom";
-import { localError } from "@/Form.style";
 import { useFocus } from "@/hooks/use-focus";
 import { useState } from "@hydrophobefireman/ui-lib";
 import { usernameValidator } from "@/packages/validator";
@@ -43,16 +44,18 @@ export function UsernameInput({
   username,
   setUsername,
   setError,
+  wrapperClass,
 }: {
   username: string;
   setUsername(s: string): void;
   setError?(e: string): void;
+  wrapperClass?: string;
 }) {
   const ref = useFocus<HTMLInputElement>();
   return (
     <AnimatedInput
       $ref={ref}
-      wrapperClass={css({ marginTop: "2rem", marginBottom: "1.55rem" })}
+      wrapperClass={wrapperClass}
       value={username}
       onInput={(e) => {
         setError && setError("");

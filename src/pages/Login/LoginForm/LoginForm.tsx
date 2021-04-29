@@ -1,9 +1,10 @@
 import { A, useState } from "@hydrophobefireman/ui-lib";
 import {
   altLinkBox,
-  formContainer600px,
-  loginButton,
+  formContainer,
+  inputMargin,
   suggestionLink,
+  themeSubmitButton,
 } from "@/Form.style";
 
 import { Form } from "@/components/Form";
@@ -24,20 +25,29 @@ export function LoginForm() {
     setLoading(false);
   }
   async function handleSubmit() {
-    if (loading) return;
+    if (loading || !username || !password) return;
     setLoading(true);
     const { result } = login(username, password);
     const { error } = await result;
     if (error) return setError(error);
   }
   return (
-    <div class={formContainer600px}>
+    <div class={formContainer}>
       <Form onSubmit={handleSubmit}>
         <Snackbar onClose={reset} message={error} isError />
-        <UsernameInput setUsername={setUsername} username={username} />
-        <PasswordInput setPassword={setPassword} password={password} noFocus />
-        <div class={formContainer600px}>
-          <button class={loginButton}>
+        <UsernameInput
+          setUsername={setUsername}
+          username={username}
+          wrapperClass={inputMargin}
+        />
+        <PasswordInput
+          setPassword={setPassword}
+          password={password}
+          noFocus
+          wrapperClass={inputMargin}
+        />
+        <div class={css({ marginTop: "1rem" })}>
+          <button class={themeSubmitButton}>
             {loading ? (
               "Wait.."
             ) : (

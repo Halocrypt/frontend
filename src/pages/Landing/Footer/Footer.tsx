@@ -2,14 +2,20 @@ import { coloredLink, footer, linkBox, svgContainer } from "./Footer.style";
 
 import { A } from "@hydrophobefireman/ui-lib";
 import { css } from "catom";
+import { useIsLoggedIn } from "@/bridge";
 
 export function Footer() {
+  const loggedIn = useIsLoggedIn();
   return (
     <footer class={footer} aria-hidden>
       <div class={linkBox}>
         Think you're ready?{" "}
-        <A href="/register" tabIndex={-1} class={coloredLink}>
-          Sign Up
+        <A
+          href={loggedIn ? "/play" : "/register"}
+          tabIndex={-1}
+          class={coloredLink}
+        >
+          {loggedIn ? "Play" : "Sign Up"}
         </A>
       </div>
 
@@ -20,7 +26,17 @@ export function Footer() {
         viewBox="0 0 300 300"
       >
         <foreignObject x={0} y={0} width="100%" height="100%">
-          <span class={css({ cursor: "default" })}>
+          <span
+            class={css({
+              cursor: "default",
+              media: {
+                "(min-width:600px)": {
+                  userSelect: "none",
+                  pointerEvents: "none",
+                },
+              },
+            })}
+          >
             ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙ ⠙⠕⠏⠙ ⠗⠃⠧⠝⠗⠤⠼⠉⠤⠼⠁
             . ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙ ⠙⠕⠏⠙
             ⠗⠃⠧⠝⠗⠤⠼⠉⠤⠼⠁ . ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙

@@ -4,50 +4,48 @@ import {
   indicatorHeading,
   indicatorHeadingActive,
   indicatorWrap,
-} from "../../../components/FormFields/StepProgress.style";
+  stepProgressBox,
+} from "@/components/FormFields/StepProgress.style";
 
 import { AnimateLayout } from "@hydrophobefireman/ui-anim";
-import { css } from "catom";
-import { formContainer600px } from "@/Form.style";
-import { hideOnMobile } from "@/style";
 
-const stepProgressBox = [
-  hideOnMobile,
-  formContainer600px,
-  css({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-around",
-    marginTop: "1rem",
-    fontWeight: "bold",
-    marginBottom: "3rem",
-  }),
-].join(" ");
-export function StepProgress({ step }: { step: number }) {
+export function StepProgress({
+  step,
+  setStep,
+}: {
+  step: number;
+  setStep(n: number): void;
+}) {
   return (
     <div class={stepProgressBox}>
-      <Indicator step={step} index={0} text="Username" />
-      <Indicator step={step} index={1} text="Name" />
-      <Indicator step={step} index={2} text="Email" />
-      <Indicator step={step} index={3} text="Institution" />
-      <Indicator step={step} index={4} text="Password" />
+      <Indicator step={step} setStep={setStep} index={0} text="Username" />
+      <Indicator step={step} setStep={setStep} index={1} text="Name" />
+      <Indicator step={step} setStep={setStep} index={2} text="Email" />
+      <Indicator step={step} setStep={setStep} index={3} text="Institution" />
+      <Indicator step={step} setStep={setStep} index={4} text="Password" />
     </div>
   );
 }
 export function Indicator({
   index,
   step,
+  setStep,
   text,
 }: {
   index: number;
   step: number;
+  setStep(n: number): void;
   text: string;
 }) {
   const active = index === step;
   const cls = active ? borderActive : borderInactive;
 
   return (
-    <div class={indicatorWrap}>
+    <div
+      class={indicatorWrap}
+      style={active ? { opacity: 1, zIndex: 2 } : ""}
+      onClick={() => index < step && setStep(index)}
+    >
       <div class={active ? indicatorHeadingActive : indicatorHeading}>
         {index + 1}. {text}
       </div>

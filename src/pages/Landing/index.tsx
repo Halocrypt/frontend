@@ -19,7 +19,7 @@ export default function Landing() {
     <>
       <section class={css({ minHeight: "55vh" })}>
         <Hero />
-        {!isLoggedIn && <Actions />}
+        <Actions isLoggedIn={isLoggedIn} />
         {!started ? (
           <Timer
             target={event.event_start_time * 1000}
