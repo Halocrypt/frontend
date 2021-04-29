@@ -10,9 +10,10 @@ import {
 
 import { AnchorIcon } from "@/components/Icons/Anchor";
 import { DeclarativeTransform } from "@hydrophobefireman/ui-anim";
+import { FaqIcon } from "./FaqIcon";
 import { LessIcon } from "@/components/Icons/Less";
 import { Link } from "@/components/ExtLink/ExtLink";
-import { MoreIcon } from "@/components/Icons/More";
+import { MoreIcon } from "@/components/Icons/Faq";
 import { copy } from "@/util/copy";
 import { css } from "catom";
 import { useRerender } from "@/hooks/use-rerender";
@@ -106,11 +107,10 @@ function Faq() {
           question="I played Halocrypt 2020, do I have to create a new account?"
           answer={
             <>
-              I played Halocrypt 2020, do I have to create a new account?"
-              answer="Yes. While we did consider keeping previous accounts, it
-              causes unnecessary confusion to users. This is a clean slate,
-              however, you can still use your old account on{" "}
-              <Link href="https://2020.halocrypt.com">
+              Yes. While we did consider keeping previous accounts, it causes
+              unnecessary confusion to users. This is a clean slate, however,
+              you can still use your old account on{" "}
+              <Link href="https://2020.halocrypt.com" class={extLink}>
                 https://2020.halocrypt.com
               </Link>
             </>
@@ -139,7 +139,7 @@ function FaqItem({ question, answer }: { question: any; answer: any }) {
     <div class={faqContainer}>
       <div onClick={handleClick} class={faqQuestion}>
         <button aria-label="Toggle FAQ">
-          {active ? <LessIcon size="1rem" /> : <MoreIcon size="1rem" />}
+          <FaqIcon active={active} size="1rem" />
         </button>
         <h1 class={css({ marginLeft: "5px", fontSize: "1.2rem" })}>
           {question}

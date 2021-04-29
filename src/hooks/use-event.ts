@@ -7,10 +7,10 @@ import { useSetSharedState } from "statedrive";
 
 export function useEvent(e: Events) {
   const setEventState = useSetSharedState(eventAtom);
-  const [events] = useResource(listEvents, []);
+  const [events, _, error] = useResource(listEvents, []);
   const event = events ? events.find((x) => x.name === e) : null;
   useEffect(() => {
     setEventState(event);
   }, [event]);
-  return event;
+  return [event, error];
 }

@@ -30,6 +30,29 @@ export const faqQuestion = css({
   alignItems: "center",
   cursor: "pointer",
   padding: "1rem",
+  userSelect: "none",
 });
 
 export const extLink = css({ textDecoration: "underline", fontWeight: "bold" });
+
+const animateG = css({ transition: "0.3s ease" });
+
+export const activeG = [
+  animateG,
+  css({ transform: "translate(23.325001px, 27.27002px)" }),
+].join(" ");
+
+export const inactiveG = [
+  animateG,
+  css({ transform: "translate(27.72998px, 23.325001px)" }),
+].join(" ");
+
+export const activeGRotate = [
+  animateG,
+  css({ transform: "rotate(0deg)" }),
+].join(" ");
+
+export const inactiveGRotate = [
+  animateG,
+  css({ transform: "rotate(90deg)" }),
+].join(" ");

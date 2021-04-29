@@ -22,10 +22,5 @@ export const landingHeading = css({
   fontSize: "2rem",
   maxWidth: "20ch",
   margin: "auto",
-  background: "linear-gradient(155deg, #FFFFFF 0%, #372E2E 86%)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-
   //   textFillColor: "transparent",
 });

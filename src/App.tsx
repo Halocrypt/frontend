@@ -13,8 +13,8 @@ import { useEvent } from "./hooks/use-event";
 
 function App() {
   const checked = useCredsCheck();
-  const event = useEvent(EVENT);
-
+  const [event, error] = useEvent(EVENT);
+  if (error) return <div>{error}</div>;
   if (!checked) return <div>Checking credentials..</div>;
   if (!event) return <div>Fetching event data..</div>;
   return (

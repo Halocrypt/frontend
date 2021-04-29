@@ -24,6 +24,7 @@ button {
   margin: 0;
   user-select: none;
   outline: none;
+  color: inherit;
 }
 
 a {
@@ -63,4 +64,16 @@ h6 {
   background: hsl(230deg 83% 60% / 30%);
   z-index: 10;
   border-radius: 10px;
+}
+
+[disabed] {
+  pointer-events: none;
+}
+
+@keyframes errPopup {
+  from {
+    transform: translateY(-0.25rem);
+  }
+  to {
+  }
 }

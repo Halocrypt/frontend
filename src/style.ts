@@ -35,3 +35,24 @@ export const glassLink = [
   }),
   hoverable,
 ].join(" ");
+
+export const hideOnMobile = css({
+  media: { "(max-width:600px)": { display: "none" } },
+});
+
+export const mask = css({
+  height: "100vh",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  backgroundColor: "rgba(48, 48, 48, 0.8)",
+  position: "fixed",
+  width: "100vw",
+  margin: "auto",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  zIndex: 5,
+});

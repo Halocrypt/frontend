@@ -9,11 +9,12 @@ export function _icon(
 ): (p: IconProps) => JSX.Element {
   fg = fg || "var(--fg)";
   bg = bg || "var(--bg)";
-  return function ({ size: _size, className, invert }: IconProps) {
+  return function ({ size: _size, className, invert, onClick }: IconProps) {
     const size = _size || 30;
     const prop = invert ? { stroke: bg, fill: fg } : { fill: bg, stroke: fg };
     return (
       <svg
+        onClick={onClick}
         height={size}
         width={size}
         class={className}

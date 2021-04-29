@@ -2,7 +2,7 @@ import { mainAction, navLink } from "./Header.style";
 
 import { A } from "@hydrophobefireman/ui-lib";
 import { AnimateLayout } from "@hydrophobefireman/ui-anim";
-import { NextIcon } from "../Icons/Next";
+import { ChevronIcon } from "../Icons/Chevron";
 import { css } from "catom";
 import { flex } from "@/style";
 import { useIsLoggedIn } from "@/bridge";
@@ -29,7 +29,7 @@ export function Nav({ path }: { path: string }) {
         <span class={css({ marginRight: "5px" })}>
           {isLoggedIn ? "Play" : "Login"}
         </span>
-        <NextIcon size="10px" />
+        <ChevronIcon size="10px" />
       </NavLink>
     </nav>
   );
