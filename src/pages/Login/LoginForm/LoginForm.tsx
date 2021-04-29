@@ -31,32 +31,34 @@ export function LoginForm() {
     if (error) return setError(error);
   }
   return (
-    <Form onSubmit={handleSubmit}>
-      <Snackbar onClose={reset} message={error} isError />
-      <UsernameInput setUsername={setUsername} username={username} />
-      <PasswordInput setPassword={setPassword} password={password} noFocus />
-      <div class={formContainer600px}>
-        <button class={loginButton}>
-          {loading ? (
-            "Wait.."
-          ) : (
-            <>
-              <span class={css({ marginLeft: "5px", marginRight: "5px" })}>
-                Submit
-              </span>
-              <NextIcon size="1.2rem" />
-            </>
-          )}
-        </button>
-      </div>
-      <div class={altLinkBox}>
-        <A href="/forgot-password" class={suggestionLink}>
-          Forgot Password?
-        </A>
-        <A href="/register" class={suggestionLink}>
-          Register
-        </A>
-      </div>
-    </Form>
+    <div class={formContainer600px}>
+      <Form onSubmit={handleSubmit}>
+        <Snackbar onClose={reset} message={error} isError />
+        <UsernameInput setUsername={setUsername} username={username} />
+        <PasswordInput setPassword={setPassword} password={password} noFocus />
+        <div class={formContainer600px}>
+          <button class={loginButton}>
+            {loading ? (
+              "Wait.."
+            ) : (
+              <>
+                <span class={css({ marginLeft: "5px", marginRight: "5px" })}>
+                  Submit
+                </span>
+                <NextIcon size="1.2rem" />
+              </>
+            )}
+          </button>
+        </div>
+        <div class={altLinkBox}>
+          <A href="/forgot-password" class={suggestionLink}>
+            Forgot Password?
+          </A>
+          <A href="/register" class={suggestionLink}>
+            Register
+          </A>
+        </div>
+      </Form>
+    </div>
   );
 }

@@ -47,7 +47,6 @@ export const altLinkBox = [
     alignItems: "center",
     justifyContent: "space-between",
   }),
-  formContainer500px,
 ].join(" ");
 
 export const formContainer600px = [

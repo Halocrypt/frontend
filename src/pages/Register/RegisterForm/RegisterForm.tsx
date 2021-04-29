@@ -4,6 +4,7 @@ import { altLinkBox, formContainer600px, suggestionLink } from "@/Form.style";
 import { EVENT } from "@/util/constants";
 import { Email } from "@/components/FormFields/Email";
 import { Institution } from "@/components/FormFields/Institution";
+import { LoadingContext } from "./ctx";
 import { Name } from "@/components/FormFields/Name";
 import { Password } from "@/components/FormFields/Password";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
@@ -59,13 +60,16 @@ export function RegisterForm() {
       event: EVENT,
     });
     const { data, error } = await result;
-    if (error) return setError(error);
+    if (error) {
+      setLoading(false);
+      return setError(error);
+    }
     if (data.user) {
       setSuccess("Account created, you can login now");
     }
   }
   return (
-    <>
+    <LoadingContext.Provider value={isLoading as any}>
       <Snackbar message={success} onClose={() => redirect("/login")} />
       <Snackbar message={error} onClose={reset} isError />
       <div class={formContainer600px}>
@@ -80,6 +84,6 @@ export function RegisterForm() {
           </A>
         </div>
       </div>
-    </>
+    </LoadingContext.Provider>
   );
 }

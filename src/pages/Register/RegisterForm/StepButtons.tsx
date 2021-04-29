@@ -1,8 +1,8 @@
 import { actionButton, buttonWrapper } from "../../../Form.style";
 
-import { AnimateLayout } from "@hydrophobefireman/ui-anim";
 import { NextIcon } from "@/components/Icons/Next";
 import { css } from "catom";
+import { useIsLoading } from "./ctx";
 
 export function StepButtons({
   step,
@@ -13,12 +13,14 @@ export function StepButtons({
   // next(): void;
 }) {
   const firstStep = step === 0;
+  const lastStep = step === 4;
+  const isLoading = useIsLoading();
   return (
     <div>
       <div class={buttonWrapper}>
-        <AnimateLayout
-          element="button"
-          animId="prev-reg"
+        <button
+          // element="button"
+          // animId="prev-reg"
           type="button"
           onClick={prev}
           class={[
@@ -36,19 +38,26 @@ export function StepButtons({
               Previous
             </span>
           )}
-        </AnimateLayout>
+        </button>
 
-        <AnimateLayout
-          element="button"
-          animId="next-reg"
+        <button
+          style={lastStep ? { background: "var(--fg)" } : null}
           onClick={null}
           class={[actionButton, css({ flex: 1 })]}
         >
-          <span class={css({ marginLeft: "5px", marginRight: "5px" })}>
-            Next
-          </span>
-          <NextIcon size="1rem" />
-        </AnimateLayout>
+          {isLoading ? (
+            "Wait.."
+          ) : lastStep ? (
+            "Submit"
+          ) : (
+            <>
+              <span class={css({ marginLeft: "5px", marginRight: "5px" })}>
+                Next
+              </span>
+              <NextIcon size="1rem" />
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
