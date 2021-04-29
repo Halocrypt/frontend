@@ -17,7 +17,7 @@ export default function VerifyEmail() {
         "Error(" + error + "). You can reload the page and try again"
       );
     setMessage(
-      `An email has been sent to${
+      `An email has been sent to ${
         user._secure_ ? user._secure_.email : " your email"
       } , open it for further instructions`
     );

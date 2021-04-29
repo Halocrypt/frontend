@@ -54,6 +54,10 @@ function Faq() {
       </a>
       <div>
         <FaqItem
+          question="What is a Cryptic Hunt?"
+          answer="Cryptic hunts are online treasure hunts, you will be provided a question, maybe a hint or two and you have to find the answer, you can expect yourself to look for clues all over the internet, using ciphers, extracting metadata or just figuring out the popculture reference."
+        />
+        <FaqItem
           question="What are the prizes?"
           answer={
             IS_INTRA ? (
@@ -81,10 +85,7 @@ function Faq() {
             answer="If you can see this, you're on the Intra Event of Halocrypt, it's for the students of DPS Indore, an internal event with no prizes, but a small chance to be a part of the core Team Halocrypt"
           />
         )}
-        <FaqItem
-          question="What is a Cryptic Hunt?"
-          answer="Cryptic hunts are online treasure hunts, you will be provided a question, maybe a hint or two and you have to find the answer, you can expect yourself to look for clues all over the internet, using ciphers, extracting metadata or just figuring out the popculture reference."
-        />
+
         <FaqItem
           question="Do I need to be a programmer to participate?"
           answer="Not at all! While some questions CAN be solved with code, there are multiple ways to arrive at the solution, the team will try its best to ensure questions are approachable and can be solved by non programming folk."
