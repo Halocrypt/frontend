@@ -1,5 +1,9 @@
-import { IEvent, INotification, IQuestion, IUser, Log } from "@/interfaces";
-import { adminRoutes, userRoutes } from "@/packages/halo-api/api-routes";
+import { INotification, IQuestion, IUser, Log } from "@/interfaces";
+import {
+  adminRoutes,
+  playRoutes,
+  userRoutes,
+} from "@/packages/halo-api/api-routes";
 
 import { requests } from "@/bridge";
 
@@ -9,7 +13,7 @@ export type QuestionMutation = Pick<
   "question_points" | "question_content" | "question_hints"
 > & { answer: string };
 export function listUsers(event: Events) {
-  return requests.get<IUser[]>(adminRoutes.listUsers(event));
+  return requests.get<IUser[]>(playRoutes.leaderboard(event));
 }
 
 export function disqualifyUser(

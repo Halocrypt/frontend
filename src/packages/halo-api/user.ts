@@ -8,10 +8,10 @@ export function register(user: RegisterUser) {
   return requests.postJSON<IUser>(userRoutes.register, user);
 }
 
-export const login = client.login.bind(client) as typeof client["login"];
+export const login = client.login.bind(client);
 
 export function userDetails(user: string) {
-  return requests.get<IUser>(userRoutes.userDetails(user));
+  return requests.get<{ user_data: IUser }>(userRoutes.userDetails(user));
 }
 
 export type EditUserProps = Partial<

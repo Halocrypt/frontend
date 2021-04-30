@@ -18,7 +18,8 @@ export function useResource<
 ): [
   PromiseResponse<ReturnType<T>["result"]>["data"],
   FetchResourceCallback<R>,
-  string
+  string,
+  (update: PromiseResponse<ReturnType<T>["result"]>["data"]) => void
 ] {
   const [resp, setResp] = useState<any>(null);
   const [error, setError] = useState("");
@@ -39,5 +40,5 @@ export function useResource<
     >;
   }
   useEffect(fetchResource, args);
-  return [resp, fetchResource, error];
+  return [resp, fetchResource, error, setResp];
 }

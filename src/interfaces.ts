@@ -58,6 +58,7 @@ export interface RendererProps {
   fetchQuestions?: FetchResourceCallback<true>;
   fetchUsers?: FetchResourceCallback<true>;
   event: Events;
+  setUsers?(u: IUser[]): void;
 }
 
 type User = string;

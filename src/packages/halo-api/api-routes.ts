@@ -33,7 +33,7 @@ export const adminRoutes = {
   editEvent: (event: Events) => absoluteURL(`/admin/events/${event}/`),
   notificationKey: absoluteURL("/admin/notificaton-key/"),
   logserverKey: absoluteURL("/admin/yek-revresgol/"),
-  listUsers: (event: Events) => absoluteURL(`/admin/${event}/users/`),
+
   getLogs: "https://logs.halocrypt.com/",
   getNotifications: (event: Events) =>
     `https://notifications.halocrypt.com?channel=${event}`,
