@@ -8,11 +8,12 @@ import {
 import {
   errorCss,
   iconCSS,
+  iconHasContent,
   paperInput,
   wrapperCSS,
 } from "./AnimatedInput.styles";
 
-interface InputProps
+export interface InputProps
   extends Omit<JSX.HTMLAttributes<HTMLInputElement>, "onInput" | "icon"> {
   id?: string;
   value: string;
@@ -47,9 +48,10 @@ export function AnimatedInput(props: InputProps): VNode {
     },
     [onInput]
   );
+  const hasContent = `${!!value}`;
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
-      {icon && <span class={iconCSS}>{icon}</span>}
+      {icon && <span class={value ? iconHasContent : iconCSS}>{icon}</span>}
       <input
         ref={$ref}
         onInput={handleInput}
@@ -57,7 +59,7 @@ export function AnimatedInput(props: InputProps): VNode {
         value={value}
         data-error={!!errorText}
         class={[paperInput].concat(inputClass)}
-        data-should-focus={`${!!value}`}
+        data-should-focus={hasContent}
         {...rest}
       />
       <label class={[errorText ? errorCss : null]} for={id}>

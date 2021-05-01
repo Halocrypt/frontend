@@ -1,7 +1,8 @@
 import { Bridge } from "@hydrophobefireman/flask-jwt-jskit";
 import { IUser } from "./interfaces";
+import { redirect } from "@hydrophobefireman/ui-lib";
 import { userRoutes } from "./packages/halo-api/api-routes";
-
+export { get, set, del, clear } from "@hydrophobefireman/flask-jwt-jskit";
 const client = new Bridge<IUser>(null);
 
 client.setRoutes({
@@ -9,6 +10,7 @@ client.setRoutes({
   refreshTokenRoute: userRoutes.refreshToken,
   initialAuthCheckRoute: userRoutes.userDetails("me"),
 });
+client.onLogout(() => redirect("/login"));
 const { useAuthState, useIsLoggedIn } = client.getHooks();
 
 const requests = client.getHttpClient();

@@ -2,6 +2,7 @@ import { actionButton, buttonWrapper } from "../../../Form.style";
 
 import { NextIcon } from "@/components/Icons/Next";
 import { css } from "catom";
+import { focusRing } from "@/style";
 import { useIsLoading } from "./ctx";
 
 export function StepButtons({
@@ -25,6 +26,7 @@ export function StepButtons({
           onClick={prev}
           class={[
             actionButton,
+            focusRing,
             firstStep ? css({ opacity: ".5" }) : css({ flex: 1 }),
           ]}
           disabled={firstStep}
@@ -43,7 +45,7 @@ export function StepButtons({
         <button
           style={lastStep ? { background: "var(--fg)" } : null}
           onClick={null}
-          class={[actionButton, css({ flex: 1 })]}
+          class={[actionButton, focusRing, css({ flex: 1 })]}
         >
           {isLoading ? (
             "Wait.."

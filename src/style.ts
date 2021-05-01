@@ -12,7 +12,13 @@ export const hoverable = css({
     ":focus": { transform: "scale(1.05)" },
   },
 });
-
+export const focusRing = css({
+  pseudo: {
+    ":focus-visible": {
+      border: "2px solid rgb(245 245 245 / 40%)",
+    },
+  },
+});
 export const centerFlex = css({
   display: "flex",
   alignItems: "center",
@@ -31,7 +37,7 @@ export const glassLink = [
     paddingLeft: "2rem",
     borderRadius: "20px",
     paddingRight: "2rem",
-    background: "rgb(255 255 255 / 15%)",
+    background: "var(--glass)",
   }),
   hoverable,
 ].join(" ");
@@ -56,3 +62,8 @@ export const mask = css({
   flexDirection: "column",
   zIndex: 5,
 });
+
+export const tALeft = css({ textAlign: "left" });
+export const tARight = css({ textAlign: "right" });
+
+export const flexColumn = css({ display: "flex", flexDirection: "column" });

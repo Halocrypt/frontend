@@ -1,6 +1,7 @@
-import { AnimatedInput } from "@/components/AnimatedInput";
+import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
+
 import { Form } from "@/components/Form";
-import { InputProps } from "@/pages/Register/RegisterForm/types";
+import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { UserIcon } from "@/components/Icons/User";
 import { localError } from "@/Form.style";
@@ -14,7 +15,7 @@ export function Name({
   step,
   name,
   setName,
-}: { name: string; setName(e: string): void } & InputProps) {
+}: { name: string; setName(e: string): void } & RegInputProps) {
   const _error = nameValidator(name);
   const [error, setError] = useState("");
   function handleSubmit() {
@@ -22,22 +23,44 @@ export function Name({
     if (_error) return;
     next();
   }
-  const ref = useFocus<HTMLInputElement>();
   return (
     <Form onSubmit={handleSubmit}>
-      <AnimatedInput
-        $ref={ref}
-        value={name}
-        onInput={(e) => {
-          setError("");
-          setName(e);
-        }}
-        labelText="Name"
-        icon={<UserIcon size="1.5rem" />}
-        required
-      />
       {error && <div class={localError}>{error}</div>}
+      <NameInput name={name} setName={setName} setError={setError} />
       <StepButtons step={step} prev={prev} />
     </Form>
+  );
+}
+
+interface NameInputProps extends Partial<InputProps> {
+  name: string;
+  setName(s: string): void;
+  setError?(e: string): void;
+  wrapperClass?: string;
+  noFocus?: boolean;
+}
+export function NameInput({
+  name,
+  setName,
+  setError,
+  wrapperClass,
+  noFocus,
+  ...rest
+}: NameInputProps) {
+  const ref = useFocus<HTMLInputElement>();
+  return (
+    <AnimatedInput
+      $ref={noFocus ? null : ref}
+      wrapperClass={wrapperClass}
+      value={name}
+      onInput={(e) => {
+        setError && setError("");
+        setName(e);
+      }}
+      labelText="Name"
+      icon={<UserIcon size="1.5rem" />}
+      required
+      {...rest}
+    />
   );
 }

@@ -1,9 +1,13 @@
+import { A, useState } from "@hydrophobefireman/ui-lib";
+import { MobileNav, Nav } from "./Nav";
 import { header, headerNW, homeLink } from "./Header.style";
+import { hoverable, mask } from "@/style";
 
-import { A } from "@hydrophobefireman/ui-lib";
+import { HaloIcon } from "../Icons/Halo";
+import { HeaderIcon } from "./HeaderIcon";
 import { IS_INTRA } from "@/util/constants";
-import { Nav } from "./Nav";
 import { SocialLinks } from "./SocialLinks";
+import { mobileHeader } from "./MobileHeader.style";
 import { useLocation } from "@/hooks/use-location";
 import { useViewportSize } from "@/hooks/use-viewport-size";
 
@@ -12,7 +16,7 @@ export function Header() {
   const [, width] = useViewportSize();
   const isWideScreen = IS_INTRA ? width > 860 : width > 800;
   const isMobile = width < 650;
-  if (isMobile) return <MobileHeader />;
+  if (isMobile) return <MobileHeader path={path} />;
   return <DesktopHeader path={path} isWideScreen={isWideScreen} />;
 }
 
@@ -43,6 +47,35 @@ function DesktopHeader({
   );
 }
 
-function MobileHeader() {
-  return null;
+function MobileHeader({ path }: { path: string }) {
+  const [active, setActive] = useState(false);
+  const toggle = () => setActive(!active);
+  const isLanding = path === "/";
+  return (
+    <>
+      <header class={mobileHeader}>
+        <A
+          href="/"
+          class={hoverable}
+          aria-label="Homepage"
+          title="Homepage"
+          style={isLanding && { opacity: "0", pointerEvents: "none" }}
+        >
+          <HaloIcon height={50} />
+        </A>
+
+        <HeaderIcon active={active} onClick={toggle} />
+      </header>
+      {active && (
+        <>
+          <MobileNav path={path} />
+          <div
+            class={mask}
+            onClick={toggle}
+            style={{ background: "transparent" }}
+          ></div>
+        </>
+      )}
+    </>
+  );
 }

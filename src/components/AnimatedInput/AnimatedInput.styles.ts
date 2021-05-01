@@ -6,17 +6,20 @@ export const paperInput = css({
   fontSize: "1.2rem",
   outline: "0",
   height: "30px",
-  transition: "0.1s cubic-bezier(0.46, 1, 0.74, 1.07)",
+  transition: "0.2s cubic-bezier(0.46, 1, 0.74, 1.07)",
   margin: "auto",
   color: "var(--font)",
   background: "var(--bg)",
   textAlign: "left",
-  border: "2px solid",
-  borderColor: "var(--font)",
+  border: "4px solid",
+  borderColor: "var(--glass-border)",
   padding: "1rem",
   borderRadius: "10px",
 
   pseudo: {
+    ":focus": {
+      borderColor: "var(--glass-border-focus)",
+    },
     " + label": {
       background: "transparent",
       transform: "translate(0px, 1.2rem)",
@@ -50,3 +53,10 @@ export const iconCSS = css({
   top: "35%",
   opacity: ".5",
 });
+
+export const iconHasContent = [
+  iconCSS,
+  css({
+    media: { "(max-width:500px)": { display: "none" } },
+  }),
+].join(" ");

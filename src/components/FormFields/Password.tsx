@@ -1,11 +1,11 @@
+import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
 import {
   HidePasswordIcon,
   ShowPasswordIcon,
 } from "@/components/Icons/Password";
 
-import { AnimatedInput } from "@/components/AnimatedInput";
 import { Form } from "@/components/Form";
-import { InputProps } from "@/pages/Register/RegisterForm/types";
+import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { localError } from "@/Form.style";
 import { passwordValidator } from "@/packages/validator";
@@ -18,7 +18,10 @@ export function Password({
   step,
   password,
   setPassword,
-}: { password: string; setPassword(e: string): void } & Partial<InputProps>) {
+}: {
+  password: string;
+  setPassword(e: string): void;
+} & Partial<RegInputProps>) {
   const _error = passwordValidator(password);
   const [error, setError] = useState("");
   function handleSubmit() {
@@ -40,19 +43,21 @@ export function Password({
   );
 }
 
+interface PasswordInputProps extends Partial<InputProps> {
+  password: string;
+  setPassword(s: string): void;
+  setError?(a: any): void;
+  noFocus?: boolean;
+  wrapperClass?: string;
+}
 export function PasswordInput({
   password,
   setPassword,
   setError,
   noFocus,
   wrapperClass,
-}: {
-  password: string;
-  setPassword(s: string): void;
-  setError?(a: any): void;
-  noFocus?: boolean;
-  wrapperClass?: string;
-}) {
+  ...rest
+}: PasswordInputProps) {
   const [type, setType] = useState("password");
   const toggle = () => setType(type === "password" ? "text" : "password");
   const ref = useFocus<HTMLInputElement>();
@@ -75,6 +80,7 @@ export function PasswordInput({
         )
       }
       required
+      {...rest}
     />
   );
 }

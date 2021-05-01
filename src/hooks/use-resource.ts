@@ -1,7 +1,6 @@
 import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { AbortableFetchResponse } from "@hydrophobefireman/flask-jwt-jskit";
-import { requests } from "@/bridge";
 
 export type FetchResourceCallback<T extends boolean> = (
   v?: T
@@ -12,17 +11,13 @@ export type PromiseResponse<T> = T extends Promise<infer U> ? U : T;
 export function useResource<
   T extends (...args: any) => AbortableFetchResponse<any>,
   R extends boolean = true
->(
-  func: T,
-  args: Parameters<T>
-): [
-  PromiseResponse<ReturnType<T>["result"]>["data"],
-  FetchResourceCallback<R>,
-  string,
-  (update: PromiseResponse<ReturnType<T>["result"]>["data"]) => void
-] {
-  const [resp, setResp] = useState<any>(null);
+>(func: T, args: Parameters<T>) {
+  type Ret = PromiseResponse<ReturnType<T>["result"]>["data"];
+  const [resp, setResp] = useState<Ret>(null);
   const [error, setError] = useState("");
+  function clearError() {
+    setError(null);
+  }
   function fetchResource(returnPromise?: R) {
     if (resp) setResp(null);
     const { controller, result } = func(...(args as any));
@@ -40,5 +35,5 @@ export function useResource<
     >;
   }
   useEffect(fetchResource, args);
-  return [resp, fetchResource, error, setResp];
+  return { resp, fetchResource, error, setResp, clearError } as const;
 }

@@ -20,6 +20,8 @@ const componentMap = {
   "/forgot-password": () => import("@/pages/ForgotPassword").then(getDefault),
   "/verify-email": () => import("@/pages/VerifyEmail").then(getDefault),
   "/play": () => import("@/pages/Play").then(getDefault),
+  "/play/notifications": () =>
+    import("@/pages/Play/Notifications").then(getDefault),
   "/leaderboard": () => import("@/pages/Leaderboard").then(getDefault),
   "/u/:user": () => import("@/pages/Profile").then(getDefault),
   "/-/confirm-email": () =>

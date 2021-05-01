@@ -14,6 +14,9 @@ export const header = css({
   alignItems: "center",
   justifyContent: "space-between",
   position: "sticky",
+  top: 0,
+  background: "var(--bg)",
+  zIndex: 4,
 });
 
 export const headerNW = css({
@@ -41,6 +44,23 @@ const navLinkBase = css({
 });
 
 export const navLink = [navLinkBase, hoverable].join(" ");
+
+const _navMovBase = css({
+  margin: "1rem",
+  fontWeight: "bold",
+  transition: "0.3s ease",
+});
+export const navLinkMobile = [
+  hoverable,
+  _navMovBase,
+  css({ color: "var(--text-on-glass)" }),
+].join(" ");
+
+export const navLinkMobileActive = [
+  hoverable,
+  _navMovBase,
+  css({ color: "var(--font)" }),
+].join(" ");
 
 export const mainAction = [
   navLinkBase,

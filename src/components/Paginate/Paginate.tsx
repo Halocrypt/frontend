@@ -1,5 +1,10 @@
 import { Renderable, useEffect, useState } from "@hydrophobefireman/ui-lib";
 
+export interface ButtonRenderObj {
+  hasPrev: boolean;
+  hasMore: boolean;
+  isFirst: boolean;
+}
 interface PaginateProps<T> {
   atOnce: number;
   items: T[];
@@ -12,6 +17,13 @@ interface PaginateProps<T> {
   nextText?: string;
   previousText?: string;
   buttonClass?: string;
+  beforeList?: any;
+  listWrapperClass?: string;
+  buttonRender?(
+    prev: () => void,
+    next: () => void,
+    obj: { hasPrev: boolean; hasMore: boolean; isFirst: boolean }
+  );
 }
 export function Paginate<T>({
   atOnce,
@@ -25,6 +37,9 @@ export function Paginate<T>({
   nextText,
   previousText,
   buttonClass,
+  beforeList,
+  listWrapperClass,
+  buttonRender,
 }: PaginateProps<T>) {
   const itemLength = items.length;
   const [index, setIndex] = useState(0);
@@ -39,7 +54,7 @@ export function Paginate<T>({
   function prev() {
     setIndex(Math.max(0, index - atOnce));
   }
-  const buttons = list && (
+  const buttons = !buttonRender && list && (
     <div class={buttonWrapperClass}>
       <button
         class={previousButtonClass || buttonClass}
@@ -61,9 +76,16 @@ export function Paginate<T>({
 
   return (
     <div class={containerClass}>
-      {dualButtons && buttons}
-      <div>{list}</div>
-      {buttons}
+      {buttonRender
+        ? buttonRender(prev, next, { hasMore, hasPrev, isFirst: true })
+        : buttons}
+      <div class={listWrapperClass}>
+        {beforeList}
+        {list}
+      </div>
+      {dualButtons && buttonRender
+        ? buttonRender(prev, next, { hasMore, hasPrev, isFirst: false })
+        : buttons}
     </div>
   );
 }

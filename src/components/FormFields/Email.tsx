@@ -1,7 +1,8 @@
-import { AnimatedInput } from "@/components/AnimatedInput";
+import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
+
 import { EmailIcon } from "@/components/Icons/Email";
 import { Form } from "@/components/Form";
-import { InputProps } from "../../pages/Register/RegisterForm/types";
+import { RegInputProps } from "../../pages/Register/RegisterForm/types";
 import { StepButtons } from "../../pages/Register/RegisterForm/StepButtons";
 import { emailValidator } from "@/packages/validator";
 import { localError } from "../../Form.style";
@@ -14,7 +15,7 @@ export function Email({
   step,
   email,
   setEmail,
-}: { email: string; setEmail(e: string): void } & InputProps) {
+}: { email: string; setEmail(e: string): void } & RegInputProps) {
   const _error = emailValidator(email);
   const [error, setError] = useState("");
   function handleSubmit() {
@@ -22,23 +23,44 @@ export function Email({
     if (_error) return;
     next();
   }
-  const ref = useFocus<HTMLInputElement>();
   return (
     <Form onSubmit={handleSubmit}>
-      <AnimatedInput
-        $ref={ref}
-        value={email}
-        onInput={(e) => {
-          setError("");
-          setEmail(e);
-        }}
-        labelText="Email"
-        icon={<EmailIcon size="1.5rem" />}
-        required
-        type="email"
-      />
+      <EmailInput email={email} setEmail={setEmail} setError={setError} />
       {error && <div class={localError}>{error}</div>}
       <StepButtons step={step} prev={prev} />
     </Form>
+  );
+}
+
+interface EmailInputProps extends Partial<InputProps> {
+  email: string;
+  setEmail(s: string): void;
+  setError?(e: string): void;
+  wrapperClass?: string;
+  noFocus?: boolean;
+}
+
+export function EmailInput({
+  email,
+  setEmail,
+  setError,
+  wrapperClass,
+  noFocus,
+}: EmailInputProps) {
+  const ref = useFocus<HTMLInputElement>();
+  return (
+    <AnimatedInput
+      $ref={noFocus ? null : ref}
+      wrapperClass={wrapperClass}
+      value={email}
+      onInput={(e) => {
+        setError && setError("");
+        setEmail(e);
+      }}
+      labelText="Email"
+      type="email"
+      icon={<EmailIcon size="1.5rem" />}
+      required
+    />
   );
 }

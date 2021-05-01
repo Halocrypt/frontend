@@ -9,6 +9,11 @@ html {
   --bg: #030114;
   --font: #f5f5f5;
   --fg: #435fee;
+  --glass: rgb(255 255 255 / 15%);
+  --text-on-glass: rgb(255 255 255 / 55%);
+  --red: #e74c3c;
+  --glass-border: rgb(245 245 245 / 25%);
+  --glass-border-focus: rgb(245 245 245 / 40%);
 
   background-color: var(--bg);
   color: var(--font);
@@ -32,16 +37,12 @@ a {
   text-decoration: none;
 }
 
-@keyframes scaleSvg {
+@keyframes scaleAnim {
   0% {
-    transform: scale(0.1);
+    transform: scale(0.7);
   }
-  50% {
+  to {
     transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0.1);
   }
 }
 

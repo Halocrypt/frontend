@@ -1,17 +1,24 @@
-import { mainAction, navLink } from "./Header.style";
+import {
+  mainAction,
+  navLink,
+  navLinkMobile,
+  navLinkMobileActive,
+} from "./Header.style";
+import { useAuthState, useIsLoggedIn } from "@/bridge";
 
 import { A } from "@hydrophobefireman/ui-lib";
 import { AnimateLayout } from "@hydrophobefireman/ui-anim";
 import { ChevronIcon } from "../Icons/Chevron";
 import { css } from "catom";
 import { flex } from "@/style";
-import { useIsLoggedIn } from "@/bridge";
+import { mobileNav } from "./MobileHeader.style";
 
 export function Nav({ path }: { path: string }) {
-  const isLoggedIn = useIsLoggedIn();
+  const [user] = useAuthState();
+  const isLoggedIn = !!(user && user.user);
   return (
     <nav class={flex}>
-      <NavLink href="/u/me" path={path}>
+      <NavLink href={isLoggedIn ? `/u/${user.user}` : "/u/me"} path={path}>
         Profile
       </NavLink>
       <NavLink href="/rules" path={path}>
@@ -72,5 +79,38 @@ export function NavLink({
         />
       )}
     </div>
+  );
+}
+
+export function MobileNav({ path }: { path: string }) {
+  const [user] = useAuthState();
+  const isLoggedIn = !!(user && user.user);
+  return (
+    <nav class={mobileNav}>
+      <MobileLink href="/" path={path}>
+        Home
+      </MobileLink>
+      <MobileLink href="/rules" path={path}>
+        Rules
+      </MobileLink>
+      <MobileLink href="/leaderboard" path={path}>
+        Leaderboard
+      </MobileLink>
+      <MobileLink href={isLoggedIn ? `/u/${user.user}` : "/u/me"} path={path}>
+        Profile
+      </MobileLink>
+      <MobileLink href={isLoggedIn ? "/play" : "/login"} path={path}>
+        {isLoggedIn ? "Play" : "Login"}
+      </MobileLink>
+    </nav>
+  );
+}
+
+function MobileLink({ href, children, path }: NavLinkProps) {
+  const active = href === path;
+  return (
+    <A href={href} class={active ? navLinkMobileActive : navLinkMobile}>
+      {children}
+    </A>
   );
 }

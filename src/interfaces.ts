@@ -30,6 +30,7 @@ export interface IEvent {
 }
 export interface INotification {
   ts: number;
+  title: string;
   content: RenderableContent;
   issuedBy: string;
 }

@@ -20,7 +20,7 @@ export const actionButton = css({
   justifyContent: "center",
   padding: "1rem",
   height: "3rem",
-  background: "rgb(255 255 255 / 15%)",
+  background: "var(--glass)",
   margin: "5px",
   borderRadius: "10px",
   transition: "0.3s ease",

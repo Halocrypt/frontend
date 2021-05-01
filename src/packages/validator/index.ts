@@ -15,7 +15,8 @@ export function passwordValidator(p: string) {
 export function usernameValidator(u: string) {
   if (!u || u.length < 3) return "Username cannot be shorter than 3 characters";
   if (u.length > 30) return "Username cannot be longer than 30 characters";
-  if (clean(u) !== u) return "Username cannot contain special characters";
+  if (clean(u) !== u.toLowerCase())
+    return "Username cannot contain special characters";
   return null;
 }
 

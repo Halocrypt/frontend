@@ -1,11 +1,10 @@
-import { inputMargin, localError } from "@/Form.style";
+import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
 
-import { AnimatedInput } from "@/components/AnimatedInput";
 import { Form } from "@/components/Form";
-import { InputProps } from "@/pages/Register/RegisterForm/types";
+import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { UserIcon } from "@/components/Icons/User";
-import { css } from "catom";
+import { localError } from "@/Form.style";
 import { useFocus } from "@/hooks/use-focus";
 import { useState } from "@hydrophobefireman/ui-lib";
 import { usernameValidator } from "@/packages/validator";
@@ -19,7 +18,7 @@ export function Username({
 }: {
   username: string;
   setUsername(u: string): void;
-} & Partial<InputProps>) {
+} & Partial<RegInputProps>) {
   const _error = usernameValidator(username);
   const [error, setError] = useState("");
   function handleSubmit() {
@@ -40,17 +39,19 @@ export function Username({
   );
 }
 
+interface UsernameInputProps extends Partial<InputProps> {
+  username: string;
+  setUsername(s: string): void;
+  setError?(e: string): void;
+  wrapperClass?: string;
+}
 export function UsernameInput({
   username,
   setUsername,
   setError,
   wrapperClass,
-}: {
-  username: string;
-  setUsername(s: string): void;
-  setError?(e: string): void;
-  wrapperClass?: string;
-}) {
+  ...rest
+}: UsernameInputProps) {
   const ref = useFocus<HTMLInputElement>();
   return (
     <AnimatedInput
@@ -66,6 +67,7 @@ export function UsernameInput({
       pattern="\w+"
       minLength={2}
       title="Letters, numbers and underscore ( _ )"
+      {...rest}
     />
   );
 }

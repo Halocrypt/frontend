@@ -1,18 +1,15 @@
-const ratio = 411 / 727;
 export function HaloIcon({
   height = 727,
   className,
 }: {
-  height?: number;
+  height?: number | string;
   className?: string;
 }) {
-  const width = height * ratio;
   return (
     <svg
       fill="none"
       viewBox="0 0 411 727"
       height={height}
-      width={width}
       className={className}
     >
       <g fill="#0a071b">
