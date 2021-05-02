@@ -11,7 +11,7 @@ export const profileHeading = css({
   display: "inline-flex",
   alignItems: "center",
   media: {
-    "(max-width:500px)": { flexDirection: "column" },
+    "(max-width:500px)": { flexDirection: "column", fontSize: "1.5rem" },
   },
 });
 
@@ -33,6 +33,7 @@ export const scoreDiv = css({
   borderRadius: "10px",
   fontWeight: "bold",
   fontSize: "1.4rem",
+  userSelect: "none",
 });
 
 export const saveButtonContainer = [tARight, css({ marginTop: ".5rem" })].join(

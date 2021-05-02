@@ -8,8 +8,12 @@ import { useState } from "@hydrophobefireman/ui-lib";
 
 export default function VerifyEmail() {
   const user = useAuthGuard("/verify-email");
-  const [message, setMessage] = useState("Sending you an email");
+
+  const [message, setMessage] = useState("Checking..");
   useMount(async () => {
+    if (user._secure_.has_verified_email)
+      return setMessage("Email has alread been verified.");
+    setMessage("Sending you an email");
     const { result } = sendVerificationEmail(EVENT);
     const { error } = await result;
     if (error)

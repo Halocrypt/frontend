@@ -1,7 +1,12 @@
+import {
+  AsyncComponent,
+  loadURL,
+  useRef,
+  useState,
+} from "@hydrophobefireman/ui-lib";
 import { IUser, SecureUserData } from "@/interfaces";
 import { client, useAuthState } from "@/bridge";
 import { inputMargin, themeSubmitButton } from "@/Form.style";
-import { loadURL, useRef, useState } from "@hydrophobefireman/ui-lib";
 import {
   profileHeading,
   profileSection,
@@ -14,8 +19,8 @@ import {
 import { useUserDetails, useUserGuard } from "./use-user-details";
 
 import { AnimatedInput } from "@/components/AnimatedInput";
-import { Disqualified } from "./DisqualifiedProfile";
 import { EmailInput } from "@/components/FormFields/Email";
+import { Form } from "@/components/Form";
 import { HaloIcon } from "@/components/Icons/Halo";
 import { InstitutionInput } from "@/components/FormFields/Institution";
 import { Link } from "@/components/ExtLink/ExtLink";
@@ -37,7 +42,7 @@ export default function ProfileGuard({ params }) {
         />
       );
     if (userDetails.is_disqualified)
-      return <Disqualified user={userDetails} isMe />;
+      return <DisqualifiedLoader user={userDetails} isMe />;
     return <ProfileRenderer user={userDetails} setUser={setUser} isMe />;
   }
 }
@@ -53,7 +58,8 @@ function Profile({
 
   if (error) return <div class={css({ color: "red" })}>{error}</div>;
   if (!user) return <div>Loading...</div>;
-  if (user.is_disqualified) return <Disqualified user={user} isMe={false} />;
+  if (user.is_disqualified)
+    return <DisqualifiedLoader user={user} isMe={false} />;
   return (
     <ProfileRenderer
       user={user}
@@ -132,40 +138,42 @@ function ProfileRenderer({
         <div class={scoreDiv}>{user.points} Points</div>
       </div>
       {!disableEditing && <div>You can edit the fields below</div>}
-      <SaveButton unsavedChanges={unsavedChanges} onClick={handleEdit} />
-      <NameInput
-        name={name}
-        setName={setName}
-        noFocus
-        wrapperClass={inputMargin}
-        disabled={disableEditing}
-      />
-      {hasSecure && (
-        <>
-          <EmailInput
-            email={email}
-            setEmail={setEmail}
-            noFocus
-            wrapperClass={inputMargin}
-            disabled={disableEditing}
-          />
-          <AnimatedInput
-            disabled
-            labelText="Email Verified?"
-            value={emailVerified ? "Yes" : "No"}
-            onInput={null}
-            wrapperClass={inputMargin}
-          />
-          <InstitutionInput
-            institution={institution}
-            setInstitution={setInstitution}
-            noFocus
-            wrapperClass={inputMargin}
-            disabled={disableEditing}
-          />
-        </>
-      )}
-      <SaveButton unsavedChanges={unsavedChanges} onClick={handleEdit} />
+      <Form onSubmit={handleEdit}>
+        <SaveButton unsavedChanges={unsavedChanges} />
+        <NameInput
+          name={name}
+          setName={setName}
+          noFocus
+          wrapperClass={inputMargin}
+          disabled={disableEditing}
+        />
+        {hasSecure && (
+          <>
+            <EmailInput
+              email={email}
+              setEmail={setEmail}
+              noFocus
+              wrapperClass={inputMargin}
+              disabled={disableEditing}
+            />
+            <AnimatedInput
+              disabled
+              labelText="Email Verified?"
+              value={emailVerified ? "Yes" : "No"}
+              onInput={null}
+              wrapperClass={inputMargin}
+            />
+            <InstitutionInput
+              institution={institution}
+              setInstitution={setInstitution}
+              noFocus
+              wrapperClass={inputMargin}
+              disabled={disableEditing}
+            />
+          </>
+        )}
+        <SaveButton unsavedChanges={unsavedChanges} />
+      </Form>
       {isMe && (
         <>
           <button
@@ -176,6 +184,7 @@ function ProfileRenderer({
               background: "var(--red)",
               marginTop: "1rem",
               marginBottom: "1rem",
+              maxWidth: "400px",
             }}
           >
             Logout
@@ -195,22 +204,34 @@ function ProfileRenderer({
   );
 }
 
-function SaveButton({
-  unsavedChanges,
-  onClick,
-}: {
-  unsavedChanges: boolean;
-  onClick(): void;
-}) {
+function SaveButton({ unsavedChanges }: { unsavedChanges: boolean }) {
   return (
     <div class={saveButtonContainer}>
       <button
         aria-label="Save Changes"
-        onClick={onClick}
         class={unsavedChanges ? saveButtonActive : saveButtonInactive}
       >
         Save changes
       </button>
     </div>
+  );
+}
+
+export function DisqualifiedLoader({
+  user,
+  isMe,
+}: {
+  user: IUser;
+  isMe: boolean;
+}) {
+  return (
+    <AsyncComponent
+      fallback={<div>Loading...</div>}
+      promise={() =>
+        import("./DisqualifiedProfile").then((x) => (
+          <x.Disqualified isMe={isMe} user={user} />
+        ))
+      }
+    />
   );
 }

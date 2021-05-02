@@ -1,3 +1,4 @@
+import { A, useState } from "@hydrophobefireman/ui-lib";
 import { DISCORD_URL, IS_INTRA } from "@/util/constants";
 import {
   anchorLink,
@@ -15,7 +16,6 @@ import { Link } from "@/components/ExtLink/ExtLink";
 import { copy } from "@/util/copy";
 import { css } from "catom";
 import { useScrolltoAnchor } from "@/hooks/use-scroll-to-anchor";
-import { useState } from "@hydrophobefireman/ui-lib";
 
 export function HuntInfo() {
   useScrolltoAnchor();
@@ -93,6 +93,18 @@ function Faq() {
         <FaqItem
           question="How are the winners decided?"
           answer="There are 50 questions, first one to solve the 50th question or the person on the top of the leaderboard when the hunt ends is the winner."
+        />
+        <FaqItem
+          question="How will I receive my prizes"
+          answer={
+            <>
+              Remember to{" "}
+              <A href="/verify-email" class={extLink}>
+                confirm your email
+              </A>
+              . We will use it to get in touch with the winners after the event.
+            </>
+          }
         />
         <FaqItem
           question="Any place where I can practice?"

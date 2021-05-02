@@ -28,6 +28,7 @@ const componentMap = {
     import("@/pages/Verification/ConfirmEmail").then(getDefault),
   "/-/reset-password": () =>
     import("@/pages/Verification/ResetPassword").then(getDefault),
+  "/rules": () => import("@/pages/Rules").then(getDefault),
 };
 
 export function RouteLoader() {

@@ -19,7 +19,9 @@ export const headingContainer = css({
   marginLeft: "2.2rem",
   media: {
     "(max-width:550px)": {
-      marginLeft: "1rem",
+      marginLeft: "auto",
+      marginRight: "auto",
+      textAlign: "center",
     },
   },
 });

@@ -66,6 +66,7 @@ export const questionContainer = css({
 export const hintItem = css({
   marginTop: "1rem",
   padding: "10px",
+  fontFamily: "var(--font-content)",
   textAlign: "left",
 });
 
