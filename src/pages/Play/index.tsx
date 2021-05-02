@@ -1,4 +1,10 @@
-import { A, loadURL, redirect, useState } from "@hydrophobefireman/ui-lib";
+import {
+  A,
+  loadURL,
+  redirect,
+  useRef,
+  useState,
+} from "@hydrophobefireman/ui-lib";
 import { DISCORD_URL, EVENT, TWITTER_URL } from "@/util/constants";
 import {
   answerButton,
@@ -15,7 +21,6 @@ import {
 } from "./Play.style";
 import { updateDisqualification, useQuestion } from "./use-question";
 
-import { AnimatedInput } from "@/components/AnimatedInput";
 import { Form } from "@/components/Form";
 import { IQuestion } from "@/interfaces";
 import { Link } from "@/components/ExtLink/ExtLink";
@@ -56,6 +61,13 @@ function Question() {
     clearQuestion,
   } = useQuestion(user, setUser);
   const [answer, setAnswer] = useState("");
+  const ref = useRef<HTMLInputElement>();
+  function focus() {
+    ref.current && ref.current.focus();
+  }
+  function blur() {
+    ref.current && ref.current.blur();
+  }
   const { prev, add: addPrev, clear: clearPrev } = usePreviousAttempts(
     question && (question as IQuestion).question_number
   );
@@ -67,6 +79,7 @@ function Question() {
   function resetErrors() {
     clearError();
     setAnswer(null);
+    focus();
   }
   function clearStateAndFetchNextQuestion() {
     clearQuestion();
@@ -88,6 +101,7 @@ function Question() {
   }
   async function handleSubmit() {
     if (isLoading || !clean(answer)) return;
+    blur();
     setLoading(true);
     setMessage("Checking...");
     setAnswer(null);
@@ -115,7 +129,7 @@ function Question() {
     <section class={playSection}>
       {notifCount > 0 && (
         <Snackbar
-          message="You have new notifications!"
+          message="You have new notifications"
           onClose={markRead}
           onButtonClick={() => loadURL("/play/notifications")}
           buttonText="Open"
@@ -125,7 +139,12 @@ function Question() {
       <Snackbar message={error} onClose={resetErrors} isError />
       <Snackbar
         message={message}
-        onClose={() => !isLoading && setMessage(null)}
+        onClose={() => {
+          if (!isLoading) {
+            setMessage(null);
+            focus();
+          }
+        }}
       />
       <h1 class={questionHeading}>
         Level {question.question_number} - {question.question_points} Points
@@ -136,6 +155,7 @@ function Question() {
           <Form onSubmit={handleSubmit}>
             <div class={inputContainer}>
               <input
+                ref={ref}
                 placeholder="Answer"
                 value={answer}
                 class={answerInput}
@@ -149,7 +169,7 @@ function Question() {
         </div>
         <div>
           <div>
-            For hints {"&"} help, check out{" "}
+            {"For hints & help, check out "}
             <A href="/play/notifications" class={helpLink}>
               Notifications
             </A>

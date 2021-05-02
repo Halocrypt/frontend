@@ -1,13 +1,11 @@
 import { css } from "catom";
 
 export const paperInput = css({
-  display: "block",
-  width: "100%",
+  display: "inline-block",
   fontSize: "1.2rem",
   outline: "0",
   height: "30px",
   transition: "0.2s cubic-bezier(0.46, 1, 0.74, 1.07)",
-  margin: "auto",
   color: "var(--font)",
   background: "var(--bg)",
   textAlign: "left",
@@ -52,7 +50,7 @@ export const wrapperCSS = css({
 
 export const iconCSS = css({
   position: "absolute",
-  right: "-2%",
+  right: "5%",
   top: "53%",
   opacity: ".5",
 });
