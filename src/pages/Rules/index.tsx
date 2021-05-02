@@ -4,6 +4,7 @@ import { Link } from "@/components/ExtLink/ExtLink";
 import { center } from "@/style";
 import { css } from "catom";
 import { eventAtom } from "@/state";
+import { tFix } from "@/util/t-fix";
 import { useSharedStateValue } from "statedrive";
 const underline = css({ textDecoration: "underline" });
 const listItem = css({
@@ -23,15 +24,15 @@ export default function Rules() {
           padding: "2rem",
           border: "2px solid var(--glass-border)",
           borderRadius: "10px",
-        //   fontWeight: "bold",
+          //   fontWeight: "bold",
           textAlign: "left",
           fontSize: "1.3rem",
           media: { "(max-width:500px)": { fontSize: "1rem" } },
         })}
       >
         <li class={listItem}>
-          Hunt will begin at {start.toDateString()}, {start.getHours()}:
-          {start.getMinutes()}
+          Hunt will begin at {start.toDateString()}, {tFix(start.getHours())}:
+          {tFix(start.getMinutes())}
         </li>
         <li class={listItem}>
           Halocrypt is a cryptic hunt, the participant has to make their way

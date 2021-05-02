@@ -13,6 +13,7 @@ import { css } from "catom";
 import { getNotifications } from "@/packages/halo-api/play";
 import { inputWidth } from "@/Form.style";
 import { raf } from "@/util/raf";
+import { tFix } from "@/util/t-fix";
 import { useResource } from "@/hooks/use-resource";
 
 function useFilteredNotifs(notifs: INotification[], query: string) {
@@ -65,7 +66,7 @@ function Notif({ data }: { data: INotification }) {
     <div class={notifBox}>
       <div class={dateBox}>
         <span>
-          {date.getHours()}:{date.getMinutes()}
+          {tFix(date.getHours())}:{tFix(date.getMinutes())}
         </span>
         <span class={css({ color: "var(--fg)" })}>{date.toDateString()}</span>
       </div>

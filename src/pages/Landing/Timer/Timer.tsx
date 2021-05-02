@@ -3,12 +3,8 @@ import { timerBox, timerNum } from "./Timer.style";
 import { useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
 
 import { pluralise } from "@/util/pluralise";
+import { tFix } from "@/util/t-fix";
 import { useInterval } from "@/hooks/use-interval";
-
-const tFix = (t: string | number) => {
-  t = "" + t;
-  return (t.length === 1 ? "0" : "") + t;
-};
 
 const secInAMin = 60;
 const minsInAnHour = 60;
