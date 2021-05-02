@@ -11,6 +11,7 @@ import { Form } from "@/components/Form";
 import { NextIcon } from "@/components/Icons/Next";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
 import { UsernameInput } from "@/components/FormFields/Username";
+import { clean } from "@/packages/validator/util";
 import { css } from "catom";
 import { requestNewPassword } from "@/packages/halo-api/user";
 import { themeSubmitButton } from "@/Form.style";
@@ -21,7 +22,7 @@ export default function ForgotPassword() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   async function handleSubmit() {
-    if (loading) return;
+    if (loading || !clean(username)) return;
     setLoading(true);
     const { result } = requestNewPassword(username, EVENT);
     const { error } = await result;
@@ -46,7 +47,7 @@ export default function ForgotPassword() {
           username={username}
           setUsername={setUsername}
         />
-        <button class={themeSubmitButton}>
+        <button aria-label="Send confirmation email" class={themeSubmitButton}>
           {loading ? (
             "Hold on..."
           ) : (

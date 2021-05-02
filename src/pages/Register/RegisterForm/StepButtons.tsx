@@ -20,8 +20,7 @@ export function StepButtons({
     <div>
       <div class={buttonWrapper}>
         <button
-          // element="button"
-          // animId="prev-reg"
+          aria-label="Previous Step"
           type="button"
           onClick={prev}
           class={[
@@ -43,6 +42,7 @@ export function StepButtons({
         </button>
 
         <button
+          aria-label="Submit"
           style={lastStep ? { background: "var(--fg)" } : null}
           onClick={null}
           class={[actionButton, focusRing, css({ flex: 1 })]}

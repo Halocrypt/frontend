@@ -47,7 +47,7 @@ export default function ResetPassword() {
           setPassword={setPassword}
           wrapperClass={inputMargin}
         />
-        <button class={themeSubmitButton}>
+        <button class={themeSubmitButton} aria-label="Submit">
           {loading ? "Hold on..." : "Submit"}
         </button>
       </Form>

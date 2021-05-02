@@ -2,7 +2,7 @@ import { css } from "catom";
 
 export const paperInput = css({
   display: "block",
-  width: "80%",
+  width: "100%",
   fontSize: "1.2rem",
   outline: "0",
   height: "30px",
@@ -22,22 +22,20 @@ export const paperInput = css({
     },
     " + label": {
       background: "transparent",
-      transform: "translate(0px, 1.2rem)",
+      transform: "translate3d(0px,3rem,0)",
       opacity: "0.8",
       fontWeight: 700,
       userSelect: "none",
       pointerEvents: "none",
       fontSize: "1.3rem",
       transition: "transform 0.3s ease",
-      left: "10%",
-      position: "absolute",
-      top: "0",
+      marginLeft: "1rem",
+      textAlign: "left",
     },
 
     ":focus + label, [data-should-focus='true'] + label": {
       textTransform: "uppercase",
-      background: "var(--bg)",
-      transform: "translate(0, -1.8rem) scale(.75)",
+      transform: "translate3d(-12%, 0, 0) scale(.75)",
       color: "#ffffff78",
     },
   },
@@ -45,12 +43,17 @@ export const paperInput = css({
 
 export const errorCss = css({ color: "red !important" });
 
-export const wrapperCSS = css({ position: "relative" });
+export const wrapperCSS = css({
+  position: "relative",
+  display: "flex",
+  flexDirection: "column-reverse",
+  maxWidth: "80%",
+});
 
 export const iconCSS = css({
   position: "absolute",
-  right: "10%",
-  top: "35%",
+  right: "-2%",
+  top: "53%",
   opacity: ".5",
 });
 

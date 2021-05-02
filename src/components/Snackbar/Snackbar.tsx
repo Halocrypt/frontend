@@ -15,9 +15,11 @@ interface PopupProps {
   message: string | VNode;
   onClose(e?: MouseEvent): void;
   isError?: boolean;
+  onButtonClick?(e: MouseEvent): void;
+  buttonText?: string;
 }
 export function Snackbar(props: PopupProps) {
-  const { onClose, message, isError } = props;
+  const { onClose, message, isError, onButtonClick, buttonText } = props;
 
   const buttonRef = useRef<HTMLButtonElement>();
 
@@ -64,11 +66,12 @@ export function Snackbar(props: PopupProps) {
           </span>
         </span>
         <button
+          aria-label="Close This Component"
           ref={buttonRef}
           class={[appPopopClose, hoverable]}
-          onClick={message ? onClose : null}
+          onClick={message ? onButtonClick || onClose : null}
         >
-          OK
+          {buttonText || "OK"}
         </button>
       </section>
     </>

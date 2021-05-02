@@ -1,19 +1,21 @@
-import { center, flexColumn } from "@/style";
-
+import { center } from "@/style";
 import { css } from "catom";
-import { inputMargin } from "@/Form.style";
 
 export const playSection = [center, css({ marginTop: "2rem" })].join(" ");
 
 export const contentDivider = css({
-  display: "flex",
   marginTop: "2rem",
-  media: {
-    "(max-width:750px)": { flexDirection: "column" },
-  },
+  textAlign: "center",
+  margin: "auto",
+  width: "90vw",
+  maxWidth: "800px",
+  fontWeight: "bold",
 });
 
-export const questionHeading = css({ fontSize: "2.5rem" });
+export const questionHeading = css({
+  fontSize: "2.5rem",
+  fontFamily: "var(--font-content)",
+});
 
 export const contentSection = css({
   flex: 1,
@@ -24,22 +26,18 @@ export const contentSection = css({
 });
 
 export const answerButton = css({
-  padding: "1rem",
+  padding: "1.3rem",
   background: "var(--fg)",
-  borderRadius: "10px",
+  borderRadius: "5px",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-});
-
-export const prevAnswerContainer = css({
-  media: {
-    "(min-width:750px)": { position: "sticky", top: "15%" },
-  },
+  media: { "(max-width:500px)": { padding: "1rem" } },
 });
 
 export const prevAnsHeading = css({
   fontSize: "2rem",
+  fontFamily: "var(--font-content)",
   media: { "(max-width:500px)": { fontSize: "1.5rem" } },
 });
 
@@ -56,30 +54,30 @@ export const prevAnsOdd = [
   css({ background: "var(--glass)" }),
 ].join(" ");
 
-export const answerWrapper = [inputMargin, css({ flex: 1 })].join(" ");
-
 export const questionContainer = css({
   fontSize: "1.5rem",
   wordBreak: "break-word",
-  border: " 2px solid var(--glass-border)",
   marginTop: "1rem",
   borderRadius: "10px",
   padding: "10px",
+  textAlign: "left",
 });
 
 export const hintItem = css({
-  border: " 2px solid var(--glass-border)",
   marginTop: "1rem",
-  borderRadius: "10px",
   padding: "10px",
+  textAlign: "left",
 });
 
-export const hintLinkContainer = [
-  flexColumn,
-  css({
-    fontWeight: "bold",
-    fontSize: "1.2rem",
-    textDecoration: "underline",
-    marginTop: "1rem",
-  }),
-].join(" ");
+export const helpLink = css({ color: "var(--fg)" });
+
+export const inputContainer = css({
+  display: "grid",
+  gridTemplateColumns: "9fr 1fr",
+  media: {
+    "(max-width:500px)": {
+      display: "flex",
+      flexDirection: "column",
+    },
+  },
+});

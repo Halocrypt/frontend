@@ -51,7 +51,6 @@ export function AnimatedInput(props: InputProps): VNode {
   const hasContent = `${!!value}`;
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
-      {icon && <span class={value ? iconHasContent : iconCSS}>{icon}</span>}
       <input
         ref={$ref}
         onInput={handleInput}
@@ -65,6 +64,7 @@ export function AnimatedInput(props: InputProps): VNode {
       <label class={[errorText ? errorCss : null]} for={id}>
         {errorText || labelText}
       </label>
+      {icon && <span class={value ? iconHasContent : iconCSS}>{icon}</span>}
     </div>
   );
 }

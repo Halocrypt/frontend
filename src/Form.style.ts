@@ -67,4 +67,30 @@ export const themeSubmitButton = css({
 
 export const suggestionLink = css({ color: "var(--fg)", fontWeight: "bold" });
 
-export const inputMargin = css({ marginTop: "2rem", marginBottom: "1.6rem" });
+export const inputWidth = css({ width: "80%", marginBottom: "0.5rem" });
+export const inputMargin = [
+  inputWidth,
+  css({
+    marginLeft: "auto",
+    marginRight: "auto",
+  }),
+].join(" ");
+
+export const answerInput = css({
+  flex: 1,
+  background: "var(--bg)",
+  outline: "none",
+  border: "2px solid var(--glass-border)",
+  borderRadius: "5px",
+  padding: "1rem",
+  marginRight: ".5rem",
+  color: "var(--font)",
+  fontWeight: "bold",
+  fontSize: "1.2rem",
+  media: {
+    "(max-width:500px)": {
+      marginRight: "0",
+      marginBottom: ".5rem",
+    },
+  },
+});

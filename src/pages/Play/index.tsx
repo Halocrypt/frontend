@@ -1,17 +1,16 @@
-import { A, redirect, useState } from "@hydrophobefireman/ui-lib";
+import { A, loadURL, redirect, useState } from "@hydrophobefireman/ui-lib";
 import { DISCORD_URL, EVENT, TWITTER_URL } from "@/util/constants";
 import {
   answerButton,
-  answerWrapper,
   contentDivider,
   contentSection,
-  hintLinkContainer,
+  helpLink,
+  inputContainer,
   playSection,
   prevAnsBox,
   prevAnsEven,
   prevAnsHeading,
   prevAnsOdd,
-  prevAnswerContainer,
   questionHeading,
 } from "./Play.style";
 import { updateDisqualification, useQuestion } from "./use-question";
@@ -24,8 +23,9 @@ import { NextIcon } from "@/components/Icons/Next";
 import { QuestionContent } from "./Question";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
 import { Timer } from "../Landing/Timer/Timer";
+import { answerInput } from "@/Form.style";
 import { answer as answerQuestion } from "@/packages/halo-api/play";
-import { centerFlex } from "@/style";
+import { clean } from "@/packages/validator/util";
 import { css } from "catom";
 import { eventAtom } from "@/state";
 import { useAuthGuard } from "@/hooks/use-auth-guard";
@@ -87,7 +87,7 @@ function Question() {
     );
   }
   async function handleSubmit() {
-    if (isLoading) return;
+    if (isLoading || !clean(answer)) return;
     setLoading(true);
     setMessage("Checking...");
     setAnswer(null);
@@ -114,7 +114,12 @@ function Question() {
   return (
     <section class={playSection}>
       {notifCount > 0 && (
-        <Snackbar message={"You have new notifications!"} onClose={markRead} />
+        <Snackbar
+          message="You have new notifications!"
+          onClose={markRead}
+          onButtonClick={() => loadURL("/play/notifications")}
+          buttonText="Open"
+        />
       )}
       <Snackbar message={answerError} onClose={resetErrors} isError />
       <Snackbar message={error} onClose={resetErrors} isError />
@@ -129,29 +134,37 @@ function Question() {
         <div class={contentSection}>
           <QuestionContent question={question} />
           <Form onSubmit={handleSubmit}>
-            <div class={centerFlex}>
-              <AnimatedInput
-                labelText="Answer"
+            <div class={inputContainer}>
+              <input
+                placeholder="Answer"
                 value={answer}
-                onInput={setAnswer}
-                wrapperClass={answerWrapper}
+                class={answerInput}
+                onInput={(x) => setAnswer(x.currentTarget.value)}
               />
-              <button class={answerButton}>
+              <button class={answerButton} aria-label="Submit">
                 <NextIcon size="1.2rem" />
               </button>
             </div>
           </Form>
         </div>
-        <PreviousAttempts prev={prev} />
-      </div>
-
-      <div>
-        <div class={css({ fontSize: "1.3rem" })}> Stuck? These might help</div>
-        <div class={hintLinkContainer}>
-          <A href="/play/notifications">Check your notifications</A>
-          <Link href={DISCORD_URL}>Discord</Link>
-          <Link href={TWITTER_URL}>Twitter</Link>
+        <div>
+          <div>
+            For hints {"&"} help, check out{" "}
+            <A href="/play/notifications" class={helpLink}>
+              Notifications
+            </A>
+            , visit our{" "}
+            <Link class={helpLink} href={TWITTER_URL}>
+              Twitter
+            </Link>{" "}
+            or join our{" "}
+            <Link class={helpLink} href={DISCORD_URL}>
+              Discord server
+            </Link>
+            .
+          </div>
         </div>
+        <PreviousAttempts prev={prev} />
       </div>
     </section>
   );
@@ -159,8 +172,8 @@ function Question() {
 
 function PreviousAttempts({ prev }: { prev: string[] }) {
   return (
-    <section class={contentSection}>
-      <div class={prevAnswerContainer}>
+    <section class={[contentSection, css({ maxWidth: "600px" })]}>
+      <div>
         <h1 class={prevAnsHeading}>Previous Answers</h1>
         {prev.length > 0 ? (
           <div class={prevAnsBox}>

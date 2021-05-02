@@ -37,7 +37,11 @@ export function useNotifCount() {
     setLastTs(ts);
   });
   useInterval(() => {
-    fetchNotifs(true);
+    if (document.visibilityState === "visible") {
+      fetchNotifs(true);
+    } else {
+      console.log("hidden");
+    }
   }, 10000);
   if (!notifs) return { notifCount: 0, markRead };
   const notifCount =

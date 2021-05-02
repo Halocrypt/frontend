@@ -53,6 +53,7 @@ export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
       <div>
         {isMe && (
           <button
+            aria-label="Logout"
             onClick={() => client.logout()}
             class={themeSubmitButton}
             style={{ background: "var(--red)", marginTop: "1rem" }}

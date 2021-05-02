@@ -11,7 +11,7 @@ import { SearchIcon } from "@/components/Icons/Search";
 import { center } from "@/style";
 import { css } from "catom";
 import { getNotifications } from "@/packages/halo-api/admin";
-import { inputMargin } from "@/Form.style";
+import { inputWidth } from "@/Form.style";
 import { raf } from "@/util/raf";
 import { useResource } from "@/hooks/use-resource";
 
@@ -47,7 +47,7 @@ export default function Notifications() {
     <section class={notificationSection}>
       <h1 class={css({ fontSize: "2rem" })}>Notifications ({notifs.length})</h1>
       <AnimatedInput
-        wrapperClass={inputMargin}
+        wrapperClass={inputWidth}
         value={search}
         onInput={setSearch}
         labelText="Search"

@@ -49,14 +49,9 @@ function Profile({
   username: string;
   isAdmin: boolean;
 }) {
-  const { user, error, clearError, setUser } = useUserDetails(username);
+  const { user, error, setUser } = useUserDetails(username);
 
-  if (error)
-    return (
-      <div>
-        <Snackbar message={error} isError onClose={clearError} />
-      </div>
-    );
+  if (error) return <div class={css({ color: "red" })}>{error}</div>;
   if (!user) return <div>Loading...</div>;
   if (user.is_disqualified) return <Disqualified user={user} isMe={false} />;
   return (
@@ -125,7 +120,7 @@ function ProfileRenderer({
       <div>
         {!isMe && !disableEditing && (
           <Link
-            href={`https://admin.halocrypt.com/dash/users/#ref=/${user.user}`}
+            href={`https://admin.halocrypt.com/dash/users/${user.user}`}
             class={css({ textDecoration: "underline" })}
           >
             Open admin panel
@@ -174,6 +169,7 @@ function ProfileRenderer({
       {isMe && (
         <>
           <button
+            aria-label="Logout"
             onClick={() => client.logout()}
             class={themeSubmitButton}
             style={{
@@ -186,6 +182,7 @@ function ProfileRenderer({
           </button>
           {!(user._secure_ && user._secure_.has_verified_email) && (
             <button
+              aria-label="Confirm Email"
               class={themeSubmitButton}
               onClick={() => loadURL("/verify-email")}
             >
@@ -208,6 +205,7 @@ function SaveButton({
   return (
     <div class={saveButtonContainer}>
       <button
+        aria-label="Save Changes"
         onClick={onClick}
         class={unsavedChanges ? saveButtonActive : saveButtonInactive}
       >

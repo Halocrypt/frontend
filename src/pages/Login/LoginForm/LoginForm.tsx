@@ -47,7 +47,7 @@ export function LoginForm() {
           wrapperClass={inputMargin}
         />
         <div class={css({ marginTop: "1rem" })}>
-          <button class={themeSubmitButton}>
+          <button class={themeSubmitButton} aria-label="Submit">
             {loading ? (
               "Wait.."
             ) : (
@@ -61,11 +61,11 @@ export function LoginForm() {
           </button>
         </div>
         <div class={altLinkBox}>
-          <A href="/forgot-password" class={suggestionLink}>
-            Forgot Password?
-          </A>
           <A href="/register" class={suggestionLink}>
             Register
+          </A>
+          <A href="/forgot-password" class={suggestionLink}>
+            Forgot Password?
           </A>
         </div>
       </Form>

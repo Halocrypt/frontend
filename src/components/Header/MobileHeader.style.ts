@@ -35,5 +35,5 @@ export const mobileNav = css({
 export const searchWrapper = css({
   marginTop: "2rem",
   width: "60%",
-  media: { "(max-width:550px)": { width: "100%" } },
+  media: { "(max-width:550px)": { width: "80%" } },
 });

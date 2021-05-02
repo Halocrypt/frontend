@@ -57,6 +57,7 @@ export function Paginate<T>({
   const buttons = !buttonRender && list && (
     <div class={buttonWrapperClass}>
       <button
+        aria-label="Previous Page"
         class={previousButtonClass || buttonClass}
         onClick={prev}
         style={{ visibility: hasPrev ? "visible" : "hidden", transition: "0s" }}
@@ -65,6 +66,7 @@ export function Paginate<T>({
       </button>
 
       <button
+        aria-label="Next Page"
         class={nextButtonClass || buttonClass}
         onClick={next}
         style={{ visibility: hasMore ? "visible" : "hidden", transition: "0s" }}

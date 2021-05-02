@@ -37,6 +37,7 @@ export function LeaderboardButtons({
   const buttons = (
     <div class={tARight}>
       <button
+        aria-label="Previous Page"
         onClick={() => {
           prev();
           scrollIntoView();
@@ -46,6 +47,7 @@ export function LeaderboardButtons({
         <PaginateIcon size="1rem" className={prevIcon} />
       </button>
       <button
+        aria-label="Next Page"
         onClick={() => {
           next();
           scrollIntoView();
@@ -65,15 +67,16 @@ export function LeaderboardButtons({
             <span class={css({ fontSize: "0.7rem" })}>
               (Click on the username to view the profile)
             </span>
+
+            <AnimatedInput
+              wrapperClass={searchWrapper}
+              value={search}
+              onInput={setSearch}
+              labelText="Search"
+              icon={<SearchIcon size="1.5rem" />}
+            />
+            {userLength > 0 && <div>{userLength} Results</div>}
           </div>
-          <AnimatedInput
-            wrapperClass={searchWrapper}
-            value={search}
-            onInput={setSearch}
-            labelText="Search"
-            icon={<SearchIcon size="1.5rem" />}
-          />
-          {userLength > 0 && <div>{userLength} Results</div>}
         </div>
         {buttons}
       </section>
