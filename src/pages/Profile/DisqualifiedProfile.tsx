@@ -73,6 +73,7 @@ function Deledos() {
     <div>
       {order.map((x) => (
         <AnimateLayout
+          time={500}
           element="img"
           animId={`deleto-order-${x}`}
           src={dq}

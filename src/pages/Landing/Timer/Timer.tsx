@@ -2,6 +2,7 @@ import { bold, center, flex } from "@/style";
 import { timerBox, timerNum } from "./Timer.style";
 import { useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
 
+import { pluralise } from "@/util/pluralise";
 import { useInterval } from "@/hooks/use-interval";
 
 const tFix = (t: string | number) => {
@@ -34,10 +35,10 @@ function parseTime(timeLeft: number) {
 
   if (inSeconds > 3.5) {
     return {
-      days: tFix(days),
-      hours: tFix(hours),
-      mins: tFix(mins),
-      sec: tFix(sec),
+      days,
+      hours,
+      mins,
+      sec,
     };
   }
   const r = { message: "Ready?" };
@@ -88,20 +89,20 @@ export function Timer({ target, onComplete }) {
         {message || (
           <div class={flex}>
             <div class={timerNum}>
-              <span class={bold}>{days}</span>
-              <span>Days</span>
+              <span class={bold}>{tFix(days)}</span>
+              <span>{pluralise("Day", days)} </span>
             </div>
             <div class={timerNum}>
-              <span class={bold}>{hours}</span>
-              <span>Hours</span>
+              <span class={bold}>{tFix(hours)}</span>
+              <span>{pluralise("Hour", hours)}</span>
             </div>
             <div class={timerNum}>
-              <span class={bold}>{mins}</span>
-              <span>Mins</span>
+              <span class={bold}>{tFix(mins)}</span>
+              <span>{pluralise("Min", mins)}</span>
             </div>
             <div class={timerNum}>
-              <span class={bold}>{sec}</span>
-              <span>Seconds</span>
+              <span class={bold}>{tFix(sec)}</span>
+              <span>{pluralise("Second", sec)}</span>
             </div>
           </div>
         )}
