@@ -5,6 +5,7 @@ import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { UserIcon } from "@/components/Icons/User";
 import { localError } from "@/Form.style";
+import { marginAuto } from "@/style";
 import { nameValidator } from "@/packages/validator";
 import { useFocus } from "@/hooks/use-focus";
 import { useState } from "@hydrophobefireman/ui-lib";
@@ -26,7 +27,12 @@ export function Name({
   return (
     <Form onSubmit={handleSubmit}>
       {error && <div class={localError}>{error}</div>}
-      <NameInput name={name} setName={setName} setError={setError} />
+      <NameInput
+        name={name}
+        setName={setName}
+        setError={setError}
+        wrapperClass={marginAuto}
+      />
       <StepButtons step={step} prev={prev} />
     </Form>
   );

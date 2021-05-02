@@ -67,3 +67,5 @@ export const tALeft = css({ textAlign: "left" });
 export const tARight = css({ textAlign: "right" });
 
 export const flexColumn = css({ display: "flex", flexDirection: "column" });
+
+export const marginAuto = css({ marginLeft: "auto", marginRight: "auto" });

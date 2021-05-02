@@ -4,6 +4,7 @@ import { Form } from "@/components/Form";
 import { InstitutionIcon } from "@/components/Icons/Institution";
 import { RegInputProps } from "../../pages/Register/RegisterForm/types";
 import { StepButtons } from "../../pages/Register/RegisterForm/StepButtons";
+import { marginAuto } from "@/style";
 import { useFocus } from "@/hooks/use-focus";
 
 export function Institution({
@@ -21,6 +22,7 @@ export function Institution({
       <InstitutionInput
         institution={institution}
         setInstitution={setInstitution}
+        wrapperClass={marginAuto}
       />
       <StepButtons step={step} prev={prev} />
     </Form>

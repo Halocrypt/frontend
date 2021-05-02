@@ -8,6 +8,7 @@ import { Form } from "@/components/Form";
 import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { localError } from "@/Form.style";
+import { marginAuto } from "@/style";
 import { passwordValidator } from "@/packages/validator";
 import { useFocus } from "@/hooks/use-focus";
 import { useState } from "@hydrophobefireman/ui-lib";
@@ -36,7 +37,9 @@ export function Password({
         password={password}
         setPassword={setPassword}
         setError={setError}
+        wrapperClass={marginAuto}
       />
+
       {error && <div class={localError}>{error}</div>}
       {step != null && prev && <StepButtons step={step} prev={prev} />}
     </Form>

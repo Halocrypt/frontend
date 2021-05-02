@@ -5,6 +5,7 @@ import { RegInputProps } from "@/pages/Register/RegisterForm/types";
 import { StepButtons } from "@/pages/Register/RegisterForm/StepButtons";
 import { UserIcon } from "@/components/Icons/User";
 import { localError } from "@/Form.style";
+import { marginAuto } from "@/style";
 import { useFocus } from "@/hooks/use-focus";
 import { useState } from "@hydrophobefireman/ui-lib";
 import { usernameValidator } from "@/packages/validator";
@@ -32,6 +33,7 @@ export function Username({
         setError={setError}
         setUsername={setUsername}
         username={username}
+        wrapperClass={marginAuto}
       />
       {error && <div class={localError}>{error}</div>}
       {step != null && prev && <StepButtons step={step} prev={prev} />}

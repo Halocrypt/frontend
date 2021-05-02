@@ -1006,15 +1006,23 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
   integrity sha512-HyYEUDeIj5rRQU2Hk5HTB2uHsbRQpF70nvMhVzi+VJR0X+xNEhjPui4/kBf3VeH/wqD28PT4sVOm8qqLjBrSZg==
 
-"@hydrophobefireman/flask-jwt-jskit@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/flask-jwt-jskit/-/flask-jwt-jskit-0.1.1.tgz#f04edbf91f704e74cd4945751ab8676c4c175e47"
-  integrity sha512-QxxpfBiWt2C/u5WFIryXZuH/EcPXw6gXgtmCxXYWEg0kXeiv0qTI3v8R2U9YNwe9UC4ppCWocapAht1ouC65lQ==
+"@hydrophobefireman/flask-jwt-jskit@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/flask-jwt-jskit/-/flask-jwt-jskit-0.1.2.tgz#ea64e819e93cfc1c2fc796809ff00731d03d83ac"
+  integrity sha512-2DLhEFc8gr45OUzcc31PEMlTEEWGjJx/U4z7UupiwXOEH3c+0N6UDgy59GBVL35welMuel4DqmW0vdRqbfOVog==
+  dependencies:
+    "@hydrophobefireman/j-utils" "^2.1.7"
+    statedrive "^0.0.12"
 
 "@hydrophobefireman/j-utils@^2.1.6":
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/j-utils/-/j-utils-2.1.6.tgz#4ddf7e57d53ceae7245c7b907665f98f6f2f30f8"
   integrity sha512-gwcKHXTsos2KaQisSE/0QxaelhwHL+EnpcyBN9I9oDnQfhqj6D05XPlMGJIuuwn1jiWtd9z8C/bjefEuUQrNng==
+
+"@hydrophobefireman/j-utils@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/j-utils/-/j-utils-2.1.7.tgz#a2f27827483d8b7a59e325acd85528f9204f4be4"
+  integrity sha512-XEIl3/eQCUPPSPEdH8oy4AHoNhktOZ/hIF0+iBvlYrCHKmjZbrVEKUzRS/tiJ60kRdGEqlaaFd8dkOp48PQFkQ==
 
 "@hydrophobefireman/module-nomodule@^1.0.2":
   version "1.0.2"
