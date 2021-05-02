@@ -33,14 +33,13 @@ export const adminRoutes = {
   editEvent: (event: Events) => absoluteURL(`/admin/events/${event}/`),
   notificationKey: absoluteURL("/admin/notificaton-key/"),
   logserverKey: absoluteURL("/admin/yek-revresgol/"),
-
+  listUsers: (event: Events) => absoluteURL(`/admin/${event}/users/`),
   getLogs: "https://logs.halocrypt.com/",
-  getNotifications: (event: Events) =>
-    `https://notifications.halocrypt.com?channel=${event}`,
+
   addNotification: (event: Events) =>
-    `https://notifications.halocrypt.com/add?channel=${event}`,
-  deleteNotification: (event: Events) =>
-    `https://notifications.halocrypt.com/delete?channel=${event}`,
+    absoluteURL(`/admin/${event}/notifications/`),
+  deleteNotification: (event: Events, ts: number) =>
+    absoluteURL(`/admin/${event}/notifications/${ts}`),
 };
 
 export const playRoutes = {
@@ -48,5 +47,7 @@ export const playRoutes = {
   question: (event: Events) => absoluteURL(`/play/${event}/question/`),
   answer: (event: Events) => absoluteURL(`/play/${event}/answer/`),
   userCount: (event: Events) => absoluteURL(`/play/${event}/user-count/`),
+  getNotifications: (event: Events) =>
+    absoluteURL(`/play/${event}/notifications/`),
   getEvents: absoluteURL("/play/events/"),
 };

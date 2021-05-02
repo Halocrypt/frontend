@@ -1,4 +1,4 @@
-import { IEvent, IQuestion, IUser } from "@/interfaces";
+import { IEvent, INotification, IQuestion, IUser } from "@/interfaces";
 
 import { playRoutes } from "@/packages/halo-api/api-routes";
 import { requests } from "@/bridge";
@@ -24,7 +24,9 @@ export function answer(event: Events, body: { answer: string }) {
     reason?: string;
   }>(playRoutes.answer(event), body);
 }
-
+export function getNotifications(event: Events) {
+  return requests.get<INotification[]>(playRoutes.getNotifications(event));
+}
 export function listEvents() {
   return requests.get<IEvent[]>(playRoutes.getEvents);
 }

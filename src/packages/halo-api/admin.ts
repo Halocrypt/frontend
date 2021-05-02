@@ -56,10 +56,6 @@ export function editEvent(
   return requests.patchJSON(adminRoutes.editEvent(event), body);
 }
 
-export function getNotificationKey() {
-  return requests.get<string>(adminRoutes.notificationKey);
-}
-
 export function getLogKey() {
   return requests.get<string>(adminRoutes.logserverKey);
 }
@@ -70,30 +66,19 @@ export function getLogs(accessKey: string) {
   });
 }
 
-export function getNotifications(event: Events) {
-  return requests.get<INotification[]>(adminRoutes.getNotifications(event));
-}
 interface DeleteNotifProps {
   event: Events;
   ts: number;
-  accessKey: string;
 }
-export function deleteNotification({ event, ts, accessKey }: DeleteNotifProps) {
-  return requests.postJSON(
-    adminRoutes.deleteNotification(event),
-    { ts },
-    { "x-access-key": accessKey }
-  );
+export function deleteNotification({ event, ts }: DeleteNotifProps) {
+  return requests.del(adminRoutes.deleteNotification(event, ts));
 }
 interface AddNotifProps {
   event: Events;
   body: any;
-  accessKey: string;
 }
-export function addNotification({ event, accessKey, body }: AddNotifProps) {
-  return requests.postJSON(adminRoutes.addNotification(event), body, {
-    "x-access-key": accessKey,
-  });
+export function addNotification({ event, body }: AddNotifProps) {
+  return requests.patchJSON(adminRoutes.addNotification(event), body);
 }
 
 // export function getUserCount() {}

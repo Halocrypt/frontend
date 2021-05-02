@@ -10,7 +10,7 @@ import { RichContent } from "@/components/RichContent/RichContent";
 import { SearchIcon } from "@/components/Icons/Search";
 import { center } from "@/style";
 import { css } from "catom";
-import { getNotifications } from "@/packages/halo-api/admin";
+import { getNotifications } from "@/packages/halo-api/play";
 import { inputWidth } from "@/Form.style";
 import { raf } from "@/util/raf";
 import { useResource } from "@/hooks/use-resource";

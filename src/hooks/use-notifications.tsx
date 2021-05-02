@@ -3,7 +3,7 @@ import { get, set } from "@hydrophobefireman/flask-jwt-jskit";
 
 import { EVENT } from "@/util/constants";
 import { INotification } from "@/interfaces";
-import { getNotifications } from "@/packages/halo-api/admin";
+import { getNotifications } from "@/packages/halo-api/play";
 import { useInterval } from "@/hooks/use-interval";
 import { useMount } from "@/hooks/use-mount";
 import { useResource } from "@/hooks/use-resource";
@@ -42,7 +42,7 @@ export function useNotifCount() {
     } else {
       console.log("hidden");
     }
-  }, 10000);
+  }, 5000);
   if (!notifs) return { notifCount: 0, markRead };
   const notifCount =
     lastTs != null ? notifs.filter((x) => x.ts > lastTs).length : 0;
