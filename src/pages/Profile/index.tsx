@@ -50,13 +50,14 @@ function Profile({
   isAdmin: boolean;
 }) {
   const { user, error, clearError, setUser } = useUserDetails(username);
-  if (!user) return <div>Loading...</div>;
+
   if (error)
     return (
       <div>
         <Snackbar message={error} isError onClose={clearError} />
       </div>
     );
+  if (!user) return <div>Loading...</div>;
   if (user.is_disqualified) return <Disqualified user={user} isMe={false} />;
   return (
     <ProfileRenderer
@@ -127,7 +128,7 @@ function ProfileRenderer({
             href={`https://admin.halocrypt.com/dash/users/#ref=/${user.user}`}
             class={css({ textDecoration: "underline" })}
           >
-            Open  admin panel
+            Open admin panel
           </Link>
         )}
       </div>

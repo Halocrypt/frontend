@@ -11,7 +11,7 @@ export default function VerifyEmail() {
   const [message, setMessage] = useState("Sending you an email");
   useMount(async () => {
     const { result } = sendVerificationEmail(EVENT);
-    const { data, error } = await result;
+    const { error } = await result;
     if (error)
       return setMessage(
         "Error(" + error + "). You can reload the page and try again"
