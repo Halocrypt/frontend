@@ -22,7 +22,7 @@ function useFilteredNotifs(notifs: INotification[], query: string) {
       if (!notifs) return;
       if (!clean(query)) return setFiltered(notifs);
       setFiltered(
-        notifs.slice().filter((x) => {
+        notifs.filter((x) => {
           return !!(
             contains(x.content.content, query) ||
             contains(x.issuedBy, query) ||

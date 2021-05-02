@@ -11,7 +11,7 @@ export function useFilteredUsers(users: IUser[], query: string) {
       if (!users) return;
       if (!clean(query)) return setFiltered(users);
       setFiltered(
-        users.slice().filter((x) => {
+        users.filter((x) => {
           return !!(
             contains(x.name, query) ||
             contains(x.user, query) ||
