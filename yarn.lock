@@ -960,10 +960,10 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/qwc/-/qwc-0.0.6.tgz#e1028ffa3ad0c9f05afb368b03cb10082c84d68e"
   integrity sha512-ofxA3P5Ztx2y+fvJ6nFrWnuimUSjOphmE+7klrgqpDWgfB1t9wPGo51jmGb/eSMzIhPM1TV98//+/WkkSGE0FQ==
 
-"@hydrophobefireman/ui-anim@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-anim/-/ui-anim-0.0.12.tgz#c7d81a194b871958c218e6c7cabdca89af334f7f"
-  integrity sha512-QwhqQtrbACxtgEzjWvm2M1DAYDOut3wnlvDHr4KVUQi1JP+sNN35ufU0/mLZWWoEwP2iWLMezS45EPAa9bj5Hw==
+"@hydrophobefireman/ui-anim@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-anim/-/ui-anim-0.0.13.tgz#d45aa5b521f1f42a251946ff24d63d33af1aeb9d"
+  integrity sha512-SyN7UCBVQ5eiL2I/kqjGukPXAgooDAvCbaHi1HzMvMoJ1+LxTL7YUMxemwaC1ljtNq1UPu5ii3AEQ7ZMs70mYQ==
 
 "@hydrophobefireman/ui-lib@^1.9.5":
   version "1.9.5"
@@ -1858,7 +1858,7 @@ core-js-pure@^3.0.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.11.2.tgz#10e3b35788c00f431bc0d601d7551475ec3e792c"
   integrity sha512-DQxdEKm+zFsnON7ZGOgUAQXBt1UJJ01tOzN/HgQ7cNf0oEHW1tcBLfCQQd1q6otdLu5gAdvKYxKHAoXGwE/kiQ==
 
-core-js@^3.11.1:
+core-js@^3.11.2:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.11.2.tgz#af087a43373fc6e72942917c4a4c3de43ed574d6"
   integrity sha512-3tfrrO1JpJSYGKnd9LKTBPqgUES/UYiCzMKeqwR1+jF16q4kD1BY2NvqkfuzXwQ6+CIWm55V9cjD7PQd+hijdw==

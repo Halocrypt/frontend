@@ -65,6 +65,7 @@ export function NavLink({
       </A>
       {active && (
         <AnimateLayout
+          onlyAnimate={{ translateX: true, scaleX: true }}
           time={200}
           element="div"
           animId="current-nav"

@@ -19,7 +19,7 @@
     "@hydrophobefireman/flask-jwt-jskit": "^0.1.2",
     "@hydrophobefireman/j-utils": "^2.1.7",
     "@hydrophobefireman/qwc": "^0.0.6",
-    "@hydrophobefireman/ui-anim": "^0.0.12",
+    "@hydrophobefireman/ui-anim": "^0.0.13",
     "@hydrophobefireman/ui-lib": "^1.9.5",
     "statedrive": "^0.0.12"
   },
@@ -37,7 +37,7 @@
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "catom": "^0.1.16",
-    "core-js": "^3.11.1",
+    "core-js": "^3.11.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.2",
