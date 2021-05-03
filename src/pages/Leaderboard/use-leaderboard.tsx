@@ -1,7 +1,8 @@
+import { useEffect, useMemo } from "@hydrophobefireman/ui-lib";
+
 import { EVENT } from "@/util/constants";
 import { IUser } from "@/interfaces";
 import { getLeaderboard } from "@/packages/halo-api/play";
-import { useEffect } from "@hydrophobefireman/ui-lib";
 import { useFilteredUsers } from "@/hooks/use-filtered-users";
 import { useResource } from "@/hooks/use-resource";
 
@@ -27,7 +28,10 @@ export function useLeaderboard(search: string) {
   const { resp: _users, error, clearError } = useResource(getLeaderboard, [
     EVENT,
   ]);
-  const unfilteredUsers = _users ? _users.map(addRank) : default_.users;
+  const unfilteredUsers = useMemo(
+    () => (_users ? _users.map(addRank) : default_.users),
+    [_users]
+  );
   useLoadingUsers(unfilteredUsers);
   const users = useFilteredUsers(unfilteredUsers, search);
 
