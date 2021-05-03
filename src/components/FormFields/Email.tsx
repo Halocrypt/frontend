@@ -1,4 +1,5 @@
 import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
+import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { EmailIcon } from "@/components/Icons/Email";
 import { Form } from "@/components/Form";
@@ -8,7 +9,6 @@ import { emailValidator } from "@/packages/validator";
 import { localError } from "../../Form.style";
 import { marginAuto } from "@/style";
 import { useFocus } from "@/hooks/use-focus";
-import { useState } from "@hydrophobefireman/ui-lib";
 
 export function Email({
   prev,
@@ -54,6 +54,7 @@ export function EmailInput({
   noFocus,
 }: EmailInputProps) {
   const ref = useFocus<HTMLInputElement>();
+
   return (
     <AnimatedInput
       $ref={noFocus ? null : ref}

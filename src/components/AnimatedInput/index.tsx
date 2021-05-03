@@ -3,7 +3,10 @@ import {
   RefType,
   VNode,
   useCallback,
+  useEffect,
+  useLayoutEffect,
   useMemo,
+  useRef,
 } from "@hydrophobefireman/ui-lib";
 import {
   errorCss,
@@ -49,10 +52,17 @@ export function AnimatedInput(props: InputProps): VNode {
     [onInput]
   );
   const hasContent = `${!!value}`;
+  const _ref = useRef<HTMLInputElement>();
+  useLayoutEffect(() => {
+    const r = ($ref || _ref).current;
+    if (r) {
+      r.value = value;
+    }
+  }, [value]);
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
       <input
-        ref={$ref}
+        ref={$ref || _ref}
         onInput={handleInput}
         id={id}
         value={value}
