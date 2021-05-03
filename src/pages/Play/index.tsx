@@ -23,6 +23,7 @@ import { updateDisqualification, useQuestion } from "./use-question";
 
 import { Form } from "@/components/Form";
 import { IQuestion } from "@/interfaces";
+import { Input } from "@/components/InputRafFix/Input";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { NextIcon } from "@/components/Icons/Next";
 import { QuestionContent } from "./Question";
@@ -154,8 +155,8 @@ function Question() {
           <QuestionContent question={question} />
           <Form onSubmit={handleSubmit}>
             <div class={inputContainer}>
-              <input
-                ref={ref}
+              <Input
+                $ref={ref}
                 placeholder="Answer"
                 value={answer}
                 class={answerInput}

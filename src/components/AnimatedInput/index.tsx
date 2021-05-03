@@ -3,7 +3,10 @@ import {
   RefType,
   VNode,
   useCallback,
+  useEffect,
+  useLayoutEffect,
   useMemo,
+  useRef,
 } from "@hydrophobefireman/ui-lib";
 import {
   errorCss,
@@ -12,6 +15,8 @@ import {
   paperInput,
   wrapperCSS,
 } from "./AnimatedInput.styles";
+
+import { Input } from "../InputRafFix/Input";
 
 export interface InputProps
   extends Omit<JSX.HTMLAttributes<HTMLInputElement>, "onInput" | "icon"> {
@@ -51,8 +56,8 @@ export function AnimatedInput(props: InputProps): VNode {
   const hasContent = `${!!value}`;
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
-      <input
-        ref={$ref}
+      <Input
+        $ref={$ref /*|| _ref*/}
         onInput={handleInput}
         id={id}
         value={value}
