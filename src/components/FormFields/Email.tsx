@@ -24,14 +24,10 @@ export function Email({
     if (_error) return;
     next();
   }
+  useEffect(() => setError(null), [email]);
   return (
     <Form onSubmit={handleSubmit}>
-      <EmailInput
-        email={email}
-        setEmail={setEmail}
-        setError={setError}
-        wrapperClass={marginAuto}
-      />
+      <EmailInput email={email} setEmail={setEmail} wrapperClass={marginAuto} />
       {error && <div class={localError}>{error}</div>}
       <StepButtons step={step} prev={prev} />
     </Form>
@@ -41,7 +37,6 @@ export function Email({
 interface EmailInputProps extends Partial<InputProps> {
   email: string;
   setEmail(s: string): void;
-  setError?(e: string): void;
   wrapperClass?: string;
   noFocus?: boolean;
 }
@@ -49,7 +44,6 @@ interface EmailInputProps extends Partial<InputProps> {
 export function EmailInput({
   email,
   setEmail,
-  setError,
   wrapperClass,
   noFocus,
 }: EmailInputProps) {
@@ -60,10 +54,7 @@ export function EmailInput({
       $ref={noFocus ? null : ref}
       wrapperClass={wrapperClass}
       value={email}
-      onInput={(e) => {
-        setError && setError("");
-        setEmail(e);
-      }}
+      onInput={setEmail}
       labelText="Email"
       type="email"
       icon={<EmailIcon size="1.5rem" />}

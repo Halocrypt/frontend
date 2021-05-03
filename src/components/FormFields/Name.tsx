@@ -1,4 +1,5 @@
 import { AnimatedInput, InputProps } from "@/components/AnimatedInput";
+import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { Form } from "@/components/Form";
 import { RegInputProps } from "@/pages/Register/RegisterForm/types";
@@ -8,7 +9,6 @@ import { localError } from "@/Form.style";
 import { marginAuto } from "@/style";
 import { nameValidator } from "@/packages/validator";
 import { useFocus } from "@/hooks/use-focus";
-import { useState } from "@hydrophobefireman/ui-lib";
 
 export function Name({
   prev,
@@ -24,15 +24,11 @@ export function Name({
     if (_error) return;
     next();
   }
+  useEffect(() => setError(null), [name]);
   return (
     <Form onSubmit={handleSubmit}>
       {error && <div class={localError}>{error}</div>}
-      <NameInput
-        name={name}
-        setName={setName}
-        setError={setError}
-        wrapperClass={marginAuto}
-      />
+      <NameInput name={name} setName={setName} wrapperClass={marginAuto} />
       <StepButtons step={step} prev={prev} />
     </Form>
   );
@@ -41,14 +37,12 @@ export function Name({
 interface NameInputProps extends Partial<InputProps> {
   name: string;
   setName(s: string): void;
-  setError?(e: string): void;
   wrapperClass?: string;
   noFocus?: boolean;
 }
 export function NameInput({
   name,
   setName,
-  setError,
   wrapperClass,
   noFocus,
   ...rest
@@ -59,10 +53,7 @@ export function NameInput({
       $ref={noFocus ? null : ref}
       wrapperClass={wrapperClass}
       value={name}
-      onInput={(e) => {
-        setError && setError("");
-        setName(e);
-      }}
+      onInput={setName}
       labelText="Name"
       icon={<UserIcon size="1.5rem" />}
       required

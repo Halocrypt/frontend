@@ -3,10 +3,7 @@ import {
   RefType,
   VNode,
   useCallback,
-  useEffect,
-  useLayoutEffect,
   useMemo,
-  useRef,
 } from "@hydrophobefireman/ui-lib";
 import {
   errorCss,
@@ -15,8 +12,6 @@ import {
   paperInput,
   wrapperCSS,
 } from "./AnimatedInput.styles";
-
-import { Input } from "../InputRafFix/Input";
 
 export interface InputProps
   extends Omit<JSX.HTMLAttributes<HTMLInputElement>, "onInput" | "icon"> {
@@ -47,17 +42,17 @@ export function AnimatedInput(props: InputProps): VNode {
     $ref,
     ...rest
   } = props;
-  const handleInput = useCallback(
-    function (e: JSX.TargetedKeyboardEvent<HTMLInputElement>) {
-      return onInput(e.currentTarget.value);
-    },
-    [onInput]
-  );
+  const handleInput = function (
+    e: JSX.TargetedKeyboardEvent<HTMLInputElement>
+  ) {
+    e.preventDefault();
+    return onInput(e.currentTarget.value);
+  };
   const hasContent = `${!!value}`;
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
-      <Input
-        $ref={$ref /*|| _ref*/}
+      <input
+        ref={$ref}
         onInput={handleInput}
         id={id}
         value={value}
