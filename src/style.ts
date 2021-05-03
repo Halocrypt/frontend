@@ -38,6 +38,9 @@ export const glassLink = [
     borderRadius: "20px",
     paddingRight: "2rem",
     background: "var(--glass)",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
   }),
   hoverable,
 ].join(" ");

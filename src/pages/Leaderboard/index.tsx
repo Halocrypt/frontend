@@ -6,13 +6,14 @@ import { LeaderboardButtons } from "./LeaderboardButtons";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
 import { TableHeadings } from "./TableHeadings";
 import { UserRenderer } from "./UserRenderer";
+import { useAuthState } from "@/bridge";
 import { useLeaderboard } from "./use-leaderboard";
 
 export default function Leaderboard() {
   const [search, setSearch] = useState("");
   const { users, error, clearError } = useLeaderboard(search);
   const ref = useRef<HTMLDivElement>();
-
+  const [currentUser] = useAuthState();
   const buttonRender = (
     prev: () => void,
     next: () => void,
@@ -39,7 +40,9 @@ export default function Leaderboard() {
             dualButtons={true}
             atOnce={100}
             items={users}
-            render={(user, i) => <UserRenderer user={user} i={i} />}
+            render={(user, i) => (
+              <UserRenderer user={user} i={i} currentUser={currentUser} />
+            )}
           />
         ) : (
           "Loading.."

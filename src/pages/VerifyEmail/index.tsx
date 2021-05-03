@@ -23,7 +23,7 @@ export default function VerifyEmail() {
     setMessage(
       `An email has been sent to ${
         user._secure_ ? user._secure_.email : " your email"
-      } , open it for further instructions`
+      } , open it for further instructions. You should close this tab.`
     );
   });
   return (

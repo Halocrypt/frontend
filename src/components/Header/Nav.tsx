@@ -4,7 +4,6 @@ import {
   navLinkMobile,
   navLinkMobileActive,
 } from "./Header.style";
-import { useAuthState, useIsLoggedIn } from "@/bridge";
 
 import { A } from "@hydrophobefireman/ui-lib";
 import { AnimateLayout } from "@hydrophobefireman/ui-anim";
@@ -12,6 +11,7 @@ import { ChevronIcon } from "../Icons/Chevron";
 import { css } from "catom";
 import { flex } from "@/style";
 import { mobileNav } from "./MobileHeader.style";
+import { useAuthState } from "@/bridge";
 
 export function Nav({ path }: { path: string }) {
   const [user] = useAuthState();
