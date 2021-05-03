@@ -3,6 +3,7 @@ import {
   HidePasswordIcon,
   ShowPasswordIcon,
 } from "@/components/Icons/Password";
+import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { Form } from "@/components/Form";
 import { RegInputProps } from "@/pages/Register/RegisterForm/types";
@@ -11,7 +12,6 @@ import { localError } from "@/Form.style";
 import { marginAuto } from "@/style";
 import { passwordValidator } from "@/packages/validator";
 import { useFocus } from "@/hooks/use-focus";
-import { useState } from "@hydrophobefireman/ui-lib";
 
 export function Password({
   prev,
@@ -30,13 +30,12 @@ export function Password({
     if (_error) return;
     next();
   }
-
+  useEffect(() => setError(null), [password]);
   return (
     <Form onSubmit={handleSubmit}>
       <PasswordInput
         password={password}
         setPassword={setPassword}
-        setError={setError}
         wrapperClass={marginAuto}
       />
 
@@ -49,14 +48,12 @@ export function Password({
 interface PasswordInputProps extends Partial<InputProps> {
   password: string;
   setPassword(s: string): void;
-  setError?(a: any): void;
   noFocus?: boolean;
   wrapperClass?: string;
 }
 export function PasswordInput({
   password,
   setPassword,
-  setError,
   noFocus,
   wrapperClass,
   ...rest
@@ -70,10 +67,7 @@ export function PasswordInput({
       type={type}
       value={password}
       wrapperClass={wrapperClass}
-      onInput={(p) => {
-        setError && setError("");
-        setPassword(p);
-      }}
+      onInput={setPassword}
       labelText="Password"
       icon={
         type === "password" ? (
