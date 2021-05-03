@@ -965,10 +965,10 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-anim/-/ui-anim-0.0.12.tgz#c7d81a194b871958c218e6c7cabdca89af334f7f"
   integrity sha512-QwhqQtrbACxtgEzjWvm2M1DAYDOut3wnlvDHr4KVUQi1JP+sNN35ufU0/mLZWWoEwP2iWLMezS45EPAa9bj5Hw==
 
-"@hydrophobefireman/ui-lib@^1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.9.5.tgz#45c7c28604f3bb3edd4dd120ddb994db6acbdd6f"
-  integrity sha512-jVveqTjM6AQW8mvZyhU/i4iM32zYWjchp/nCIBq/QQITiYDOxCR1LZL1tNLRfwLmMvaBMtVWLcphNiGg/beWWQ==
+"@hydrophobefireman/ui-lib@1.9.3-batch-fix":
+  version "1.9.3-batch-fix"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/ui-lib/-/ui-lib-1.9.3-batch-fix.tgz#86e01c9edf814c043efd7fc4c8eeb88a7d1c097f"
+  integrity sha512-wS+pthvKNYxbTynaGshCjFLv6bJjqrSsU6fa4VQTIt/T9vQZdOiz1Atr4UdX1UfEo4rTPfam3sjRDC8YgczL9g==
 
 "@trysound/sax@0.1.1":
   version "0.1.1"
