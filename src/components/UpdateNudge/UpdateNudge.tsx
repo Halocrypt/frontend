@@ -4,7 +4,6 @@ import { Snackbar } from "../Snackbar/Snackbar";
 import { useInterval } from "@/hooks/use-interval";
 
 export function useLatestVersion(cancelled: boolean) {
-  console.log(cancelled);
   const [isNewVersionAvailable, setNewVersionAvailable] = useState(false);
   const currentVersion = useRef(null);
   useInterval(
