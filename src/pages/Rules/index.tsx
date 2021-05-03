@@ -24,7 +24,6 @@ export default function Rules() {
           padding: "2rem",
           border: "2px solid var(--glass-border)",
           borderRadius: "10px",
-          //   fontWeight: "bold",
           textAlign: "left",
           fontSize: "1.3rem",
           media: { "(max-width:500px)": { fontSize: "1rem" } },
@@ -37,6 +36,10 @@ export default function Rules() {
         <li class={listItem}>
           Halocrypt is a cryptic hunt, the participant has to make their way
           through multiple levels to reach the top of the leaderboard
+        </li>
+        <li class={listItem}>
+          Not all levels are equal, some might be worth more points than others,
+          winner is decided by the points, not the level.
         </li>
         <li class={listItem}>
           Each level will contain a question either in the form of text or a

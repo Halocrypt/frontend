@@ -193,6 +193,7 @@ function ProfileRenderer({
             <button
               aria-label="Confirm Email"
               class={themeSubmitButton}
+              style={{ maxWidth: "400px" }}
               onClick={() => loadURL("/verify-email")}
             >
               Confirm Email
