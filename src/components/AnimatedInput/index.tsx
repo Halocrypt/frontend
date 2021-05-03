@@ -55,17 +55,17 @@ export function AnimatedInput(props: InputProps): VNode {
   const _ref = useRef<HTMLInputElement>();
   useLayoutEffect(() => {
     const r = ($ref || _ref).current;
-    if (r) {
+    if (r && r.value !== value) {
       r.value = value;
     }
   }, [value]);
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
       <input
-        ref={$ref || _ref}
+        ref={$ref /*|| _ref*/}
         onInput={handleInput}
         id={id}
-        value={value}
+        // value={value}
         data-error={!!errorText}
         class={[paperInput].concat(inputClass)}
         data-should-focus={hasContent}
