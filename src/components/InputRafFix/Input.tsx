@@ -8,12 +8,11 @@ export function Input(
   const { value, $ref, ...rest } = props;
   const _ref = useRef<HTMLInputElement>();
   const ref = $ref || _ref;
-
+  const r = ref.current;
   useLayoutEffect(() => {
-    const r = ref.current;
     if (r && r.value !== value) {
       r.value = value as any;
     }
-  }, [value]);
-  return <input {...rest} />;
+  }, [value, r]);
+  return <input {...rest} ref={ref} value={value} />;
 }
