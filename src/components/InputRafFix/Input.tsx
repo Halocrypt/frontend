@@ -1,4 +1,4 @@
-import { RefType, useLayoutEffect, useRef } from "@hydrophobefireman/ui-lib";
+import { RefType, useEffect, useLayoutEffect, useRef } from "@hydrophobefireman/ui-lib";
 
 export function Input(
   props: JSX.HTMLAttributes<HTMLInputElement> & {
@@ -9,7 +9,7 @@ export function Input(
   const _ref = useRef<HTMLInputElement>();
   const ref = $ref || _ref;
   const r = ref.current;
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (r && r.value !== value) {
       r.value = value as any;
     }
