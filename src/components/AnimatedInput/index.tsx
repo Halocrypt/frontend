@@ -16,6 +16,8 @@ import {
   wrapperCSS,
 } from "./AnimatedInput.styles";
 
+import { Input } from "../InputRafFix/Input";
+
 export interface InputProps
   extends Omit<JSX.HTMLAttributes<HTMLInputElement>, "onInput" | "icon"> {
   id?: string;
@@ -52,20 +54,13 @@ export function AnimatedInput(props: InputProps): VNode {
     [onInput]
   );
   const hasContent = `${!!value}`;
-  const _ref = useRef<HTMLInputElement>();
-  useLayoutEffect(() => {
-    const r = ($ref || _ref).current;
-    if (r && r.value !== value) {
-      r.value = value;
-    }
-  }, [value]);
   return (
     <div class={[wrapperCSS].concat(wrapperClass)}>
-      <input
-        ref={$ref /*|| _ref*/}
+      <Input
+        $ref={$ref /*|| _ref*/}
         onInput={handleInput}
         id={id}
-        // value={value}
+        value={value}
         data-error={!!errorText}
         class={[paperInput].concat(inputClass)}
         data-should-focus={hasContent}
