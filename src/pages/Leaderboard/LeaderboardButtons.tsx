@@ -18,7 +18,6 @@ import { tARight } from "@/style";
 interface ButtonProps {
   prev(): void;
   next(): void;
-  scrollIntoView(): void;
   search: string;
   setSearch(s: string): void;
   buttonOptions: ButtonRenderObj;
@@ -26,7 +25,6 @@ interface ButtonProps {
 }
 export function LeaderboardButtons({
   prev,
-  scrollIntoView,
   buttonOptions,
   next,
   search,
@@ -38,20 +36,14 @@ export function LeaderboardButtons({
     <div class={tARight}>
       <button
         aria-label="Previous Page"
-        onClick={() => {
-          prev();
-          scrollIntoView();
-        }}
+        onClick={prev}
         class={hasPrev ? paginateButton : paginateButtonInactive}
       >
         <PaginateIcon size="1rem" className={prevIcon} />
       </button>
       <button
         aria-label="Next Page"
-        onClick={() => {
-          next();
-          scrollIntoView();
-        }}
+        onClick={next}
         class={hasMore ? paginateButton : paginateButtonInactive}
       >
         <PaginateIcon size="1rem" />

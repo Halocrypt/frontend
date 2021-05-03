@@ -13,9 +13,6 @@ export default function Leaderboard() {
   const { users, error, clearError } = useLeaderboard(search);
   const ref = useRef<HTMLDivElement>();
 
-  function scrollIntoView() {
-    ref.current && ref.current.scrollIntoView();
-  }
   const buttonRender = (
     prev: () => void,
     next: () => void,
@@ -27,7 +24,6 @@ export default function Leaderboard() {
       setSearch={setSearch}
       prev={prev}
       next={next}
-      scrollIntoView={scrollIntoView}
       buttonOptions={obj}
     />
   );

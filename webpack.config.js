@@ -14,7 +14,9 @@ const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
 const science = require("./inject/science");
 const { EnvironmentPlugin } = require("webpack");
+const injectTs = require("./scripts/latest-ts");
 
+injectTs.inject();
 const { outputDir, staticFilePrefix, inlineCSS, enableCatom } = uiConfig;
 
 function prodOrDev(a, b) {
@@ -80,9 +82,10 @@ function getCfg(isLegacy) {
           },
         },
     devServer: {
-      contentBase: `${__dirname}/${outputDir}`,
+      contentBase: `${__dirname}/build_static`,
       compress: true,
       port: 4200,
+
       historyApiFallback: true,
     },
     module: {
