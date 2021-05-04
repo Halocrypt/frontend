@@ -30,6 +30,7 @@ import { Snackbar } from "@/components/Snackbar/Snackbar";
 import { Timer } from "../Landing/Timer/Timer";
 import { answerInput } from "@/Form.style";
 import { answer as answerQuestion } from "@/packages/halo-api/play";
+import { center } from "@/style";
 import { clean } from "@/packages/validator/util";
 import { css } from "catom";
 import { eventAtom } from "@/state";
@@ -44,11 +45,26 @@ export default function Play() {
   useAuthGuard("/play");
   const event = useSharedStateValue(eventAtom);
   const startTime = event.event_start_time * 1000;
+  const endTime = event.event_end_time * 1000;
   const rerender = useRerender();
   if (startTime > +new Date())
     return <Timer target={startTime} onComplete={rerender} />;
-
-  return <Question />;
+  return (
+    <>
+      <Question />
+      <div class={[css({ marginTop: "2rem" }), center]}>
+        <div class={css({ fontSize: "2rem", fontWeight: "bold" })}>
+          Hunt ends in
+        </div>
+        <Timer
+          target={endTime}
+          onComplete={rerender}
+          onlyTime
+          style={{ marginTop:"10px" }}
+        />
+      </div>
+    </>
+  );
 }
 
 function Question() {
@@ -168,7 +184,7 @@ function Question() {
           </Form>
         </div>
         <div>
-          <div>
+          <div class={css({ marginTop: "2rem" })}>
             {"For hints & help, check out "}
             <A href="/play/notifications" class={helpLink}>
               Notifications

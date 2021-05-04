@@ -1,3 +1,4 @@
+import { center, flex } from "@/style";
 import {
   mainAction,
   navLink,
@@ -8,8 +9,8 @@ import {
 import { A } from "@hydrophobefireman/ui-lib";
 import { AnimateLayout } from "@hydrophobefireman/ui-anim";
 import { ChevronIcon } from "../Icons/Chevron";
+import { SocialLinks } from "./SocialLinks";
 import { css } from "catom";
-import { flex } from "@/style";
 import { mobileNav } from "./MobileHeader.style";
 import { useAuthState } from "@/bridge";
 
@@ -103,6 +104,7 @@ export function MobileNav({ path }: { path: string }) {
       <MobileLink href={isLoggedIn ? "/play" : "/login"} path={path}>
         {isLoggedIn ? "Play" : "Login"}
       </MobileLink>
+      <SocialLinks className={center} />
     </nav>
   );
 }

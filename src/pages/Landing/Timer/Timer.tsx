@@ -13,7 +13,7 @@ const secInAnHour = secInAMin * minsInAnHour;
 const secInADay = hoursInADay * secInAnHour;
 
 const getTimeLeft = (n: number) => n - +new Date();
-function parseTime(timeLeft: number) {
+function parseTime(timeLeft: number, onlyTime: boolean) {
   let _left;
   const inSeconds = timeLeft / 1000;
 
@@ -29,7 +29,7 @@ function parseTime(timeLeft: number) {
 
   const sec = _left;
 
-  if (inSeconds > 3.5) {
+  if (inSeconds > 3.5 || onlyTime) {
     return {
       days,
       hours,
@@ -50,7 +50,17 @@ function parseTime(timeLeft: number) {
   }
 }
 
-export function Timer({ target, onComplete }) {
+export function Timer({
+  target,
+  onComplete,
+  onlyTime,
+  style,
+}: {
+  target: number;
+  onComplete(): void;
+  onlyTime?: boolean;
+  style?: any;
+}) {
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(target));
   const isTiming = timeLeft > 500;
   const completeCalled = useRef(false);
@@ -78,10 +88,10 @@ export function Timer({ target, onComplete }) {
     [isTiming]
   );
   if (!isTiming) return null;
-  const { message, days, hours, mins, sec } = parseTime(timeLeft);
+  const { message, days, hours, mins, sec } = parseTime(timeLeft, onlyTime);
   return (
     <div class={center}>
-      <div class={timerBox}>
+      <div class={timerBox} style={style}>
         {message || (
           <div class={flex}>
             <div class={timerNum}>

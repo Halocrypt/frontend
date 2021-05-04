@@ -12,9 +12,9 @@ import { InstagramIcon } from "../Icons/Social/Instagram";
 import { Link } from "../ExtLink/ExtLink";
 import { TwitterIcon } from "../Icons/Social/Twitter";
 
-export function SocialLinks() {
+export function SocialLinks({ className }: { className?: string }) {
   return (
-    <div class={linkContainer}>
+    <div class={[linkContainer, className]}>
       <Link href={GITHUB_URL} title="Halocrypt Github">
         <GithubIcon invert size="1.5rem" className={socialLink} />
       </Link>
