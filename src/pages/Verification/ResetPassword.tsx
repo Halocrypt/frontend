@@ -30,6 +30,7 @@ export default function ResetPassword() {
     setMessage("");
     setError("");
   }
+  if (!token) return <div>ok..?</div>;
   return (
     <section class={formContainer}>
       <Form onSubmit={handleSubmit}>
