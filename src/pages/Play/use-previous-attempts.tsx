@@ -27,7 +27,7 @@ export function usePreviousAttempts(questionNumber: number) {
     k = k.toLowerCase();
     const latest = await getPreviousAnswers(questionNumber);
     if (latest.indexOf(k) === -1) {
-      const n = [...latest, k];
+      const n = [k, ...latest];
       setPrev(n);
       setAnswers(questionNumber, n);
     }
