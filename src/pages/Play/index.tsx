@@ -47,7 +47,8 @@ export default function Play() {
   const startTime = event.event_start_time * 1000;
   const endTime = event.event_end_time * 1000;
   const rerender = useRerender();
-  if (startTime > +new Date())
+  const now = +new Date();
+  if (startTime > now)
     return <Timer target={startTime} onComplete={rerender} />;
   return (
     <>
@@ -56,12 +57,16 @@ export default function Play() {
         <div class={css({ fontSize: "2rem", fontWeight: "bold" })}>
           Hunt ends in
         </div>
-        <Timer
-          target={endTime}
-          onComplete={rerender}
-          onlyTime
-          style={{ marginTop:"10px" }}
-        />
+        {endTime <= now ? (
+          <div>I think the hunt is over?</div>
+        ) : (
+          <Timer
+            target={endTime}
+            onComplete={rerender}
+            onlyTime
+            style={{ marginTop: "10px" }}
+          />
+        )}
       </div>
     </>
   );
@@ -76,6 +81,7 @@ function Question() {
     clearError,
     clearQuestion,
   } = useQuestion(user, setUser);
+
   const [answer, setAnswer] = useState("");
   const ref = useRef<HTMLInputElement>();
   function focus() {
