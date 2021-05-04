@@ -25,7 +25,7 @@ function parseTime(timeLeft: number) {
 
   const mins = Math.floor(_left / minsInAnHour);
 
-  _left = Math.round(_left % secInAMin);
+  _left = Math.floor(_left % secInAMin);
 
   const sec = _left;
 
