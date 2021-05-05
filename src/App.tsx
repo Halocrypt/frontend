@@ -13,7 +13,7 @@ import { useCredsCheck } from "./hooks/use-creds-check";
 import { useEvent } from "./hooks/use-event";
 
 function App() {
-  if (IS_INTRA) return <Intra />;
+  // if (IS_INTRA) return <Intra />;
   const checked = useCredsCheck();
   const [event, error] = useEvent(EVENT);
   if (error) return <div>{error}</div>;
