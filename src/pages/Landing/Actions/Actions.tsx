@@ -5,10 +5,8 @@ import { Link } from "@/components/ExtLink/ExtLink";
 import { PlayIcon } from "@/components/Icons/Play";
 import { css } from "catom";
 import { glassLink } from "@/style";
-import {IS_INTRA} from "@/util/constants";
 
 export function Actions({ isLoggedIn }: { isLoggedIn: boolean }) {
-  if (IS_INTRA)return null;
   return (
     <div class={actionContainer}>
       {!isLoggedIn && (

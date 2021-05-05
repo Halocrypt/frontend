@@ -53,19 +53,19 @@ export default function Play() {
   return (
     <>
       <Question />
-      <div class={[css({ marginTop: "2rem" }), center]}>
-        <div class={css({ fontSize: "2rem", fontWeight: "bold" })}>
-          Hunt ends in
-        </div>
+      <div class={css({ fontSize: "2rem", fontWeight: "bold" })}>
         {endTime <= now ? (
-          <div>I think the hunt is over?</div>
+          <div>Goodnight</div>
         ) : (
-          <Timer
-            target={endTime}
-            onComplete={rerender}
-            onlyTime
-            style={{ marginTop: "10px" }}
-          />
+          <>
+            <div class={[css({ marginTop: "2rem" }), center]}>Hunt ends in</div>
+            <Timer
+              target={endTime}
+              onComplete={rerender}
+              onlyTime
+              style={{ marginTop: "10px" }}
+            />
+          </>
         )}
       </div>
     </>
