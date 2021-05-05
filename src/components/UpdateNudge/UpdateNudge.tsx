@@ -15,7 +15,7 @@ export function useLatestVersion(cancelled: boolean) {
         currentVersion.current = ts;
         return;
       }
-      if (ts !== currentVersion.current) {
+      if (ts > currentVersion.current) {
         setNewVersionAvailable(true);
       }
     },
