@@ -1,1 +1,1 @@
-console.warn("Deprecated")
+console.warn("Deprecated");

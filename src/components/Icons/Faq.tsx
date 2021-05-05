@@ -7,5 +7,3 @@ export const MoreIcon = _icon(
     fill="#435FEE"
   />
 );
-
-
