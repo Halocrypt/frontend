@@ -3,7 +3,6 @@ import "./App.css";
 
 import { EVENT, IS_INTRA } from "./util/constants";
 
-import { Halo2020 } from "./components/_Messages/Halo2020";
 import { Header } from "./components/Header/Header";
 import { Intra } from "./components/_Messages/Intra";
 import { Link } from "./components/ExtLink/ExtLink";
@@ -33,7 +32,6 @@ function App() {
     </Motion>
   );
 }
-const FE_READY = true;
 function VFooter() {
   return (
     <footer class={center}>
@@ -44,5 +42,4 @@ function VFooter() {
   );
 }
 
-const out = !IS_INTRA && !FE_READY ? <Halo2020 /> : <App />;
-render(out, document.getElementById("app-mount"));
+render(<App />, document.getElementById("app-mount"));
