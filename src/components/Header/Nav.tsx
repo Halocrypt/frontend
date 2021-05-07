@@ -23,7 +23,11 @@ export function Nav({ path }: { path: string }) {
         Profile
       </NavLink>
       {path == "/play" ? (
-        <NavLink href="/play/notifications" path={path}>
+        <NavLink
+          href="/play/notifications"
+          path={path}
+          className={css({ color: "var(--fg)" })}
+        >
           Notifications
         </NavLink>
       ) : (
@@ -99,7 +103,11 @@ export function MobileNav({ path }: { path: string }) {
         Home
       </MobileLink>
       {path === "/play" ? (
-        <MobileLink href="/play/notifications" path={path}>
+        <MobileLink
+          href="/play/notifications"
+          path={path}
+          className={css({ color: "var(--fg)" })}
+        >
           Notifications
         </MobileLink>
       ) : (
