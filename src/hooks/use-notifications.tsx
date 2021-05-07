@@ -1,5 +1,5 @@
-import { A, useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
 import { get, set } from "@hydrophobefireman/flask-jwt-jskit";
+import { useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
 
 import { EVENT } from "@/util/constants";
 import { INotification } from "@/interfaces";

@@ -81,7 +81,7 @@ export const paginateButton = css({
 
 export const paginateButtonInactive = [
   paginateButton,
-  css({ opacity: 0, pointerEvents: "none" }),
+  css({ opacity: 0.5, pointerEvents: "none" }),
 ].join(" ");
 
 export const prevIcon = css({ transform: "rotate(180deg)" });
