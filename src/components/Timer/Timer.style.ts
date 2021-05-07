@@ -13,6 +13,7 @@ export const timerBox = [
     transition: ".3s ease",
     media: {
       "(min-width:500px)": { fontSize: "2rem" },
+      "(max-width:500px)": { fontSize: "1rem" },
     },
   }),
 ].join(" ");

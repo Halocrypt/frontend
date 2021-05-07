@@ -25,9 +25,10 @@ import { Form } from "@/components/Form";
 import { IQuestion } from "@/interfaces";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { NextIcon } from "@/components/Icons/Next";
+import { NotificationCount } from "../Notifications/NotificationCount";
 import { QuestionContent } from "./Question";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
-import { Timer } from "../Landing/Timer/Timer";
+import { Timer } from "@/components/Timer/Timer";
 import { answerInput } from "@/Form.style";
 import { answer as answerQuestion } from "@/packages/halo-api/play";
 import { center } from "@/style";
@@ -98,18 +99,21 @@ function Question() {
   const [gameOver, setGameOver] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const { notifCount, markRead } = useNotifCount();
-  function resetErrors() {
+  function _reset() {
     clearError();
+    setAnswerError(null);
     setAnswer(null);
+  }
+  function resetErrors() {
+    _reset();
     focus();
   }
   function clearStateAndFetchNextQuestion() {
     clearQuestion();
+    _reset();
     window.scroll(0, 0);
     fetchQuestion(true);
     setMessage(null);
-    setAnswerError(null);
-    clearError();
     clearPrev();
   }
   if (error) return <div>{error}</div>;
@@ -149,14 +153,7 @@ function Question() {
   }
   return (
     <section class={playSection}>
-      {notifCount > 0 && (
-        <Snackbar
-          message="You have new notifications"
-          onClose={markRead}
-          onButtonClick={() => loadURL("/play/notifications")}
-          buttonText="Open"
-        />
-      )}
+      <NotificationCount />
       <Snackbar message={answerError} onClose={resetErrors} isError />
       <Snackbar message={error} onClose={resetErrors} isError />
       <Snackbar

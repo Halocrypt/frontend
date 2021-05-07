@@ -1,11 +1,10 @@
-import { A, useState } from "@hydrophobefireman/ui-lib";
+import { A, useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
 import { get, set } from "@hydrophobefireman/flask-jwt-jskit";
 
 import { EVENT } from "@/util/constants";
 import { INotification } from "@/interfaces";
 import { getNotifications } from "@/packages/halo-api/play";
 import { useInterval } from "@/hooks/use-interval";
-import { useMount } from "@/hooks/use-mount";
 import { useResource } from "@/hooks/use-resource";
 
 const key = "halo.last_notification_ts";
@@ -17,25 +16,40 @@ export function markNotifAsSeen(n: INotification) {
     set(key, n.ts);
   }
 }
+
 export function useNotifCount() {
+  const [shouldShow, count, closeNotif] = useShouldShowNotif();
+
+  return {
+    notifCount: shouldShow ? count : 0,
+    markRead: closeNotif,
+  };
+}
+
+export function getLatestNotif(notifs: INotification[]) {
+  return notifs && notifs.sort((a, b) => b.ts - a.ts)[0];
+}
+
+function useShouldShowNotif() {
   const {
     resp: notifs,
     fetchResource: fetchNotifs,
   } = useResource(getNotifications, [EVENT]);
-  const [lastTs, setLastTs] = useState(null);
+
+  const timeout = useRef<any>();
+  const [show, setShow] = useState(false);
+  const [count, setCount] = useState(0);
 
   function markRead() {
     const latest = getLatestNotif(notifs);
-    markNotifAsSeen(latest);
     if (latest) {
-      setLastTs(latest.ts);
+      markNotifAsSeen(latest);
     }
   }
-
-  useMount(async () => {
-    const ts = await getLastTs();
-    setLastTs(ts);
-  });
+  function close() {
+    setShow(false);
+    markRead();
+  }
   useInterval(() => {
     if (document.visibilityState === "visible") {
       fetchNotifs(true);
@@ -43,13 +57,15 @@ export function useNotifCount() {
       console.log("hidden");
     }
   }, 5000);
-  if (!notifs) return { notifCount: 0, markRead };
-  const notifCount =
-    lastTs != null ? notifs.filter((x) => x.ts > lastTs).length : 0;
-
-  return { notifCount, markRead };
-}
-
-export function getLatestNotif(notifs: INotification[]) {
-  return notifs && notifs.sort((a, b) => b.ts - a.ts)[0];
+  useEffect(async () => {
+    const latest = await getLastTs();
+    const curr = getLatestNotif(notifs);
+    if (!curr) return;
+    if (latest >= curr.ts) return;
+    clearTimeout(timeout.current);
+    timeout.current = setTimeout(close, 5000);
+    setShow(true);
+    setCount(notifs.filter((x) => x.ts > latest).length);
+  }, [notifs]);
+  return [show, count, close] as const;
 }

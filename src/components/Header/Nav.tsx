@@ -22,9 +22,15 @@ export function Nav({ path }: { path: string }) {
       <NavLink href={isLoggedIn ? `/u/${user.user}` : "/u/me"} path={path}>
         Profile
       </NavLink>
-      <NavLink href="/rules" path={path}>
-        Rules
-      </NavLink>
+      {path == "/play" ? (
+        <NavLink href="/play/notifications" path={path}>
+          Notifications
+        </NavLink>
+      ) : (
+        <NavLink href="/rules" path={path}>
+          Rules
+        </NavLink>
+      )}
       <NavLink href="/leaderboard" path={path}>
         Leaderboard
       </NavLink>
@@ -92,9 +98,15 @@ export function MobileNav({ path }: { path: string }) {
       <MobileLink href="/" path={path}>
         Home
       </MobileLink>
-      <MobileLink href="/rules" path={path}>
-        Rules
-      </MobileLink>
+      {path === "/play" ? (
+        <MobileLink href="/play/notifications" path={path}>
+          Notifications
+        </MobileLink>
+      ) : (
+        <MobileLink href="/rules" path={path}>
+          Rules
+        </MobileLink>
+      )}
       <MobileLink href="/leaderboard" path={path}>
         Leaderboard
       </MobileLink>

@@ -4,7 +4,7 @@ import { Actions } from "./Actions/Actions";
 import { Footer } from "./Footer/Footer";
 import { Hero } from "@/pages/Landing/Hero/Hero";
 import { HuntInfo } from "./HuntInfo/HuntInfo";
-import { Timer } from "./Timer/Timer";
+import { Timer } from "@/components/Timer/Timer";
 import { css } from "catom";
 import { eventAtom } from "@/state";
 import { glassLink } from "@/style";
