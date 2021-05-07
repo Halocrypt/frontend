@@ -44,7 +44,7 @@ const navLinkBase = css({
 });
 
 export const navLink = [navLinkBase, hoverable].join(" ");
-
+export const notifLink = [navLink, css({ color: "var(--fg)" })].join(" ");
 const _navMovBase = css({
   margin: "1rem",
   fontWeight: "bold",

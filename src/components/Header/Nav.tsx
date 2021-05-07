@@ -4,6 +4,7 @@ import {
   navLink,
   navLinkMobile,
   navLinkMobileActive,
+  notifLink,
 } from "./Header.style";
 
 import { A } from "@hydrophobefireman/ui-lib";
@@ -23,11 +24,7 @@ export function Nav({ path }: { path: string }) {
         Profile
       </NavLink>
       {path == "/play" ? (
-        <NavLink
-          href="/play/notifications"
-          path={path}
-          className={css({ color: "var(--fg)" })}
-        >
+        <NavLink href="/play/notifications" path={path} className={notifLink}>
           Notifications
         </NavLink>
       ) : (
@@ -103,11 +100,7 @@ export function MobileNav({ path }: { path: string }) {
         Home
       </MobileLink>
       {path === "/play" ? (
-        <MobileLink
-          href="/play/notifications"
-          path={path}
-          className={css({ color: "var(--fg)" })}
-        >
+        <MobileLink href="/play/notifications" path={path}>
           Notifications
         </MobileLink>
       ) : (
