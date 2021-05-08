@@ -1,5 +1,5 @@
 export const raf = window.requestAnimationFrame
   ? function (cb: FrameRequestCallback) {
-      requestAnimationFrame(cb);
+      requestAnimationFrame(() => requestAnimationFrame(cb));
     }
   : setTimeout;

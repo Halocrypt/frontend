@@ -37,7 +37,6 @@ import { css } from "catom";
 import { eventAtom } from "@/state";
 import { useAuthGuard } from "@/hooks/use-auth-guard";
 import { useAuthState } from "@/bridge";
-import { useNotifCount } from "../../hooks/use-notifications";
 import { usePreviousAttempts } from "./use-previous-attempts";
 import { useRerender } from "@/hooks/use-rerender";
 import { useSharedStateValue } from "statedrive";
@@ -98,7 +97,6 @@ function Question() {
   const [answerError, setAnswerError] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const { notifCount, markRead } = useNotifCount();
   function _reset() {
     clearError();
     setAnswerError(null);
