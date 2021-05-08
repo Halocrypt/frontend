@@ -1,19 +1,17 @@
 // javascript is supported
 import "./App.css";
 
-import { EVENT, IS_INTRA } from "./util/constants";
-
+import { EVENT } from "./util/constants";
 import { Header } from "./components/Header/Header";
-import { Intra } from "./components/_Messages/Intra";
 import { Motion } from "@hydrophobefireman/ui-anim";
 import { RouteLoader } from "./components/RouteLoader";
 import { UpdateNudgeSnackbar } from "./components/UpdateNudge/UpdateNudge";
+import { importCurrentRoute } from "./routes/import-current";
 import { render } from "@hydrophobefireman/ui-lib";
 import { useCredsCheck } from "./hooks/use-creds-check";
 import { useEvent } from "./hooks/use-event";
 
 function App() {
-  // if (IS_INTRA) return <Intra />;
   const checked = useCredsCheck();
   const [event, error] = useEvent(EVENT);
   if (error) return <div>{error}</div>;
@@ -29,5 +27,5 @@ function App() {
     </Motion>
   );
 }
-
+importCurrentRoute();
 render(<App />, document.getElementById("app-mount"));

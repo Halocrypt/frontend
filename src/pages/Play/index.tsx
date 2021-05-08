@@ -1,10 +1,4 @@
-import {
-  A,
-  loadURL,
-  redirect,
-  useRef,
-  useState,
-} from "@hydrophobefireman/ui-lib";
+import { A, redirect, useRef, useState } from "@hydrophobefireman/ui-lib";
 import { DISCORD_URL, EVENT, TWITTER_URL } from "@/util/constants";
 import {
   answerButton,
