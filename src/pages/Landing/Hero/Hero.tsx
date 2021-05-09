@@ -12,7 +12,7 @@ export function Hero() {
       <div class={landingContentWrap}>
         <h1 class={landingHeading}>
           {IS_INTRA
-            ? "Halocrypt Intra is over.. but you can still play"
+            ? "Halocrypt Intra is over. Thanks for playing"
             : "The cryptic hunt is back, bigger, better and ztccugpf"}
         </h1>
       </div>

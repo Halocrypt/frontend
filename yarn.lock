@@ -956,12 +956,13 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/j-utils/-/j-utils-2.1.7.tgz#a2f27827483d8b7a59e325acd85528f9204f4be4"
   integrity sha512-XEIl3/eQCUPPSPEdH8oy4AHoNhktOZ/hIF0+iBvlYrCHKmjZbrVEKUzRS/tiJ60kRdGEqlaaFd8dkOp48PQFkQ==
 
-"@hydrophobefireman/module-nomodule@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/module-nomodule/-/module-nomodule-1.0.2.tgz#06a0fe910f434d3fb15c30be581ba5765256a4a3"
-  integrity sha512-dCGyL47ddzk1oZD2lvnA6Lg6wNYgl4WX518sIvspetIsrwC3Mh0UY6rktwjpWicLIHO3sXQUGCwxVrh/1lfocw==
+"@hydrophobefireman/module-nomodule@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/module-nomodule/-/module-nomodule-2.0.0.tgz#39ddc9517e2e2f715a80a1905ef036fd17c448ab"
+  integrity sha512-pJzFZxabqgy7B9abDOa+qIcZhlxRdekPT3DvwSqUExriAkSAWTDgDpJyjvO/OyeLW9YT2Gdyec0Zz7SwiKu/kw==
   dependencies:
     fs-extra "9.0.1"
+    node-fetch "^2.6.1"
 
 "@hydrophobefireman/qwc@^0.0.6":
   version "0.0.6"
@@ -1884,10 +1885,10 @@ core-js-pure@^3.0.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.11.2.tgz#10e3b35788c00f431bc0d601d7551475ec3e792c"
   integrity sha512-DQxdEKm+zFsnON7ZGOgUAQXBt1UJJ01tOzN/HgQ7cNf0oEHW1tcBLfCQQd1q6otdLu5gAdvKYxKHAoXGwE/kiQ==
 
-core-js@^3.12.0:
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.12.0.tgz#62bac86f7d7f087d40dba3e90a211c2c3c8559ea"
-  integrity sha512-SaMnchL//WwU2Ot1hhkPflE8gzo7uq1FGvUJ8GKmi3TOU7rGTHIU+eir1WGf6qOtTyxdfdcp10yPdGZ59sQ3hw==
+core-js@^3.12.1:
+  version "3.12.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.12.1.tgz#6b5af4ff55616c08a44d386f1f510917ff204112"
+  integrity sha512-Ne9DKPHTObRuB09Dru5AjwKjY4cJHVGu+y5f7coGn1E9Grkc3p2iBwE9AI/nJzsE29mQF7oq+mhYYRqOMFN1Bw==
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -3947,6 +3948,11 @@ no-case@^3.0.4:
   dependencies:
     lower-case "^2.0.2"
     tslib "^2.0.3"
+
+node-fetch@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-forge@^0.10.0:
   version "0.10.0"

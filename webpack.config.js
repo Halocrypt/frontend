@@ -17,7 +17,7 @@ const { EnvironmentPlugin } = require("webpack");
 const injectTs = require("./scripts/latest-ts");
 
 injectTs.inject();
-const { outputDir, staticFilePrefix, inlineCSS, enableCatom } = uiConfig;
+const { outputDir, staticFilePrefix, inlineCSS, enableCatom, fonts } = uiConfig;
 
 function prodOrDev(a, b) {
   return isProd ? a : b;
@@ -167,7 +167,10 @@ function getCfg(isLegacy) {
       isProd &&
         new OptimizeCSSAssetsPlugin({ cssProcessor: require("cssnano")() }),
       isProd && inlineCSS && new HTMLInlineCSSWebpackPlugin({}),
-      new WebpackModuleNoModulePlugin(isLegacy ? "legacy" : "modern"),
+      new WebpackModuleNoModulePlugin({
+        mode: isLegacy ? "legacy" : "modern",
+        fonts,
+      }),
       new EnvironmentPlugin({ IS_INTRA: false }),
     ].filter(Boolean),
   };
