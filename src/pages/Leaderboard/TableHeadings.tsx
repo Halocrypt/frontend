@@ -3,11 +3,11 @@ import { tALeft } from "@/style";
 
 export function TableHeadings() {
   return (
-    <div class={leaderboardHeading}>
-      <div>Rank</div>
-      <div class={tALeft}>Username</div>
-      <div>Level</div>
-      <div>Points</div>
-    </div>
+    <th class={leaderboardHeading}>
+      <td>Rank</td>
+      <td class={tALeft}>Username</td>
+      <td>Level</td>
+      <td>Points</td>
+    </th>
   );
 }

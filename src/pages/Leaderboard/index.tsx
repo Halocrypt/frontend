@@ -40,6 +40,7 @@ export default function Leaderboard() {
             dualButtons={true}
             atOnce={100}
             items={users}
+            elementName="table"
             render={(user, i) => (
               <UserRenderer user={user} i={i} currentUser={currentUser} />
             )}

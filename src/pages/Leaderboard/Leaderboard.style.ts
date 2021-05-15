@@ -40,6 +40,7 @@ export const leaderboardEntry = css({
   display: "grid",
   gridTemplateColumns: "1fr 2fr 1fr 1fr",
   textAlign: "center",
+  wordBreak: "break-all",
 });
 export const leaderboardEntryEven = [
   leaderboardEntry,
@@ -58,6 +59,7 @@ export const listWrapperClass = css({
   borderRadius: "15px",
   overflow: "hidden",
   fontWeight: "bold",
+  width: "100%",
 });
 
 export const tableContainer = [

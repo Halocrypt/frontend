@@ -19,11 +19,12 @@ interface PaginateProps<T> {
   buttonClass?: string;
   beforeList?: any;
   listWrapperClass?: string;
+  elementName?: string;
   buttonRender?(
     prev: () => void,
     next: () => void,
     obj: { hasPrev: boolean; hasMore: boolean; isFirst: boolean }
-  );
+  ): any;
 }
 export function Paginate<T>({
   atOnce,
@@ -40,6 +41,7 @@ export function Paginate<T>({
   beforeList,
   listWrapperClass,
   buttonRender,
+  elementName,
 }: PaginateProps<T>) {
   const itemLength = items.length;
   const [index, setIndex] = useState(0);
@@ -75,16 +77,16 @@ export function Paginate<T>({
       </button>
     </div>
   );
-
+  const El: any = elementName || "div";
   return (
     <div class={containerClass}>
       {buttonRender
         ? buttonRender(prev, next, { hasMore, hasPrev, isFirst: true })
         : buttons}
-      <div class={listWrapperClass}>
+      <El class={listWrapperClass}>
         {beforeList}
         {list}
-      </div>
+      </El>
       {dualButtons && buttonRender
         ? buttonRender(prev, next, { hasMore, hasPrev, isFirst: false })
         : buttons}

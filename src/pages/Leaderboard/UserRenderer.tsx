@@ -15,22 +15,22 @@ export function UserRenderer({
   currentUser: IUser;
 }) {
   return (
-    <div
+    <tr
       data-rank={(user as any).rank}
       data-index={i}
       class={i % 2 ? leaderboardEntry : leaderboardEntryEven}
     >
-      <div>
+      <td>
         <IconRenderer user={user} />
-      </div>
-      <div class={tALeft}>
+      </td>
+      <td class={tALeft}>
         <A href={`/u/${user.user}`}>
           {user.user}{" "}
           {currentUser && currentUser.user == user.user && "( You )"}
         </A>
-      </div>
-      <div>{user.level}</div>
-      <div>{user.points}</div>
-    </div>
+      </td>
+      <td>{user.level}</td>
+      <td>{user.points}</td>
+    </tr>
   );
 }
