@@ -10,6 +10,7 @@ export const profileHeading = css({
   fontSize: "2.5rem",
   display: "inline-flex",
   alignItems: "center",
+  wordBreak:"break-all",
   media: {
     "(max-width:500px)": { flexDirection: "column", fontSize: "1.5rem" },
   },
