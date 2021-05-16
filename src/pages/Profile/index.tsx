@@ -88,7 +88,10 @@ function ProfileRenderer({
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(_secure_.email);
   const emailVerified = _secure_.has_verified_email;
+  const accountCreatedAt = user.created_at * 1000;
+  const lastQuestionAnsweredAt = user.last_question_answered_at * 1000;
   const [institution, setInstitution] = useState(_secure_.institution);
+
   const [loading, setLoading] = useState(false);
   const unsavedChanges =
     name !== user.name ||
@@ -171,6 +174,24 @@ function ProfileRenderer({
               disabled={disableEditing}
             />
           </>
+        )}
+        <AnimatedInput
+          disabled
+          labelText="Account Created At"
+          data-ts={accountCreatedAt}
+          value={new Date(accountCreatedAt).toLocaleString()}
+          onInput={null}
+          wrapperClass={inputMargin}
+        />
+        {user.level > 0 && (
+          <AnimatedInput
+            disabled
+            data-ts={lastQuestionAnsweredAt}
+            labelText="Level Solved At"
+            value={new Date(lastQuestionAnsweredAt).toLocaleString()}
+            onInput={null}
+            wrapperClass={inputMargin}
+          />
         )}
         <SaveButton unsavedChanges={unsavedChanges} />
       </Form>
