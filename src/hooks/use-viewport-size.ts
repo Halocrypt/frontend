@@ -1,5 +1,5 @@
-import { useState } from "@hydrophobefireman/ui-lib";
 import { useMount } from "./use-mount";
+import { useState } from "@hydrophobefireman/ui-lib";
 
 const getDimensions = (): [number, number] => [
   window.innerHeight,
@@ -9,7 +9,7 @@ export function useViewportSize(): [number, number] {
   const [dimensions, setDimensions] = useState(getDimensions);
   useMount(() => {
     const callback = () => setDimensions(getDimensions);
-    addEventListener("resize", callback);
+    addEventListener("resize", callback, { passive: true });
     return () => removeEventListener("resize", callback);
   });
 

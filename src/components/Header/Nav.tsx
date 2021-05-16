@@ -56,6 +56,7 @@ interface NavLinkProps {
   children?: any;
   className?: string;
   hideonActive?: boolean;
+  close?(): void;
 }
 export function NavLink({
   path,
@@ -91,30 +92,38 @@ export function NavLink({
   );
 }
 
-export function MobileNav({ path }: { path: string }) {
+export function MobileNav({ path, close }: { path: string; close(): void }) {
   const [user] = useAuthState();
   const isLoggedIn = !!(user && user.user);
   return (
     <nav class={mobileNav}>
-      <MobileLink href="/" path={path}>
+      <MobileLink href="/" path={path} close={close}>
         Home
       </MobileLink>
       {path === "/play" ? (
-        <MobileLink href="/play/notifications" path={path}>
+        <MobileLink href="/play/notifications" path={path} close={close}>
           Notifications
         </MobileLink>
       ) : (
-        <MobileLink href="/rules" path={path}>
+        <MobileLink href="/rules" path={path} close={close}>
           Rules
         </MobileLink>
       )}
-      <MobileLink href="/leaderboard" path={path}>
+      <MobileLink href="/leaderboard" path={path} close={close}>
         Leaderboard
       </MobileLink>
-      <MobileLink href={isLoggedIn ? `/u/${user.user}` : "/u/me"} path={path}>
+      <MobileLink
+        href={isLoggedIn ? `/u/${user.user}` : "/u/me"}
+        path={path}
+        close={close}
+      >
         Profile
       </MobileLink>
-      <MobileLink href={isLoggedIn ? "/play" : "/login"} path={path}>
+      <MobileLink
+        href={isLoggedIn ? "/play" : "/login"}
+        path={path}
+        close={close}
+      >
         {isLoggedIn ? "Play" : "Login"}
       </MobileLink>
       <SocialLinks className={center} />
@@ -122,10 +131,14 @@ export function MobileNav({ path }: { path: string }) {
   );
 }
 
-function MobileLink({ href, children, path }: NavLinkProps) {
+function MobileLink({ href, children, path, close }: NavLinkProps) {
   const active = href === path;
   return (
-    <A href={href} class={active ? navLinkMobileActive : navLinkMobile}>
+    <A
+      href={href}
+      class={active ? navLinkMobileActive : navLinkMobile}
+      onClick={close}
+    >
       {children}
     </A>
   );

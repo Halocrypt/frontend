@@ -68,7 +68,7 @@ function MobileHeader({ path }: { path: string }) {
       </header>
       {active && (
         <>
-          <MobileNav path={path} />
+          <MobileNav path={path} close={toggle} />
           <div
             class={mask}
             onClick={toggle}
