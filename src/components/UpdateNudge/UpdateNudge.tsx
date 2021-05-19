@@ -5,10 +5,12 @@ import { Snackbar } from "../Snackbar/Snackbar";
 import { useInterval } from "@/hooks/use-interval";
 
 const key = "halo.web.version";
-function getVersion(): Promise<number> {
-  return get(key);
+async function getVersion() {
+  const ret: number = await get(key);
+  return ret || 0;
 }
 function setVersion(val: any) {
+  console.log("[VersionUpdater] Fetched a new version:", val);
   return set(key, val);
 }
 export function useLatestVersion(cancelled: boolean) {
@@ -22,7 +24,7 @@ export function useLatestVersion(cancelled: boolean) {
       if (currentVersion.current == null) {
         const prevVersion = await getVersion();
         currentVersion.current = Math.max(prevVersion, ts);
-        if (prevVersion < ts) setVersion(ts);
+        if (ts > prevVersion) setVersion(ts);
         return;
       }
       if (ts > currentVersion.current) {
