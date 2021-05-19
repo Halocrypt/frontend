@@ -9,7 +9,9 @@ export function useLatestVersion(cancelled: boolean) {
   useInterval(
     async () => {
       if (document.visibilityState === "hidden") return;
-      const version = await (await fetch("/__version__.json")).json();
+      const version = await (
+        await fetch("/__version__.json?_vercel_no_cache=1")
+      ).json();
       const { ts } = version;
       if (currentVersion.current == null) {
         currentVersion.current = ts;
