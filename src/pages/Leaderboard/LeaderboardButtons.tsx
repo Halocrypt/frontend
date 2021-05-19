@@ -6,6 +6,7 @@ import {
   paginateButtonInactive,
   prevIcon,
 } from "./Leaderboard.style";
+import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { AnimatedInput } from "@/components/AnimatedInput";
 import { ButtonRenderObj } from "@/components/Paginate/Paginate";
@@ -27,10 +28,11 @@ export function LeaderboardButtons({
   prev,
   buttonOptions,
   next,
-  search,
-  setSearch,
   userLength,
+  ...props
 }: ButtonProps) {
+  const [search, setSearch] = useState(props.search);
+  useEffect(() => props.setSearch(search), [search]);
   const { hasMore, isFirst, hasPrev } = buttonOptions;
   const buttons = (
     <div class={tARight}>
