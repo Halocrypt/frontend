@@ -68,13 +68,8 @@ export default function Play() {
 
 function Question() {
   const [user, setUser] = useAuthState();
-  const {
-    question,
-    error,
-    fetchQuestion,
-    clearError,
-    clearQuestion,
-  } = useQuestion(user, setUser);
+  const { question, error, fetchQuestion, clearError, clearQuestion } =
+    useQuestion(user, setUser);
 
   const [answer, setAnswer] = useState("");
   const ref = useRef<HTMLInputElement>();
@@ -84,9 +79,11 @@ function Question() {
   function blur() {
     ref.current && ref.current.blur();
   }
-  const { prev, add: addPrev, clear: clearPrev } = usePreviousAttempts(
-    question && (question as IQuestion).question_number
-  );
+  const {
+    prev,
+    add: addPrev,
+    clear: clearPrev,
+  } = usePreviousAttempts(question && (question as IQuestion).question_number);
   const [message, setMessage] = useState(null);
   const [answerError, setAnswerError] = useState(null);
   const [gameOver, setGameOver] = useState(false);
@@ -108,8 +105,8 @@ function Question() {
     setMessage(null);
     clearPrev();
   }
-  if (error) return <div>{error}</div>;
-  if (!question) return <div>Loading..</div>;
+  if (error) return <div class={playSection}>{error}</div>;
+  if (!question) return <div class={playSection}>Loading..</div>;
   if ("game_over" in question || gameOver) {
     return (
       <section class={playSection}>

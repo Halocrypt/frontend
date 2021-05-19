@@ -20,9 +20,11 @@ export function Nav({ path }: { path: string }) {
   const isLoggedIn = !!(user && user.user);
   return (
     <nav class={flex}>
-      <NavLink href={isLoggedIn ? `/u/${user.user}` : "/u/me"} path={path}>
-        Profile
-      </NavLink>
+      {isLoggedIn && (
+        <NavLink href={`/u/${user.user}`} path={path}>
+          Profile
+        </NavLink>
+      )}
       {path == "/play" ? (
         <NavLink href="/play/notifications" path={path} className={notifLink}>
           Notifications
@@ -112,13 +114,11 @@ export function MobileNav({ path, close }: { path: string; close(): void }) {
       <MobileLink href="/leaderboard" path={path} close={close}>
         Leaderboard
       </MobileLink>
-      <MobileLink
-        href={isLoggedIn ? `/u/${user.user}` : "/u/me"}
-        path={path}
-        close={close}
-      >
-        Profile
-      </MobileLink>
+      {isLoggedIn && (
+        <MobileLink href={`/u/${user.user}`} path={path} close={close}>
+          Profile
+        </MobileLink>
+      )}
       <MobileLink
         href={isLoggedIn ? "/play" : "/login"}
         path={path}
