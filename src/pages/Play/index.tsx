@@ -92,6 +92,7 @@ function Question() {
     clearError();
     setAnswerError(null);
     setAnswer(null);
+    setMessage(null);
   }
   function resetErrors() {
     _reset();
@@ -102,7 +103,6 @@ function Question() {
     _reset();
     window.scroll(0, 0);
     fetchQuestion(true);
-    setMessage(null);
     clearPrev();
   }
   if (error) return <div class={playSection}>{error}</div>;
@@ -143,10 +143,8 @@ function Question() {
   return (
     <section class={playSection}>
       <NotificationCount />
-      <Snackbar message={answerError} onClose={resetErrors} isError />
-      <Snackbar message={error} onClose={resetErrors} isError />
       <Snackbar
-        message={message}
+        message={answerError || error ? null : message}
         onClose={() => {
           if (!isLoading) {
             setMessage(null);
@@ -154,6 +152,8 @@ function Question() {
           }
         }}
       />
+      <Snackbar message={answerError} onClose={resetErrors} isError />
+      <Snackbar message={error} onClose={resetErrors} isError />
       <h1 class={questionHeading}>
         Level {question.question_number} - {question.question_points} Points
       </h1>

@@ -26,17 +26,7 @@ export function Footer() {
         viewBox="0 0 300 300"
       >
         <foreignObject x={0} y={0} width="100%" height="100%">
-          <span
-            class={css({
-              cursor: "default",
-              media: {
-                "(min-width:600px)": {
-                  userSelect: "none",
-                  pointerEvents: "none",
-                },
-              },
-            })}
-          >
+          <span>
             ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙ ⠙⠕⠏⠙ ⠗⠃⠧⠝⠗⠤⠼⠉⠤⠼⠁
             . ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙ ⠙⠕⠏⠙
             ⠗⠃⠧⠝⠗⠤⠼⠉⠤⠼⠁ . ⠁⠓⠏ ⠑⠃⠊⠝⠽ ⠊⠗⠵⠅⠥ ⠋⠵⠇ ⠲⠟⠥⠭⠙⠵ ⠕⠛⠎⠽ ⠞⠎⠎ ⠎⠁⠅⠍ ⠅⠕⠗ ⠕⠥⠸⠌⠙

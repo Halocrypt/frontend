@@ -1,12 +1,15 @@
 import { formContainer, themeSubmitButton } from "@/Form.style";
 import { useRoute, useState } from "@hydrophobefireman/ui-lib";
 
+import { IUser } from "@/interfaces";
+import { Object_assign } from "@hydrophobefireman/j-utils";
 import { css } from "catom";
 import { sendVerificationEmailToken } from "@/packages/halo-api/user";
-import { useMount } from "@/hooks/use-mount";
+import { useAuthState } from "@/bridge";
 
 export default function ConfirmEmail() {
   const { search } = useRoute();
+  const [user, setUser] = useAuthState();
   const token = search.get("token");
   const [message, setMessage] = useState("HI, Click the button to proceed");
   const [loading, setLoading] = useState(false);
@@ -18,7 +21,11 @@ export default function ConfirmEmail() {
     const { error } = await result;
     if (error)
       return setMessage("An error occured (" + error + "). Try again later?");
+
     setMessage("Thanks for verifying");
+    const u: IUser = Object_assign({ _secure_: {} }, user);
+    u._secure_.has_verified_email = true;
+    setUser(u);
   }
   if (!token) return <div>ok..?</div>;
   return (

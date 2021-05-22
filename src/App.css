@@ -30,11 +30,15 @@ body {
 #app-mount {
   flex: 1;
 }
-[vercel-footer] {
+[sponsor-footer] {
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+[sponsor-image] {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 button {
   cursor: pointer;

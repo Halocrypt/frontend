@@ -27,4 +27,11 @@ export const svgContainer = css({
   opacity: ".1",
   maxWidth: "80vw",
   maxHeight: "300px",
+  cursor: "default",
+  media: {
+    "(min-width:600px)": {
+      userSelect: "none",
+      pointerEvents: "none",
+    },
+  },
 });
