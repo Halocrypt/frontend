@@ -66,7 +66,7 @@ function Faq() {
             <ul>
               <li>Winner - 12,000 INR (customizable)</li>
               <li>Runner Up - 7000 INR (customizable)</li>
-              <li>Runner Up - 7000 INR (customizable)</li>
+              <li>Second Runner Up - 5000 INR (customizable)</li>
               <li>4,5,6 - Netflix</li>
               <li>4th to 8th positions - Nord accounts</li>
               <li>Rank 5 - 25 - Replit Pro (6 Months)</li>
