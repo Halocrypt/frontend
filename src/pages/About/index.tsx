@@ -12,6 +12,7 @@ import {
 import { Link } from "@/components/ExtLink/ExtLink";
 import { css } from "catom";
 import { useMount } from "@/hooks/use-mount";
+import { useViewportSize } from "@/hooks/use-viewport-size";
 
 export default function About() {
   useMount(() => {
@@ -19,6 +20,7 @@ export default function About() {
     footer.style.display = "none";
     return () => (footer.style.display = "");
   });
+  const [, width] = useViewportSize();
   return (
     <>
       <section class={section}>
@@ -72,7 +74,7 @@ export default function About() {
           />
         </div>
         <div class={imgContainer}>
-          <div>
+          <div class={css({ media: { "(max-width:700px)": { flex: 1 } } })}>
             <ImgLink
               link="https://studymetro.com"
               alt="Image of Halocrypt Sponsor Study Metro"
