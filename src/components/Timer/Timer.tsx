@@ -28,7 +28,7 @@ function parseTime(timeLeft: number, onlyTime: boolean) {
   _left = Math.floor(_left % secInAMin);
   const sec = _left;
 
-  if (sec > 3.5 || onlyTime) {
+  if (Math.floor(inSeconds) > 3.5 || onlyTime) {
     return {
       days,
       hours,
