@@ -2,7 +2,7 @@ import { css } from "catom";
 
 export const content = css({
   width: "80%",
-  maxWidth: "50ch",
+  maxWidth: "70ch",
   padding: "2rem",
   margin: "auto",
 });

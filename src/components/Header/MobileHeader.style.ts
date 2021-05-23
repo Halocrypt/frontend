@@ -14,7 +14,7 @@ export const mobileHeader = css({
 
 export const mobileNav = css({
   width: "75%",
-  maxWidth: "400px",
+  maxWidth: "500px",
   padding: "2rem",
   background: "#292737",
   zIndex: 6,

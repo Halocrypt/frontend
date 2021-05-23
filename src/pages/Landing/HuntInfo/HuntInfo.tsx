@@ -10,7 +10,6 @@ import {
 } from "./HuntInfo.style";
 
 import { AnchorIcon } from "@/components/Icons/Anchor";
-import { DeclarativeTransform } from "@hydrophobefireman/ui-anim";
 import { FaqIcon } from "./FaqIcon";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { copy } from "@/util/copy";
@@ -22,11 +21,15 @@ export function HuntInfo() {
   return (
     <div class={css({ marginTop: "1rem" })}>
       <InfoCard />
+      <About />
       <Faq />
     </div>
   );
 }
 
+function About() {
+  return <section id="about" class={content}></section>;
+}
 function InfoCard() {
   return (
     <section class={infoCardGradient}>
@@ -60,23 +63,15 @@ function Faq() {
         <FaqItem
           question="What are the prizes?"
           answer={
-            IS_INTRA ? (
-              "This is Halocrypt (intra), check the FAQ below for more details"
-            ) : (
-              <>
-                <p>
-                  Looks like you are here way too early, prizes haven't been
-                  declared yet, but we'll be sure to let you know
-                </p>
-                <p>
-                  in the meantime, check out our{" "}
-                  <Link href={DISCORD_URL} class={extLink}>
-                    Discord
-                  </Link>{" "}
-                  for the latest updates
-                </p>
-              </>
-            )
+            <ul>
+              <li>Winner - 12,000 INR (customizable)</li>
+              <li>Runner Up - 7000 INR (customizable)</li>
+              <li>Runner Up - 7000 INR (customizable)</li>
+              <li>4,5,6 - Netflix</li>
+              <li>4th to 8th positions - Nord accounts</li>
+              <li>Rank 5 - 25 - Replit Pro (6 Months)</li>
+              <li>TOP 300 - Replit Pro Accounts (1 Month)</li>
+            </ul>
           }
         />
         {IS_INTRA && (
@@ -149,7 +144,6 @@ function Faq() {
   );
 }
 
-const snapshot = new DeclarativeTransform({ translateY: -40 });
 function FaqItem({ question, answer }: { question: any; answer: any }) {
   const [active, setActive] = useState(false);
 

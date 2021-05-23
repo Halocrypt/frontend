@@ -15,7 +15,7 @@ export function Header() {
   const { path } = useLocation();
   const [, width] = useViewportSize();
   const isWideScreen = IS_INTRA ? width > 860 : width > 800;
-  const isMobile = width < 650;
+  const isMobile = width < 770;
   if (isMobile) return <MobileHeader path={path} />;
   return <DesktopHeader path={path} isWideScreen={isWideScreen} />;
 }

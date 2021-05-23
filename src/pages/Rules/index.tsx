@@ -6,7 +6,7 @@ import { css } from "catom";
 import { eventAtom } from "@/state";
 import { tFix } from "@/util/t-fix";
 import { useSharedStateValue } from "statedrive";
-const underline = css({ textDecoration: "underline" });
+const ruleLink = css({ textDecoration: "underline", fontWeight: "bold" });
 const listItem = css({
   marginTop: "1rem",
   marginBottom: "1rem",
@@ -16,6 +16,7 @@ export default function Rules() {
   const event = useSharedStateValue(eventAtom);
   if (!event) return <div>Loading event details</div>;
   const start = new Date(event.event_start_time * 1000);
+  const end = new Date(event.event_end_time * 1000);
   return (
     <section class={[center, css({ padding: "1rem", maxWidth: "80ch" })]}>
       <h1 class={css({ fontSize: "2.5rem", marginTop: "2rem" })}>Rules</h1>
@@ -30,8 +31,14 @@ export default function Rules() {
         })}
       >
         <li class={listItem}>
-          Hunt will begin at {start.toDateString()}, {tFix(start.getHours())}:
-          {tFix(start.getMinutes())}
+          Hunt will begin at
+          {` ${start.toDateString()}, ${tFix(start.getHours())}:${tFix(
+            start.getMinutes()
+          )}`}{" "}
+          and will end at
+          {` ${end.toDateString()}, ${tFix(end.getHours())}:${tFix(
+            end.getMinutes()
+          )}`}
         </li>
         <li class={listItem}>
           Halocrypt is a cryptic hunt, the participant has to make their way
@@ -49,18 +56,18 @@ export default function Rules() {
         <li class={listItem}>
           Besides, hints will be released on our official social media, most
           notably our{" "}
-          <Link class={underline} href={DISCORD_URL}>
+          <Link class={ruleLink} href={DISCORD_URL}>
             Discord Server
           </Link>
           . It's highly recommended that you join it.
         </li>
         <li class={listItem}>
           Halocrypt also has{" "}
-          <A class={underline} href="/play/notifications">
+          <A class={ruleLink} href="/play/notifications">
             Notifications
           </A>{" "}
           Where you will be notified instantly of any updates the admins make
-          while they are on the play page. (These could be clues, hints,
+          while your are on the play page. (These could be clues, hints,
           announcements)
         </li>
         <li class={listItem}>

@@ -16,7 +16,7 @@ export function Actions({ isLoggedIn }: { isLoggedIn: boolean }) {
       )}
       <Link
         class={ytLink}
-        href="https://www.youtube.com/watch?v=xaESGE5SvkQ"
+        href="https://www.youtube.com/watch?v=o0tdRqCipwM"
         title="Halocrypt Trailer"
       >
         <PlayIcon size="1.2rem" />

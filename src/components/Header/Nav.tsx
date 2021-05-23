@@ -1,4 +1,4 @@
-import { center, flex } from "@/style";
+import { flex, tALeft } from "@/style";
 import {
   mainAction,
   navLink,
@@ -20,6 +20,9 @@ export function Nav({ path }: { path: string }) {
   const isLoggedIn = !!(user && user.user);
   return (
     <nav class={flex}>
+      <NavLink href="/about" path={path}>
+        About
+      </NavLink>
       {isLoggedIn && (
         <NavLink href={`/u/${user.user}`} path={path}>
           Profile
@@ -119,6 +122,9 @@ export function MobileNav({ path, close }: { path: string; close(): void }) {
           Profile
         </MobileLink>
       )}
+      <MobileLink href="/about" path={path} close={close}>
+        About
+      </MobileLink>
       <MobileLink
         href={isLoggedIn ? "/play" : "/login"}
         path={path}
@@ -126,7 +132,7 @@ export function MobileNav({ path, close }: { path: string; close(): void }) {
       >
         {isLoggedIn ? "Play" : "Login"}
       </MobileLink>
-      <SocialLinks className={center} />
+      <SocialLinks className={tALeft} />
     </nav>
   );
 }
