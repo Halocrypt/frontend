@@ -11,8 +11,14 @@ import {
 
 import { Link } from "@/components/ExtLink/ExtLink";
 import { css } from "catom";
+import { useMount } from "@/hooks/use-mount";
 
 export default function About() {
+  useMount(() => {
+    const footer = document.querySelector("footer");
+    footer.style.display = "none";
+    return () => (footer.style.display = "");
+  });
   return (
     <>
       <section class={section}>
