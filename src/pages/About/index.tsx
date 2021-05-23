@@ -49,7 +49,7 @@ export default function About() {
           <p>
             The competitor who completes all 50 questions or ends at the top of
             the leaderboard when the event ends, shall be declared as the winner
-            of Halocrypt 2020.
+            of Halocrypt 2021.
           </p>
         </div>
       </section>
