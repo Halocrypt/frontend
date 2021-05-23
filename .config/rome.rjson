@@ -1,0 +1,10 @@
+// For configuration documentation see http://romefrontend.dev/#project-configuration
+name: "k"
+lint: {
+	ignore: [
+		"node_modules/*"
+        "."
+        "!src/"
+]
+}
+root: true
