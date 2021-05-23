@@ -14,7 +14,7 @@ const secInADay = hoursInADay * secInAnHour;
 
 const getTimeLeft = (n: number) => n - +new Date();
 function parseTime(timeLeft: number, onlyTime: boolean) {
-  let _left;
+  let _left: number;
   const inSeconds = timeLeft / 1000;
 
   const days = Math.floor(inSeconds / secInADay);
@@ -26,10 +26,9 @@ function parseTime(timeLeft: number, onlyTime: boolean) {
   const mins = Math.floor(_left / minsInAnHour);
 
   _left = Math.floor(_left % secInAMin);
-
   const sec = _left;
 
-  if (inSeconds > 3.5 || onlyTime) {
+  if (sec > 3.5 || onlyTime) {
     return {
       days,
       hours,

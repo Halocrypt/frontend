@@ -43,7 +43,21 @@ export default function Play() {
   const rerender = useRerender();
   const now = +new Date();
   if (startTime > now)
-    return <Timer target={startTime} onComplete={rerender} />;
+    return (
+      <div class={center}>
+        <Timer target={startTime} onComplete={rerender} />
+        <div class={css({ marginTop: "1rem", fontWeight: "bold" })}>
+          Can't wait? check out{" "}
+          <Link
+            class={css({ textDecoration: "underline" })}
+            href="https://2020.halocrypt.com"
+          >
+            Halocrypt 2020
+          </Link>{" "}
+          in the meanwhile
+        </div>
+      </div>
+    );
   return (
     <>
       <Question />
