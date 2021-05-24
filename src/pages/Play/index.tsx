@@ -38,10 +38,10 @@ import { useSharedStateValue } from "statedrive";
 export default function Play() {
   useAuthGuard("/play");
   const event = useSharedStateValue(eventAtom);
+  const now = +new Date();
   const startTime = event.event_start_time * 1000;
   const endTime = event.event_end_time * 1000;
   const rerender = useRerender();
-  const now = +new Date();
   if (startTime > now)
     return (
       <div class={center}>
