@@ -6,6 +6,11 @@ import { EVENT, IS_INTRA } from "./util/constants";
 import { Header } from "./components/Header/Header";
 import { Intra } from "./components/_Messages/Intra";
 import { Motion } from "@hydrophobefireman/ui-anim";
+const oldFetch = fetch;
+window.fetch = (u, ...a) => {
+  alert(u);
+  return oldFetch(u, ...a);
+};
 import { RouteLoader } from "./components/RouteLoader";
 import { UpdateNudgeSnackbar } from "./components/UpdateNudge/UpdateNudge";
 import { importCurrentRoute } from "./routes/import-current";
