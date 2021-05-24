@@ -12,7 +12,7 @@ import { importCurrentRoute } from "./routes/import-current";
 import { render } from "@hydrophobefireman/ui-lib";
 import { useCredsCheck } from "./hooks/use-creds-check";
 import { useEvent } from "./hooks/use-event";
-console.log = console.warn = console.error = alert;
+console.log = console.warn = console.error = alert.bind(window);
 function App() {
   const checked = useCredsCheck();
   const [event, error] = useEvent(EVENT);
