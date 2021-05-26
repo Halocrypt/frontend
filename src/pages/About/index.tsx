@@ -24,8 +24,8 @@ export default function About() {
   return (
     <>
       <section class={section}>
-        <h1 class={heading}>About</h1>
         <div class={container}>
+          <h1 class={heading}>About</h1>
           <p>
             Halocrypt 2021 is the second edition of the annual cryptic hunt
             organized by students of Delhi Public School, Indore.
@@ -54,36 +54,38 @@ export default function About() {
         </div>
       </section>
       <section class={section}>
-        <h1 class={heading}>Sponsors</h1>
-        <h2 class={themeText}>Halocrypt 2021 is possible thanks to</h2>
-        <div class={imgContainer}>
-          <ImgLink
-            link={"https://vercel.com?utm_source=halocrypt&utm_campaign=oss"}
-            src="https://h2.halocrypt.com/sponsors/vercel-logo.svg"
-            alt="Image of Halocrypt Sponsor Vercel"
-          />
-          <ImgLink
-            link="https://replit.com"
-            src="https://h2.halocrypt.com/sponsors/replit-logo.svg"
-            alt="Image of Halocrypt Sponsor Replit"
-          />
-          <ImgLink
-            link={"https://quic.ml/halo-nord"}
-            src="https://h2.halocrypt.com/sponsors/nord-vpn.svg"
-            alt="Image of Halocrypt Sponsor Nord VPN"
-          />
-        </div>
-        <div class={imgContainer}>
-          <div class={css({ media: { "(max-width:700px)": { flex: 1 } } })}>
+        <div class={container}>
+          <h1 class={heading}>Sponsors</h1>
+          <h2 class={themeText}>Halocrypt 2021 is possible thanks to</h2>
+          <div class={imgContainer}>
             <ImgLink
-              link="https://studymetro.com"
-              alt="Image of Halocrypt Sponsor Study Metro"
-              src="https://h2.halocrypt.com/sponsors/study-metro.jpg"
-              height={100}
+              link={"https://vercel.com?utm_source=halocrypt&utm_campaign=oss"}
+              src="https://h2.halocrypt.com/sponsors/vercel-logo.svg"
+              alt="Image of Halocrypt Sponsor Vercel"
+            />
+            <ImgLink
+              link="https://replit.com"
+              src="https://h2.halocrypt.com/sponsors/replit-logo.svg"
+              alt="Image of Halocrypt Sponsor Replit"
+            />
+            <ImgLink
+              link={"https://quic.ml/halo-nord"}
+              src="https://h2.halocrypt.com/sponsors/nord-vpn.svg"
+              alt="Image of Halocrypt Sponsor Nord VPN"
             />
           </div>
-          <div class={sponsorUs}>
-            Sponsor us by hitting us up on halocrypt20@gmail.com
+          <div class={imgContainer}>
+            <div class={css({ media: { "(max-width:700px)": { flex: 1 } } })}>
+              <ImgLink
+                link="https://studymetro.com"
+                alt="Image of Halocrypt Sponsor Study Metro"
+                src="https://h2.halocrypt.com/sponsors/study-metro.jpg"
+                height={100}
+              />
+            </div>
+            <div class={sponsorUs}>
+              Sponsor us by hitting us up on halocrypt20@gmail.com
+            </div>
           </div>
         </div>
       </section>
