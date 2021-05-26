@@ -11,17 +11,18 @@ export const heading = css({ fontSize: "2rem", marginBottom: "1rem" });
 
 export const themeText = [heading, css({ color: "var(--fg)" })];
 
-export const container = css({ margin: "auto", marginTop: "1rem" });
+export const container = css({
+  maxWidth: "80ch",
+  margin: "auto",
+  marginTop: "1rem",
+});
 
-export const imgContainer = [
-  css({
-    width: "80%",
-
-    display: "flex",
-    flexWrap: "wrap",
-    margin: "auto",
-  }),
-].join(" ");
+export const imgContainer = css({
+  width: "80%",
+  display: "flex",
+  flexWrap: "wrap",
+  margin: "auto",
+});
 
 export const sponsorUs = [
   centerFlex,
