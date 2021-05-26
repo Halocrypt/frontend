@@ -83,14 +83,14 @@ function Faq() {
 
         <FaqItem
           question="Do I need to be a programmer to participate?"
-          answer="Not at all! While some questions CAN be solved with code, there are multiple ways to arrive at the solution, the team will try its best to ensure questions are approachable and can be solved by non programming folk."
+          answer="Not at all! While some questions CAN be solved with code, there are multiple ways to arrive at the solution, the team will try its best to ensure questions are approachable and can be solved by non programming folk. However, as you reach higher levels, there might be some questions where programming might speed things up."
         />
         <FaqItem
           question="How are the winners decided?"
           answer="There are 50 questions, first one to solve the 50th question or the person on the top of the leaderboard when the hunt ends is the winner."
         />
         <FaqItem
-          question="How will I receive my prizes"
+          question="How will I receive my prizes?"
           answer={
             <>
               Remember to{" "}
