@@ -84,7 +84,7 @@ export default function About() {
               />
             </div>
             <div class={sponsorUs}>
-              Sponsor us by hitting us up on halocrypt20@gmail.com
+              Sponsor us by hitting us up on <a href="mailto:sponsors@halocrypt.com">sponsors@halocrypt.com</a>
             </div>
           </div>
         </div>
