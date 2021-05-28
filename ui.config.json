@@ -5,7 +5,7 @@
   "outputDir": "build",
   "staticFilePrefix": "_ui/static",
   "fonts": [
-    { "href": "https://fonts.pycode.tk/manrope.css" },
-    { "href": "https://fonts.pycode.tk/orbitron.css" }
+    { "href": "https://fonts.pycode.tk/orbitron.css" },
+    { "href": "https://fonts.pycode.tk/manrope.css" }
   ]
 }
