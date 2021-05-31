@@ -12,6 +12,7 @@ export const notifBox = css({
   borderRadius: "10px",
   marginTop: "1rem",
   marginBottom: "1rem",
+  wordBreak: "break-word",
 });
 
 export const dateBox = css({

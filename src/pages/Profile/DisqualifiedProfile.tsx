@@ -15,7 +15,7 @@ export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
     : "No reason provided";
   return (
     <section class={[center, css({ maxWidth: "600px", width: "85vw" })]}>
-      <h1 class={css({ fontSize: "2rem", wordBreak: "break-all" })}>
+      <h1 class={css({ fontSize: "2rem", wordBreak: "break-word" })}>
         <span>
           {isMe
             ? "You have been disqualified"

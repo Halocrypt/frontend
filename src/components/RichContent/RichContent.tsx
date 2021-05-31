@@ -16,7 +16,7 @@ export function RichContent({ content }: { content: RenderableContent }) {
         target="_blank"
         rel="noopener"
         class={css({
-          wordBreak: "break-all",
+          wordBreak: "break-word",
           textDecoration: "underline",
           fontWeight: "bold",
         })}
