@@ -22,62 +22,18 @@ import { NextIcon } from "@/components/Icons/Next";
 import { NotificationCount } from "../Notifications/NotificationCount";
 import { QuestionContent } from "./Question";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
-import { Timer } from "@/components/Timer/Timer";
 import { answerInput } from "@/Form.style";
 import { answer as answerQuestion } from "@/packages/halo-api/play";
-import { center } from "@/style";
 import { clean } from "@/packages/validator/util";
 import { css } from "catom";
-import { eventAtom } from "@/state";
 import { useAuthGuard } from "@/hooks/use-auth-guard";
 import { useAuthState } from "@/bridge";
 import { usePreviousAttempts } from "./use-previous-attempts";
-import { useRerender } from "@/hooks/use-rerender";
-import { useSharedStateValue } from "statedrive";
 
 export default function Play() {
   useAuthGuard("/play");
-  const event = useSharedStateValue(eventAtom);
-  const now = +new Date();
-  const startTime = event.event_start_time * 1000;
-  const endTime = event.event_end_time * 1000;
-  const rerender = useRerender();
-  if (startTime > now)
-    return (
-      <div class={center}>
-        <Timer target={startTime} onComplete={rerender} />
-        <div class={css({ marginTop: "1rem", fontWeight: "bold" })}>
-          Can't wait? check out{" "}
-          <Link
-            class={css({ textDecoration: "underline" })}
-            href="https://2020.halocrypt.com"
-          >
-            Halocrypt 2020
-          </Link>{" "}
-          in the meanwhile
-        </div>
-      </div>
-    );
-  return (
-    <>
-      <Question />
-      <div class={css({ fontSize: "2rem", fontWeight: "bold" })}>
-        {endTime <= now ? (
-          <div>Goodnight</div>
-        ) : (
-          <>
-            <div class={[css({ marginTop: "2rem" }), center]}>Hunt ends in</div>
-            <Timer
-              target={endTime}
-              onComplete={rerender}
-              onlyTime
-              style={{ marginTop: "10px" }}
-            />
-          </>
-        )}
-      </div>
-    </>
-  );
+
+  return <Question />;
 }
 
 function Question() {
