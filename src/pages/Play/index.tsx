@@ -19,7 +19,6 @@ import { Form } from "@/components/Form";
 import { IQuestion } from "@/interfaces";
 import { Link } from "@/components/ExtLink/ExtLink";
 import { NextIcon } from "@/components/Icons/Next";
-import { NotificationCount } from "../Notifications/NotificationCount";
 import { QuestionContent } from "./Question";
 import { Snackbar } from "@/components/Snackbar/Snackbar";
 import { answerInput } from "@/Form.style";
@@ -112,7 +111,6 @@ function Question() {
   }
   return (
     <section class={playSection}>
-      <NotificationCount />
       <Snackbar
         message={answerError || error ? null : message}
         onClose={() => {
