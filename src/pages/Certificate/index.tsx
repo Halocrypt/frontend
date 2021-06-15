@@ -24,7 +24,7 @@ function CertificateRenderer() {
 
 export default function Certificate() {
   const user = useAuthGuard("/certificate");
-
+  if (!user) return;
   return (
     <section class={center}>
       {user.is_disqualified ? (
