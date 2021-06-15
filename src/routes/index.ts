@@ -17,4 +17,5 @@ export const componentMap = {
     import("@/pages/Verification/ResetPassword").then(getDefault),
   "/rules": () => import("@/pages/Rules").then(getDefault),
   "/about": () => import("@/pages/About").then(getDefault),
+  "/certificate": () => import("@/pages/Certificate").then(getDefault),
 };

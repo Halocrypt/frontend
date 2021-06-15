@@ -6,6 +6,7 @@ export interface SecureUserData {
   email: string;
   institution: string;
   has_verified_email: boolean;
+  certificate_key: string;
 }
 export interface IUser {
   _id: string;

@@ -1,5 +1,6 @@
-import { redirect, useEffect, useRoute } from "@hydrophobefireman/ui-lib";
-import { useAuthState, useIsLoggedIn } from "@/bridge";
+import { redirect, useEffect } from "@hydrophobefireman/ui-lib";
+
+import { useAuthState } from "@/bridge";
 
 export function useAuthGuard(path: string) {
   const [user] = useAuthState();
