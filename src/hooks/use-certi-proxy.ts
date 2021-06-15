@@ -1,23 +1,20 @@
 import { useEffect, useState } from "@hydrophobefireman/ui-lib";
 
 import { decrypt } from "@/packages/crypto/decrypt";
-import { useAuthGuard } from "./use-auth-guard";
-import { useResource } from "./use-resource";
-import { userDetails } from "@/packages/halo-api/user";
+import { useAuthState } from "@/bridge";
 
 function getProxyURL(file: string) {
   return `https://api.halocrypt.com/cert/proxy/${file}`;
 }
 export function useCertiProxy() {
-  const user = useAuthGuard("/certificate");
-  const { resp } = useResource(userDetails, [user.user]);
+  const [userData] = useAuthState();
+
   const [imageURL, setImageURL] = useState("");
   const [error, setError] = useState<string>(null);
   useEffect(async () => {
-    if (!resp || !resp.user_data || !resp.user_data._secure_) return;
-    const { user_data } = resp;
-    const { certificate_key } = user_data._secure_;
-    const { user } = user_data;
+    if (!userData) return;
+    const { certificate_key } = userData._secure_;
+    const { user } = userData;
     try {
       const [jsonData, encData] = await Promise.all([
         fetch(getProxyURL(`${user}.json`)),
@@ -32,7 +29,7 @@ export function useCertiProxy() {
         `Could not find a valid certificate for '${user}', DM Mods if you think this was a mistake`
       );
     }
-  }, [resp]);
+  }, [userData]);
   useEffect(() => {
     if (!imageURL) return;
     return () => {
