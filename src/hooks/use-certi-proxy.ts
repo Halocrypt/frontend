@@ -6,7 +6,7 @@ import { useResource } from "./use-resource";
 import { userDetails } from "@/packages/halo-api/user";
 
 function getProxyURL(file: string) {
-  return `https://api.halocrypt.com/proxy/cert/${file}`;
+  return `https://api.halocrypt.com/cert/proxy/${file}`;
 }
 export function useCertiProxy() {
   const user = useAuthGuard("/certificate");
