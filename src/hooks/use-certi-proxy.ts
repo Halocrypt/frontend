@@ -35,6 +35,7 @@ export function useCertiProxy(impersonate?: string) {
       const ret = await decrypt(encBuf, meta, certificate_key);
       setImageURL(generateBlob(ret));
     } catch (e) {
+      if (!userData) return setError("Could not get user details");
       setError(
         `Could not find a valid certificate for '${userData.user}', DM Mods if you think this was a mistake`
       );
