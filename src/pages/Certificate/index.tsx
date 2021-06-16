@@ -2,9 +2,10 @@ import { center } from "@/style";
 import { css } from "catom";
 import { useAuthGuard } from "@/hooks/use-auth-guard";
 import { useCertiProxy } from "@/hooks/use-certi-proxy";
+import { useRoute } from "@hydrophobefireman/ui-lib";
 
-function CertificateRenderer() {
-  const { error, imageURL } = useCertiProxy();
+function CertificateRenderer({ impersonate }: { impersonate?: string }) {
+  const { error, imageURL } = useCertiProxy(impersonate);
   if (error) return <div>{error}</div>;
   if (!imageURL)
     return <div>Decrypting and downloading your certificate....</div>;
@@ -24,7 +25,10 @@ function CertificateRenderer() {
 
 export default function Certificate() {
   const user = useAuthGuard("/certificate");
+  const { search } = useRoute();
+  const customUser = search.get("user");
   if (!user) return;
+  if (customUser && !user.is_admin) return <div>No.</div>;
   return (
     <section class={center}>
       {user.is_disqualified ? (
@@ -40,7 +44,9 @@ export default function Certificate() {
             Certificate
           </h1>
           <div>
-            <CertificateRenderer />
+            <CertificateRenderer
+              impersonate={customUser == user.user ? null : customUser}
+            />
           </div>
         </>
       )}
