@@ -946,10 +946,10 @@
   resolved "https://registry.yarnpkg.com/@hydrophobefireman/j-utils/-/j-utils-2.1.7.tgz#a2f27827483d8b7a59e325acd85528f9204f4be4"
   integrity sha512-XEIl3/eQCUPPSPEdH8oy4AHoNhktOZ/hIF0+iBvlYrCHKmjZbrVEKUzRS/tiJ60kRdGEqlaaFd8dkOp48PQFkQ==
 
-"@hydrophobefireman/kit@^0.0.1-2021-09-27-22-12":
-  version "0.0.1-2021-09-27-22-12"
-  resolved "https://registry.yarnpkg.com/@hydrophobefireman/kit/-/kit-0.0.1-2021-09-27-22-12.tgz#52cb95d53ff3a6c00d5da1bac1c20eb7d07a0333"
-  integrity sha512-QwmN3K1uhAq2TMh5Tuu6Wa1D1urWN959j7qlcYI9/gGnAR7mTlCVUbmtPIX00jOPtGlsH/nAwgl7r7oL+VltYA==
+"@hydrophobefireman/kit@^0.0.1-2021-09-27-22-49":
+  version "0.0.1-2021-09-27-22-49"
+  resolved "https://registry.yarnpkg.com/@hydrophobefireman/kit/-/kit-0.0.1-2021-09-27-22-49.tgz#a57e80a4426f83ddaf207a821c268e31c1155d01"
+  integrity sha512-mluCdYIAl58PnCe+ViLwc4Qw9uyLkTai6MTuw1BstgFlhEgfkeEp9Bukx5p/r1MR0WQEykYrj+cnrvSgzqnOyA==
   dependencies:
     csstype "^3.0.9"
 

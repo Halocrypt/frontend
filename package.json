@@ -19,7 +19,7 @@
   "dependencies": {
     "@hydrophobefireman/flask-jwt-jskit": "^0.1.5",
     "@hydrophobefireman/j-utils": "^2.1.7",
-    "@hydrophobefireman/kit": "^0.0.1-2021-09-27-22-12",
+    "@hydrophobefireman/kit": "^0.0.1-2021-09-27-22-49",
     "@hydrophobefireman/qwc": "^0.0.6",
     "@hydrophobefireman/ui-anim": "^0.0.14",
     "@hydrophobefireman/ui-lib": "^1.9.9",
