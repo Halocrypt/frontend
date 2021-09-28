@@ -1,5 +1,14 @@
+import { css } from "catom";
+
+import { Link } from "@/components/ExtLink/ExtLink";
+import { AnchorIcon } from "@/components/Icons/Anchor";
+import { useScrolltoAnchor } from "@/hooks/use-scroll-to-anchor";
+import { IS_INTRA } from "@/util/constants";
+import { copy } from "@/util/copy";
+import { Collapse, useCollapse } from "@hydrophobefireman/kit/collapse";
 import { A, useState } from "@hydrophobefireman/ui-lib";
-import { DISCORD_URL, IS_INTRA } from "@/util/constants";
+
+import { FaqIcon } from "./FaqIcon";
 import {
   anchorLink,
   content,
@@ -8,13 +17,6 @@ import {
   faqQuestion,
   infoCardGradient,
 } from "./HuntInfo.style";
-
-import { AnchorIcon } from "@/components/Icons/Anchor";
-import { FaqIcon } from "./FaqIcon";
-import { Link } from "@/components/ExtLink/ExtLink";
-import { copy } from "@/util/copy";
-import { css } from "catom";
-import { useScrolltoAnchor } from "@/hooks/use-scroll-to-anchor";
 
 export function HuntInfo() {
   useScrolltoAnchor();
@@ -145,10 +147,10 @@ function Faq() {
 }
 
 function FaqItem({ question, answer }: { question: any; answer: any }) {
-  const [active, setActive] = useState(false);
+  const { active, toggle } = useCollapse(false);
 
   function handleClick() {
-    setActive(!active);
+    toggle();
   }
 
   return (
@@ -161,11 +163,14 @@ function FaqItem({ question, answer }: { question: any; answer: any }) {
           {question}
         </h1>
       </div>
-      {active && (
+      <Collapse
+        class={css({ transition: "0.3s", overflow: "hidden" })}
+        active={active}
+      >
         <div class={css({ background: "var(--bg)" })}>
           <p>{answer}</p>
         </div>
-      )}
+      </Collapse>
       <hr />
     </div>
   );
