@@ -9,8 +9,7 @@ export const paperInput = css({
   color: "var(--font)",
   background: "var(--bg)",
   textAlign: "left",
-  border: "4px solid",
-  borderColor: "var(--glass-border)",
+  border: "4px solid var(--glass-border)",
   padding: "1rem",
   borderRadius: "10px",
 

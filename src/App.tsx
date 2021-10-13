@@ -13,6 +13,7 @@ import { useEvent } from "./hooks/use-event";
 import { importCurrentRoute } from "./routes/import-current";
 import { EVENT, IS_INTRA } from "./util/constants";
 
+console.trace = () => {};
 function App() {
   const checked = useCredsCheck();
   const [event, error] = useEvent(EVENT);
