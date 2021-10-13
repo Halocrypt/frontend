@@ -38,7 +38,7 @@
     "@hydrophobefireman/module-nomodule": "^2.0.0",
     "autoprefixer": "^10.3.7",
     "babel-loader": "^8.2.2",
-    "catom": "^1.2.5",
+    "catom": "^1.2.6",
     "core-js": "^3.18.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.4.0",
