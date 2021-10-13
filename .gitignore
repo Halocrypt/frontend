@@ -116,3 +116,5 @@ docs/
 .pnp.*
 build/
 __version__.json
+.catom.css
+

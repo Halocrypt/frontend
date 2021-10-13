@@ -1,8 +1,9 @@
 {
-  "enableCatom": true,
-  "inlineCSS": true,
+  "enableCatom": false,
+  "inlineCSS": false,
   "preferBase64Images": true,
   "outputDir": "build",
+  "staticDir": "build_static",
   "staticFilePrefix": "_ui/static",
   "fonts": [
     { "href": "https://fonts.hpfm.dev/manrope.css" },

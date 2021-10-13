@@ -82,10 +82,11 @@ function getCfg(isLegacy) {
           },
         },
     devServer: {
-      contentBase: `${__dirname}/build_static`,
+      static: {
+        directory: path.join(__dirname, uiConfig.staticDir),
+      },
       compress: true,
       port: 4200,
-
       historyApiFallback: true,
     },
     module: {
@@ -127,12 +128,7 @@ function getCfg(isLegacy) {
           options
         ) {
           let script = await science.script();
-          let css = uiConfig.enableCatom
-            ? `<style>
-                ${await autoPrefixCSS()}
-               </style>
-          `
-            : "";
+
           return {
             compilation,
             webpackConfig: compilation.options,
@@ -140,7 +136,6 @@ function getCfg(isLegacy) {
               tags,
               files,
               options: Object.assign(options, {
-                css,
                 script,
               }),
             },
