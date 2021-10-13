@@ -33,10 +33,11 @@ export const actionLink = css({ marginLeft: "1rem", marginRight: "1rem" });
 export const glassLink = [
   actionLink,
   css({
-    padding: ".5rem",
+    paddingTop: ".5rem",
+    paddingBottom: ".5rem",
+    paddingRight: "2rem",
     paddingLeft: "2rem",
     borderRadius: "20px",
-    paddingRight: "2rem",
     background: "var(--glass)",
     display: "inline-flex",
     alignItems: "center",
