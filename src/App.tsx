@@ -1,6 +1,5 @@
 // javascript is supported
 import "./App.css";
-import "./.catom.css";
 
 import { Motion } from "@hydrophobefireman/ui-anim";
 import { render } from "@hydrophobefireman/ui-lib";

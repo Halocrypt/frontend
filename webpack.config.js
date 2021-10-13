@@ -128,7 +128,7 @@ function getCfg(isLegacy) {
           options
         ) {
           let script = await science.script();
-
+          let css = `<style>${await autoPrefixCSS()}</style>`;
           return {
             compilation,
             webpackConfig: compilation.options,
@@ -137,6 +137,7 @@ function getCfg(isLegacy) {
               files,
               options: Object.assign(options, {
                 script,
+                css,
               }),
             },
           };

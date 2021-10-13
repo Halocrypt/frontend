@@ -1750,10 +1750,10 @@ caniuse-lite@^1.0.30001264, caniuse-lite@^1.0.30001265:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001265.tgz#0613c9e6c922e422792e6fcefdf9a3afeee4f8c3"
   integrity sha512-YzBnspggWV5hep1m9Z6sZVLOt7vrju8xWooFAgN6BA5qvy98qPAPb7vNUzypFaoh2pb3vlfzbDO8tB57UPGbtw==
 
-catom@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/catom/-/catom-1.1.0.tgz#ccdaf21ab7bbfb809df84c13ff1a9f3851e076a0"
-  integrity sha512-9adN//N61RQbgWU8uu/7XS2+PiHZ/Puy145gaQ4OUtrGROZ8z/T1tElwTHA/Tt545+OAJLvzC/awGaF6+SQVQA==
+catom@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/catom/-/catom-1.2.5.tgz#4c0656c0735339d9765dfbe1e043016707c95351"
+  integrity sha512-D8dOLMgBJ8mL0YZIE05b2fadqaIx7+vEzQtXRWrK7zGV24Kc31j2LcP5UK81Ox1vGzn77XDNlJ+eKo/rQBr1Gg==
   dependencies:
     "@babel/template" "^7.15.4"
     "@babel/traverse" "^7.15.4"

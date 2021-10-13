@@ -1,5 +1,5 @@
 const plugins = [
-  ["catom/babelPlugin", { emitFile: "src/.catom.css" }],
+  "catom/babelPlugin",
   "@babel/plugin-proposal-class-properties",
   "@babel/plugin-syntax-dynamic-import",
 
