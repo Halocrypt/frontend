@@ -1,4 +1,5 @@
 import { css } from "catom";
+
 import { hoverable } from "@/style";
 
 export const homeLink = css({
@@ -69,7 +70,8 @@ export const mainAction = [
     fontWeight: "bold",
     boxShadow: "10px 1.5px 4px rgba(0, 0, 0, 0.16)",
     background: "rgb(245 245 245 / 15%)",
-    padding: "1rem",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
     paddingTop: "2px",
     paddingBottom: "2px",
     borderRadius: "10px",
