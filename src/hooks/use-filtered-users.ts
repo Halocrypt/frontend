@@ -1,13 +1,13 @@
-import { clean, contains } from "@/util/search";
-import { useEffect, useRef, useState } from "@hydrophobefireman/ui-lib";
-
-import { IUser } from "@/interfaces";
-import { raf } from "@/util/raf";
+import {IUser} from "@/interfaces";
+import {raf} from "@/util/raf";
+import {clean, contains} from "@/util/search";
+import {useEffect, useRef, useState} from "@hydrophobefireman/ui-lib";
 
 export function useFilteredUsers(users: IUser[], query: string) {
   const [filtered, setFiltered] = useState(users);
   const timer = useRef(null);
   function search() {
+    console.log("search");
     if (!users) return;
     if (!clean(query)) return setFiltered(users);
     setFiltered(

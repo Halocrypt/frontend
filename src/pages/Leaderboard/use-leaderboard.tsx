@@ -1,10 +1,9 @@
-import { useEffect, useMemo } from "@hydrophobefireman/ui-lib";
-
-import { EVENT } from "@/util/constants";
-import { IUser } from "@/interfaces";
-import { getLeaderboard } from "@/packages/halo-api/play";
-import { useFilteredUsers } from "@/hooks/use-filtered-users";
-import { useResource } from "@/hooks/use-resource";
+import {useFilteredUsers} from "@/hooks/use-filtered-users";
+import {useResource} from "@/hooks/use-resource";
+import {IUser} from "@/interfaces";
+import {getLeaderboard, lb_data} from "@/packages/halo-api/play";
+import {EVENT} from "@/util/constants";
+import {useEffect, useMemo} from "@hydrophobefireman/ui-lib";
 
 const tmplUser: any = {
   user: "--",
@@ -13,7 +12,7 @@ const tmplUser: any = {
   rank: 0,
 };
 const default_ = {
-  users: Array.from({ length: 10 }).map(() => tmplUser) as IUser[],
+  users: Array.from({length: 10}).map(() => tmplUser) as IUser[],
 };
 function addRank(x: IUser, i: number) {
   (x as any).rank = i + 1;
@@ -25,15 +24,12 @@ function useLoadingUsers(curr: IUser[]) {
   }, [curr]);
 }
 export function useLeaderboard(search: string) {
-  const { resp: _users, error, clearError } = useResource(getLeaderboard, [
-    EVENT,
-  ]);
+  const _users = lb_data.data;
   const unfilteredUsers = useMemo(
     () => (_users ? _users.map(addRank) : default_.users),
     [_users]
   );
-  useLoadingUsers(unfilteredUsers);
   const users = useFilteredUsers(unfilteredUsers, search);
 
-  return { users, error, clearError };
+  return {users, error: null, clearError: console.log};
 }

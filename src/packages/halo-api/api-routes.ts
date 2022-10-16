@@ -1,8 +1,9 @@
-import { Events } from "@/interfaces";
+import {Events} from "@/interfaces";
 
-const host = location.host.includes("localhost")
-  ? "http://localhost:5000/"
-  : "https://api.halocrypt.com/";
+const host =
+  0 && location.host.includes("localhost")
+    ? "http://localhost:5000/"
+    : "https://api.halocrypt.com/";
 
 function absoluteURL(relative: string) {
   const u = new URL(relative, host);

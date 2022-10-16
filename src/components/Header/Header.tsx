@@ -1,18 +1,18 @@
-import { A, useState } from "@hydrophobefireman/ui-lib";
-import { MobileNav, Nav } from "./Nav";
-import { header, headerNW, homeLink } from "./Header.style";
-import { hoverable, mask } from "@/style";
+import {useLocation} from "@/hooks/use-location";
+import {useViewportSize} from "@/hooks/use-viewport-size";
+import {hoverable, mask} from "@/style";
+import {IS_INTRA} from "@/util/constants";
+import {A, useState} from "@hydrophobefireman/ui-lib";
 
-import { HaloIcon } from "../Icons/Halo";
-import { HeaderIcon } from "./HeaderIcon";
-import { IS_INTRA } from "@/util/constants";
-import { SocialLinks } from "./SocialLinks";
-import { mobileHeader } from "./MobileHeader.style";
-import { useLocation } from "@/hooks/use-location";
-import { useViewportSize } from "@/hooks/use-viewport-size";
+import {HaloIcon} from "../Icons/Halo";
+import {header, headerNW, homeLink} from "./Header.style";
+import {HeaderIcon} from "./HeaderIcon";
+import {mobileHeader} from "./MobileHeader.style";
+import {MobileNav, Nav} from "./Nav";
+import {SocialLinks} from "./SocialLinks";
 
 export function Header() {
-  const { path } = useLocation();
+  const {path} = useLocation();
   const [, width] = useViewportSize();
   const isWideScreen = IS_INTRA ? width > 860 : width > 800;
   const isMobile = width < 770;
@@ -35,7 +35,7 @@ function DesktopHeader({
           <A
             href="/"
             class={homeLink}
-            style={IS_INTRA ? { fontSize: "1.2rem" } : null}
+            style={IS_INTRA ? {fontSize: "1.2rem"} : null}
           >
             Halocrypt{IS_INTRA && " (intra)"}
           </A>
@@ -47,7 +47,7 @@ function DesktopHeader({
   );
 }
 
-function MobileHeader({ path }: { path: string }) {
+function MobileHeader({path}: {path: string}) {
   const [active, setActive] = useState(false);
   const toggle = () => setActive(!active);
   const isLanding = path === "/";
@@ -59,7 +59,7 @@ function MobileHeader({ path }: { path: string }) {
           class={hoverable}
           aria-label="Homepage"
           title="Homepage"
-          style={isLanding && { opacity: "0", pointerEvents: "none" }}
+          style={isLanding && {opacity: "0", pointerEvents: "none"}}
         >
           <HaloIcon height={50} />
         </A>
@@ -72,7 +72,7 @@ function MobileHeader({ path }: { path: string }) {
           <div
             class={mask}
             onClick={toggle}
-            style={{ background: "transparent" }}
+            style={{background: "transparent"}}
           ></div>
         </>
       )}

@@ -1,0 +1,702 @@
+{
+  "data": [
+    {
+      "_id": "main:0",
+      "question_number": 0,
+      "question_points": 5,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://docs.google.com/document/d/1k3DPZGNv-QgGeAnQ0ptECafu6H7tMMS1cDBZ8CEFnXg/edit"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "alohomora"}
+    },
+    {
+      "_id": "main:1",
+      "question_number": 1,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Let's do some warm up, find the answer from this file - https://h2.halocrypt.com/super_secret_file.rar"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "wellthatwaseasy"}
+    },
+    {
+      "_id": "main:2",
+      "question_number": 2,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "What is https://note.pycode.tk/t/#H4sIAAAAAAAAA5VUWxLDIAj89zTu/S/XqDx2kXGmpkmR9wI651qwh5Zvk43943eMT4o0z8eVn2uM47dTBFp7Zps5AWjU0Xov5kfnqDo9KwA4pJPDZ676sGj39xH9Fj6r1mHHHeQFews8ecZMbWbKK26KqwhY5n+hZcfbvEN72eJi7whr6lhQwtZaVGInL/kUBZoAzdBKJ2IRXm2YcxZtqnyJ2qarOZ2+y2hCDErvLjdeuq7bCgpNBDOHDTsbdt6ygdaf7PupgHk6zqgesKMGxFxZdETnueXIQHlKhb0k0XcSaJr9TRTYqTZaVWLD2sA3oZ+4iN1cVRerDHWY+6qBK6XDGFM3y80amGV8c3PQxInLITNC/9ynaDJ2+bB+pXyLHV2g+mD4hHzcH3iVnYHFBgAA"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "arecibomessage"}
+    },
+    {
+      "_id": "main:3",
+      "question_number": 3,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Outeniqua Mountains and turboprop aircraft"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "hansiecronje"}
+    },
+    {
+      "_id": "main:4",
+      "question_number": 4,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {"type": "text", "content": "9dZj7YW5oFQ adopter"},
+      "question_hints": [],
+      "_secure_": {"answer": "mariekevanwuytswinkel"}
+    },
+    {
+      "_id": "main:5",
+      "question_number": 5,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "When Brian T. Schowengerdt worked with Halo"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "us20150319342a1"}
+    },
+    {
+      "_id": "main:6",
+      "question_number": 6,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "The answer is https://h2.halocrypt.com/song.mp3's composer "
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "p418"}
+    },
+    {
+      "_id": "main:7",
+      "question_number": 7,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://discord.gg/4ATaQWqNqh"
+      },
+      "question_hints": [
+        {"type": "text", "content": "Family Next Door"},
+        {"type": "text", "content": " Focus on Origins"}
+      ],
+      "_secure_": {"answer": "delbertgrady"}
+    },
+    {
+      "_id": "main:8",
+      "question_number": 8,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {"type": "text", "content": "Navem Mercibus Implere"},
+      "question_hints": [],
+      "_secure_": {"answer": "davidohara"}
+    },
+    {
+      "_id": "main:9",
+      "question_number": 9,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://h2.halocrypt.com/g/graph.jpg"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "thetamath"}
+    },
+    {
+      "_id": "main:10",
+      "question_number": 10,
+      "question_points": 15,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://docs.google.com/document/d/1KvxYBFL-j6n4QHjOqyIIxClxGPMXE3__cDNhrmkX2lQ/edit?usp=sharing"
+      },
+      "question_hints": [{"type": "text", "content": "just shoot me"}],
+      "_secure_": {"answer": "xashatwelve"}
+    },
+    {
+      "_id": "main:11",
+      "question_number": 11,
+      "question_points": 20,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Esoteric fright predicament"
+      },
+      "question_hints": [{"type": "text", "content": "silent hill"}],
+      "_secure_": {"answer": "sadsatan"}
+    },
+    {
+      "_id": "main:12",
+      "question_number": 12,
+      "question_points": 20,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://i.imgur.com/ViYkGpj.jpg"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "helenkeller"}
+    },
+    {
+      "_id": "main:13",
+      "question_number": 13,
+      "question_points": 20,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://hstatic.halocrypt.com/mini/Level-3.png"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "drdisrespect"}
+    },
+    {
+      "_id": "main:14",
+      "question_number": 14,
+      "question_points": 25,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "I'm a soldier of exquisite nature. My ancestors used to have both of these sentinels with them. One would take care of their vitality, the other would help them listen better. Everything was fine until our makers decided to send me unarmed."
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "iphone12"}
+    },
+    {
+      "_id": "main:15",
+      "question_number": 15,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "SXmlKlokZNQ4KbUoPWs4PlylXXSqNp84OcMzYRVgRBy1OKCqVlskAjCtGDD3PsG4QFq2BNg1LLInOWsa"
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "They gambled about your appearance on the dance floor"
+        }
+      ],
+      "_secure_": {"answer": "alainmenu"}
+    },
+    {
+      "_id": "main:16",
+      "question_number": 16,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://i.imgur.com/fhmkpB2.jpg"
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "And here \u2064\u200d\u2061\u2062\u200d\u2062\u200c\u200c\u2061\u200d\u200d\u2061\u200d\u200d\u200c\u200d\u2062\u2063\u200c\u200d\u2062\u200c\u200c\u200c\u200d\u2061\u200c\u2062\u200d\u2061\u200d\u2061\u2062\u2063\u200c\u200d\u2063\u2063\u200c\u200d\u2064\u2062\u200d\u2062\u200c\u2064\u2062\u2061\u200c\u2062\u200d\u200d\u200c\u200d\u2061\u2062\u200d\u2062\u200d\u200c\u2062\u200d\u2061\u200c\u200c\u2063\u2062\u200d\u200c\u200c\u200c\u2061\u2064\u2062\u200d\u2062\u200c\u2062\u200c\u200d\u2062\u2061\u200d\u200c\u2064\u2062\u2061\u200c\u2061\u2062\u200d\u200d\u200c\u200d\u200d\u2061\u200c\u2064\u200d\u2061\u200d\u2063\u200d\u2062\u2063\u2062\u200c\u2062\u2061\u200c\u200d\u2061\u2064\u200c\u2063\u2062\u200c\u2062\u200c\u200d\u2062\u200d\u200d\u2061\u2062\u200d\u2062\u2063\u200c\u200c\u200c\u200d\u2063\u200d\u2064\u2063comes the secret."
+        }
+      ],
+      "_secure_": {"answer": "tillicollapse"}
+    },
+    {
+      "_id": "main:17",
+      "question_number": 17,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://i.imgur.com/sADHWIw.jpg"
+      },
+      "question_hints": [
+        {
+          "type": "link",
+          "content": "https://www.securityinfowatch.com/cybersecurity/information-security/article/21083707/security-ignorance-is-not-bliss"
+        }
+      ],
+      "_secure_": {"answer": "123456seven"}
+    },
+    {
+      "_id": "main:18",
+      "question_number": 18,
+      "question_points": 20,
+      "event": "main",
+      "question_content": {"type": "text", "content": "Alma Mater"},
+      "question_hints": [
+        {"type": "image-embed", "content": "https://h2.halocrypt.com/lore.png"}
+      ],
+      "_secure_": {"answer": "universityofminnesota"}
+    },
+    {
+      "_id": "main:19",
+      "question_number": 19,
+      "question_points": 25,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://imgur.com/a/U0lvSwY"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "norjak"}
+    },
+    {
+      "_id": "main:20",
+      "question_number": 20,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://docs.google.com/document/d/1XgE9W8AtBDeCkH3PG-rvk_TSmzGhKr3kTT4U6PJfvfo/edit?usp=sharing"
+      },
+      "question_hints": [
+        {"type": "text", "content": "jorge luis borges"},
+        {"type": "text", "content": "bookmark xsgqaq106"}
+      ],
+      "_secure_": {"answer": "weitouke"}
+    },
+    {
+      "_id": "main:21",
+      "question_number": 21,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://pastebin.com/rBB6b5Jk"
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "Checkout what Chris Godfrey did on Instagram."
+        }
+      ],
+      "_secure_": {"answer": "26"}
+    },
+    {
+      "_id": "main:22",
+      "question_number": 22,
+      "question_points": 5,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "where is 1dekgAFF9uTCqLsklDaCWb ? "
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "https://h2.halocrypt.com/apronus.txt (ignore the numbers)"
+        },
+        {
+          "type": "link",
+          "content": "https://link.hpfm.dev/_#eyJ2IjoiMC4xIiwiYnVmIjoiTVcwRHZaMlBvWXk3M0VyTlB1bjVPUUQ0UVVnL2RPYWlva3dubmhGMDRhR0VJVVFmNFd1akZVdz0iLCJpdiI6IndnMWpCMWVSMUhYb20ydmRFL2FPVlE9PSIsInNhbHQiOiJRTjk1SUdkajU3anpRQT09In0="
+        }
+      ],
+      "_secure_": {"answer": "chehalisriver"}
+    },
+    {
+      "_id": "main:23",
+      "question_number": 23,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://h2.halocrypt.com/ok/ok.tar.xz "
+      },
+      "question_hints": [
+        {"type": "text", "content": "Last seen"},
+        {"type": "text", "content": "this.py"}
+      ],
+      "_secure_": {"answer": "nukumanuislands"}
+    },
+    {
+      "_id": "main:24",
+      "question_number": 24,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://imgur.com/a/ZGBhuqj"
+      },
+      "question_hints": [{"type": "text", "content": "t=515"}],
+      "_secure_": {"answer": "intronitis"}
+    },
+    {
+      "_id": "main:25",
+      "question_number": 25,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://h2.halocrypt.com/whataretheydoing.jpg"
+      },
+      "question_hints": [
+        {
+          "type": "link",
+          "content": "https://h2.halocrypt.com/dallasbuyersclub"
+        },
+        {
+          "type": "image-embed",
+          "content": "https://h2.halocrypt.com/extension.jpg"
+        }
+      ],
+      "_secure_": {"answer": "elclubdelosdesahuciados"}
+    },
+    {
+      "_id": "main:26",
+      "question_number": 26,
+      "question_points": 40,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://imgur.com/a/iFxv8XU"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "scottkrulcik"}
+    },
+    {
+      "_id": "main:27",
+      "question_number": 27,
+      "question_points": 5,
+      "event": "main",
+      "question_content": {"type": "link", "content": "https://quic.ml/1beVrj"},
+      "question_hints": [
+        {"type": "text", "content": "Bellini"},
+        {"type": "text", "content": "Brunswick"}
+      ],
+      "_secure_": {"answer": "ruylopez"}
+    },
+    {
+      "_id": "main:28",
+      "question_number": 28,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Read the rules, Halocrypt doesn't accept Russian. Also, did you watch our trailer yet? Do it quicKmlY."
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "gehdehehsehbehehfehfkah"}
+    },
+    {
+      "_id": "main:29",
+      "question_number": 29,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "https://instagram.com/p/{answer}/"
+      },
+      "question_hints": [
+        {"type": "link", "content": "https://h2.halocrypt.com/i/nice.jpg"},
+        {"type": "link", "content": "https://h2.halocrypt.com/i/genius.bin"},
+        {"type": "link", "content": "https://h2.halocrypt.com/i/answer"}
+      ],
+      "_secure_": {"answer": "cmtl9skg_ib"}
+    },
+    {
+      "_id": "main:30",
+      "question_number": 30,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "curl https://h2.halocrypt.com/c/run.out > run.out && chmod +x run.out && ./run.out"
+      },
+      "question_hints": [
+        {"type": "text", "content": "What's the 2nd item"},
+        {"type": "text", "content": "Base?"},
+        {
+          "type": "text",
+          "content": "(NOT A HINT): You probably shouldn't execute binaries off the internet.... you can solve this question without it, if you don't want to run this file dm @deletos#4434"
+        }
+      ],
+      "_secure_": {"answer": "alteredcarbon"}
+    },
+    {
+      "_id": "main:31",
+      "question_number": 31,
+      "question_points": 40,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "<S(0x4a70):44(0x4a70)ES><I(0x4a70):0,0,735,3,1225,5,1715,7,2204,8(0x4a70)EI><D(0x4a70):#2\u0394\u0394\u03b1\u0922\ud83c\udf0f\ud83d\udc94\u03b1\ud83c\udfd3(0x4a70)ED>"
+      },
+      "question_hints": [
+        {"type": "text", "content": "August 2, 2012"},
+        {"type": "text", "content": "5th Grader's addiction"}
+      ],
+      "_secure_": {"answer": "palebluedot"}
+    },
+    {
+      "_id": "main:32",
+      "question_number": 32,
+      "question_points": 100,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://docs.google.com/document/d/13-_AkTezQVj44WEAeYNNqmR0mOReBwq4RxGE-c2EOAI/edit?usp=sharing"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "isthisthefirstgenerationwar"}
+    },
+    {
+      "_id": "main:33",
+      "question_number": 33,
+      "question_points": 150,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "KaNeKi loves \u200d\u2064\u200d\u2063\u2061\u200d\u2062\u200d\u2061\u200d\u2061\u200d\u2061\u200c\u2064\u2061\u200c\u2062\u200c\u2061\u200d\u2064\u2061\u200d\u2064his playlists. Check them out maybe?"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "316"}
+    },
+    {
+      "_id": "main:34",
+      "question_number": 34,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://i.imgur.com/58Alcwd.png"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "kennethbelcovski"}
+    },
+    {
+      "_id": "main:35",
+      "question_number": 35,
+      "question_points": 20,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Protart \u2062\u2063\u2061\u200c\u2061\u2062\u2064\u2061\u200d\u2061\u2062\u200d\u2062\u2062\u2062\u2062\u2064\u200c\u2061\u2063\u200c\u2062\u2062\u200c\u2063\u2061\u2062\u200d\u2061\u200c\u200d\u2062\u2064\u2062\u200d\u2061\u200c\u200c\u2062\u2061\u2062\u2062\u200c\u200d\u200c\u200c\u2061\u200d\u2062\u200d\u200c\u200d\u2062\u2063\u2061\u2062\u200c\u2063\u200d\u200c\u2061\u200d\u2061\u2062\u2064\u200d\u200c\u2062\u2061\u200c\u2062\u200d\u200c\u2063\u200c\u2061\u2062\u2061\u200c\u200d\u200c\u2062\u200c\u2062\u200c\u2062\u2061\u2062\u2062\u200c\u200c\u2061\u2062\u2061\u2062\u200c\u200c\u200d\u2062\u200c\u2064\u200c\u2061\u200c\u200d\u2062\u2062\u2062\u200d\u200c\u200d\u2064\u2061\u200c\u2061\u2062\u2064\u2064\u2062\u2061loves chess."
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "bongcloudisthebestopening"}
+    },
+    {
+      "_id": "main:36",
+      "question_number": 36,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Jeff has a house full of windews and doors."
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "bozoslivehere"}
+    },
+    {
+      "_id": "main:37",
+      "question_number": 37,
+      "question_points": 25,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "b gt arsea pi vmnk erv mc btthi ek nde'm ihlqik "
+      },
+      "question_hints": [
+        {
+          "type": "link",
+          "content": "https://drive.google.com/file/d/1yjvh5q072a25C0WB15mnKBl41mf1nxSg/view?usp=sharing"
+        }
+      ],
+      "_secure_": {"answer": "marlonbrando"}
+    },
+    {
+      "_id": "main:38",
+      "question_number": 38,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "image-embed",
+        "content": "https://i.ibb.co/JK4q3j5/level-38.gif"
+      },
+      "question_hints": [
+        {"type": "link", "content": "https://pastebin.com/FUDaf6t1"}
+      ],
+      "_secure_": {"answer": "iwantmydoll"}
+    },
+    {
+      "_id": "main:39",
+      "question_number": 39,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://imgur.com/a/m1leUSr"
+      },
+      "question_hints": [
+        {"type": "text", "content": "Let\u2019s https://youtu.be/j60ClcNYWu4"}
+      ],
+      "_secure_": {"answer": "blackearth"}
+    },
+    {
+      "_id": "main:40",
+      "question_number": 40,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://link.hpfm.dev/_#eyJ2IjoiMC4xIiwiYnVmIjoidjRDSzJRQ0xkanZrU0lybWI4bzhTRFRWK0dQUFFUdUlZMkduRDkyN3RrU1hxeGR5Y2oxMXBaV3Bkd24wck9FcUpvR1Z1Zzk3V3VtVjFvQm5xMHNVNzlsSzlMbEhIM21TWVlXdnA4OCtOclV6MTA5dzFjK0Z3enM5TW1nMnpYMWtzTGY4bFlWM2JrNmtwQmo0UVgvN2hBPT0iLCJpdiI6IkVlbTEzM3hqSW9ubDU2azZ2QVVwUVE9PSIsInNhbHQiOiI4bGFVU0gvU0RkQ2V3Zz09In0="
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "I know how to make napalm.. But how do I know this?"
+        },
+        {"type": "text", "content": "GOQJDrpojGg"}
+      ],
+      "_secure_": {"answer": "legacy"}
+    },
+    {
+      "_id": "main:41",
+      "question_number": 41,
+      "question_points": 30,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "quick fact about me, my icon is my motherland. But where do I live?"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "trajanhouse"}
+    },
+    {
+      "_id": "main:42",
+      "question_number": 42,
+      "question_points": 300,
+      "event": "main",
+      "question_content": {"type": "text", "content": "/W7bYHJa3"},
+      "question_hints": [],
+      "_secure_": {"answer": "winterwonderlanddance"}
+    },
+    {
+      "_id": "main:43",
+      "question_number": 43,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "I see now that the circumstances of one's birth are irrelevant; it is what you do with the gift of life that determines who you are. come forth and show your boarding pass since 591 has been your friend so far."
+      },
+      "question_hints": [{"type": "text", "content": "https://quic.ml/KmEQNr"}],
+      "_secure_": {"answer": "elpablogrande"}
+    },
+    {
+      "_id": "main:44",
+      "question_number": 44,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "KaNeKi's website has a small waterfall."
+      },
+      "question_hints": [{"type": "link", "content": "https://quic.ml/BRg"}],
+      "_secure_": {"answer": "boddah"}
+    },
+    {
+      "_id": "main:45",
+      "question_number": 45,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Now that we are close to end lets turn up the heat and let water flow since you have a long journey to go you must have an identity to show so there you go 440 but make sure you dont delete me since i am the chosen one and i am entitled to be here and they are nothing without me."
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "coconutjpg"}
+    },
+    {
+      "_id": "main:46",
+      "question_number": 46,
+      "question_points": 50,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "we \u2061\u2061\u2062\u200c\u2061\u200c\u2061\u200d\u2062\u200c\u2061\u200d\u2061\u200d\u2061\u200d\u2061\u200d\u2062\u200c\u2064\u2061\u200d\u2062\u200dare tired. you win. yes you, go take the title."
+      },
+      "question_hints": [{"type": "text", "content": "what did it cost?"}],
+      "_secure_": {"answer": "80"}
+    },
+    {
+      "_id": "main:47",
+      "question_number": 47,
+      "question_points": 100,
+      "event": "main",
+      "question_content": {"type": "text", "content": "Shankar can not speak."},
+      "question_hints": [
+        {"type": "text", "content": "DPPLJPFXNODYKZIAPDQOLGZXOZ"}
+      ],
+      "_secure_": {"answer": "furiavsfnatic"}
+    },
+    {
+      "_id": "main:48",
+      "question_number": 48,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "I am gonna pop some tags, how much is in my pocket again?"
+      },
+      "question_hints": [
+        {
+          "type": "text",
+          "content": "I\u2019d never heard of Microsoft before, but it sounded like a pretty decent company."
+        },
+        {
+          "type": "text",
+          "content": "\ud83d\ude80 \u2064\u2063\u200d\u200c\u200d\u2061\u200d\u200c\u200c\u2061\u200c\u2061\u2064\u200d\u2064\u2061\u200d\u2063\u2061\u200c\u2061\u200d\u2061\u200d\u2063\u2061\u200c\u2062\u200d\u2062\u200d\u2064\u2061\u200d\u200c\u2063\u200d\u2063\u2061\u200c\u2062\u200c\u2061\u200c\u2062\u200c\u2061\u200d\u2062\u2063\u200d\u2061\u200c\u2061\u200d\u2063\u2062\u200d\u2064\u2061\u200d\u200c\u200d\u2061\u200d\u2063\u2061\u200d\u2063\u2061\u200d\u2061\u2062\u2061\u200c\u2062\u200c\u2062\u200d\u2064\u2061\u200c\u2061\u2062\u2061\u200d\u200c\u200c\u2062\u200d\u2064\u2061\u200d\u2062\u200d\u2061\u200d\u2063\u2062\u200d\u2064\u2061\u200c\u2062\u200c\u2061\u200c\u2061\u2062\u2061\u200d\u2063\u2061\u200d\u2061\u200c\u2061\u200d\u2062\u200c\u2061\u200d\u200c\u2062\u2061\u200d\u200c\u200c\u2061\u200d\u2062\u2063\u200d\u200d\u200c\u2061\u200d\u2063\u2061\u200d\u2061\u2064\u200d\u2064\u2061\u200c\u200d\u2063\u200d\u200c\u200c\u2061\u200c\u2063\u2062\u200d\u2064\u2061\u200d\u2061\u200c\u2061\u200d\u2063\u2061\u200d\u200c\u200d\u2061\u200d\u200d\u2063\u200c\u2063\u2061\u200c\u2062\u200c\u2061\u200d\u2063\u2061\u200c\u2062\u200c\u2062\u200d\u200c\u200d\u2062\u200d\u2064\u2063\u2062\u200d\u2061\u200d\u2063\u2061\u200d\u2061\u200c\u2061\u200d\u2062\u2063\u200c\u2062\u200d\u2061\u200d\u2061\u2062\u2061\u200c\u2062\u200c\u2062\u200d\u200c\u2064\u200d\u2064\u2061\u2064\u2062\u2061\u200d\u2061\u2062\u2061\u200d\u2063\u2061\u200d\u200c\u2062\u2061\u200d\u2063\u2061\u200c\u2061\u2062\u2061\u200d\u200c\u200c\u2061\u200c\u2062\u200c\u2062\u200d\u2062\u200c\u2062\u200c\u2061\u2064\u200c\u2061\u2064\u200c\u2062\u200c\u2062\u200c\u2061\u2064\u200d\u200c\u200d\u2062\u200d\u2064\u2062\u200d\u2064\u2061\u200d\u200d\u2063\u200d\u2061\u200d\u200c\u2062\u2063\u2062\u200d\u200d\u200d\u2061\u200c\u2061\u2062\u2061\u200d\u200d\u2062\u2061\u200d\u200d\u2063\u200d\u200c\u200d\u2061\u200d\u200d\u200c\u200c\u2062\u2061\u2064\u2062\u2061\u200d\u2061\u200c\u2062\u200c\u2062\u200d\u2064\u2061\u200d\u200d\u2063\u200c\u2062\u200c\u2062\u200d\u2064\u2061\u200d\u2062\u2061\u2062\u200d\u2064\u2061\u200d\u200d\u2062\u2061\u200d\u200d\u2063\u200d\u200c\u200d\u2061\u200c\u2061\u2064\u200d\u200c\u2064\u200d\u2064\u2061\u200d\u200d\u2061\u2062\u200d\u2064\u2061\u200d\u200d\u2062\u2061\u200d\u2062\u2063\u200c\u2061\u200d\u2061\u200d\u2063\u2062\u200d\u2064\u2061\u200d\u2062\u2061\u2062\u200d\u2064\u2061\u200d\u2062\u200d\u2061\u200c\u2062\u200d\u2061\u200d\u200d\u2063\u200d\u2061\u2062\u2061\u200d\u2061\u200c\u2061\u200d\u2063\u200c\u2062\u2061\u2062\u2061\u200d\u2061\u200d\u2061\u200c\u2062\u200c\u2061\u200d\u2063\u2061\u200d\u200c\u2062\u2061\u200d\u200c\u2062\u200c\u2062\u2061\u2064\u200c\u2062\u200d\ud83d\udcb5"
+        }
+      ],
+      "_secure_": {"answer": "seven"}
+    },
+    {
+      "_id": "main:49",
+      "question_number": 49,
+      "question_points": 1,
+      "event": "main",
+      "question_content": {
+        "type": "link",
+        "content": "https://pastebin.com/FqkusSy2"
+      },
+      "question_hints": [],
+      "_secure_": {"answer": "kanekideletosprotartronakdeadzoltmonokuma"}
+    },
+    {
+      "_id": "main:50",
+      "question_number": 50,
+      "question_points": 10,
+      "event": "main",
+      "question_content": {
+        "type": "text",
+        "content": "Consumable, but not with frosting"
+      },
+      "question_hints": [
+        {"type": "text", "content": "A~\u221e"},
+        {"type": "text", "content": "Everyone works for it"}
+      ],
+      "_secure_": {"answer": "gabrielscake"}
+    },
+    {
+      "_id": "main:51",
+      "question_number": 51,
+      "question_points": 1000,
+      "event": "main",
+      "question_content": {"type": "text", "content": "Hello"},
+      "question_hints": [],
+      "_secure_": {"answer": "world"}
+    }
+  ]
+}

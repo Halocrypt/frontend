@@ -2,6 +2,8 @@
   "compilerOptions": {
     "module": "ESNext",
     "allowJs": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "declaration": true,
     "moduleResolution": "Node",
@@ -9,7 +11,7 @@
     "rootDir": "./",
     "baseUrl": ".",
     "jsx": "preserve",
-    "paths": { "@/*": ["./src/*"] }
+    "paths": {"@/*": ["./src/*"]}
   },
   "exclude": [
     ".babelconfig.js",

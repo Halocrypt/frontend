@@ -1,4 +1,12 @@
-import { flex, tALeft } from "@/style";
+import {css} from "catom";
+
+import {useAuthState} from "@/bridge";
+import {flex, tALeft} from "@/style";
+import {AnimateLayout} from "@hydrophobefireman/ui-anim";
+import {A} from "@hydrophobefireman/ui-lib";
+
+import {DynamicOnly} from "../DynamicOnly";
+import {ChevronIcon} from "../Icons/Chevron";
 import {
   mainAction,
   navLink,
@@ -6,16 +14,10 @@ import {
   navLinkMobileActive,
   notifLink,
 } from "./Header.style";
+import {mobileNav} from "./MobileHeader.style";
+import {SocialLinks} from "./SocialLinks";
 
-import { A } from "@hydrophobefireman/ui-lib";
-import { AnimateLayout } from "@hydrophobefireman/ui-anim";
-import { ChevronIcon } from "../Icons/Chevron";
-import { SocialLinks } from "./SocialLinks";
-import { css } from "catom";
-import { mobileNav } from "./MobileHeader.style";
-import { useAuthState } from "@/bridge";
-
-export function Nav({ path }: { path: string }) {
+export function Nav({path}: {path: string}) {
   const [user] = useAuthState();
   const isLoggedIn = !!(user && user.user);
   return (
@@ -24,9 +26,11 @@ export function Nav({ path }: { path: string }) {
         About
       </NavLink>
       {isLoggedIn && (
-        <NavLink href={`/u/${user.user}`} path={path}>
-          Profile
-        </NavLink>
+        <DynamicOnly>
+          <NavLink href={`/u/${user.user}`} path={path}>
+            Profile
+          </NavLink>
+        </DynamicOnly>
       )}
       {path == "/play" ? (
         <NavLink href="/play/notifications" path={path} className={notifLink}>
@@ -40,17 +44,19 @@ export function Nav({ path }: { path: string }) {
       <NavLink href="/leaderboard" path={path}>
         Leaderboard
       </NavLink>
-      <NavLink
-        href={isLoggedIn ? "/play" : "/login"}
-        path={path}
-        className={mainAction}
-        hideonActive
-      >
-        <span class={css({ marginRight: "5px" })}>
-          {isLoggedIn ? "Play" : "Login"}
-        </span>
-        <ChevronIcon size="10px" />
-      </NavLink>
+      <DynamicOnly>
+        <NavLink
+          href={isLoggedIn ? "/play" : "/login"}
+          path={path}
+          className={mainAction}
+          hideonActive
+        >
+          <span class={css({marginRight: "5px"})}>
+            {isLoggedIn ? "Play" : "Login"}
+          </span>
+          <ChevronIcon size="10px" />
+        </NavLink>
+      </DynamicOnly>
     </nav>
   );
 }
@@ -73,13 +79,13 @@ export function NavLink({
   const active = path === href;
   if (active && hideonActive) return;
   return (
-    <div class={css({ display: "flex", flexDirection: "column" })}>
+    <div class={css({display: "flex", flexDirection: "column"})}>
       <A href={href} class={className || navLink}>
         {children}
       </A>
       {active && (
         <AnimateLayout
-          onlyAnimate={{ translateX: true, scaleX: true }}
+          onlyAnimate={{translateX: true, scaleX: true}}
           time={200}
           element="div"
           animId="current-nav"
@@ -97,7 +103,7 @@ export function NavLink({
   );
 }
 
-export function MobileNav({ path, close }: { path: string; close(): void }) {
+export function MobileNav({path, close}: {path: string; close(): void}) {
   const [user] = useAuthState();
   const isLoggedIn = !!(user && user.user);
   return (
@@ -137,7 +143,7 @@ export function MobileNav({ path, close }: { path: string; close(): void }) {
   );
 }
 
-function MobileLink({ href, children, path, close }: NavLinkProps) {
+function MobileLink({href, children, path, close}: NavLinkProps) {
   const active = href === path;
   return (
     <A

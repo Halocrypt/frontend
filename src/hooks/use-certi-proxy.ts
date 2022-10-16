@@ -1,30 +1,31 @@
-import { useEffect, useState } from "@hydrophobefireman/ui-lib";
-
-import { IUser } from "@/interfaces";
-import { decrypt } from "@/packages/crypto/decrypt";
-import { useAuthState } from "@/bridge";
-import { userDetails } from "@/packages/halo-api/user";
+import {useAuthState} from "@/bridge";
+import {IUser} from "@/interfaces";
+import {decrypt} from "@/packages/crypto/decrypt";
+import {userDetails} from "@/packages/halo-api/user";
+import {useEffect, useState} from "@hydrophobefireman/ui-lib";
 
 function getProxyURL(file: string) {
   return `https://api.halocrypt.com/cert/proxy/${file}`;
 }
 export function useCertiProxy(impersonate?: string) {
-  const [currentUser] = useAuthState();
-
   const [imageURL, setImageURL] = useState("");
   const [error, setError] = useState<string>(null);
   useEffect(async () => {
     let userData: IUser;
+    setError("");
     try {
       if (!impersonate) {
-        userData = currentUser;
       } else {
         const resp = await userDetails(impersonate).result;
         userData = resp.data.user_data;
       }
-      if (!userData) return;
-      const { certificate_key } = userData._secure_;
-      const { user } = userData;
+      if (!userData) {
+        setImageURL("");
+        setError("Could not find user");
+        return;
+      }
+      const {certificate_key} = userData._secure_;
+      const {user} = userData;
 
       const [jsonData, encData] = await Promise.all([
         fetch(getProxyURL(`${user}.json`)),
@@ -40,7 +41,7 @@ export function useCertiProxy(impersonate?: string) {
         `Could not find a valid certificate for '${userData.user}', DM Mods if you think this was a mistake`
       );
     }
-  }, [currentUser, impersonate]);
+  }, [impersonate]);
   useEffect(() => {
     if (!imageURL) return;
     return () => {
@@ -48,11 +49,11 @@ export function useCertiProxy(impersonate?: string) {
       URL.revokeObjectURL(imageURL);
     };
   }, [imageURL]);
-  return { imageURL, error };
+  return {imageURL, error};
 }
 
 function generateBlob(what: ArrayBuffer) {
-  const blob = new Blob([what], { type: "application/octet-stream" });
+  const blob = new Blob([what], {type: "application/octet-stream"});
   const url = URL.createObjectURL(blob);
   return url;
 }

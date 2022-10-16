@@ -1,18 +1,22 @@
-import { actionContainer, ytLink } from "./Actions.style";
+import {css} from "catom";
 
-import { A } from "@hydrophobefireman/ui-lib";
-import { Link } from "@/components/ExtLink/ExtLink";
-import { PlayIcon } from "@/components/Icons/Play";
-import { css } from "catom";
-import { glassLink } from "@/style";
+import {DynamicOnly} from "@/components/DynamicOnly";
+import {Link} from "@/components/ExtLink/ExtLink";
+import {PlayIcon} from "@/components/Icons/Play";
+import {glassLink} from "@/style";
+import {A} from "@hydrophobefireman/ui-lib";
 
-export function Actions({ isLoggedIn }: { isLoggedIn: boolean }) {
+import {actionContainer, ytLink} from "./Actions.style";
+
+export function Actions({isLoggedIn}: {isLoggedIn: boolean}) {
   return (
     <div class={actionContainer}>
       {!isLoggedIn && (
-        <A href="/register" class={glassLink} title="Register for Halocrypt">
-          Register
-        </A>
+        <DynamicOnly>
+          <A href="/register" class={glassLink} title="Register for Halocrypt">
+            Register
+          </A>
+        </DynamicOnly>
       )}
       <Link
         class={ytLink}
@@ -20,7 +24,7 @@ export function Actions({ isLoggedIn }: { isLoggedIn: boolean }) {
         title="Halocrypt Trailer"
       >
         <PlayIcon size="1.2rem" />
-        <span class={css({ marginLeft: "5px" })}>Watch the trailer</span>
+        <span class={css({marginLeft: "5px"})}>Watch the trailer</span>
       </Link>
     </div>
   );
