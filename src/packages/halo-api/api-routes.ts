@@ -1,10 +1,11 @@
 import {Events} from "@/interfaces";
 
-const host =
-  0 && location.host.includes("localhost")
-    ? "http://localhost:5000/"
-    : "https://api.halocrypt.com/";
+// const host =
+//   0 && location.host.includes("localhost")
+//     ? "http://localhost:5000/"
+//     : "https://api.halocrypt.com/";
 
+const host = "http://localhost:5000/";
 function absoluteURL(relative: string) {
   const u = new URL(relative, host);
   return u.href;

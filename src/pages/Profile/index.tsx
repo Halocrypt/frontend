@@ -1,12 +1,24 @@
+import {css} from "catom";
+
+import {inputMargin, themeSubmitButton} from "@/Form.style";
+import {client, useAuthState} from "@/bridge";
+import {AnimatedInput} from "@/components/AnimatedInput";
+import {Link} from "@/components/ExtLink/ExtLink";
+import {Form} from "@/components/Form";
+import {EmailInput} from "@/components/FormFields/Email";
+import {InstitutionInput} from "@/components/FormFields/Institution";
+import {NameInput} from "@/components/FormFields/Name";
+import {HaloIcon} from "@/components/Icons/Halo";
+import {Snackbar} from "@/components/Snackbar/Snackbar";
+import {IUser, SecureUserData} from "@/interfaces";
+import {editUser} from "@/packages/halo-api/user";
 import {
   AsyncComponent,
   loadURL,
   useRef,
   useState,
 } from "@hydrophobefireman/ui-lib";
-import { IUser, SecureUserData } from "@/interfaces";
-import { client, useAuthState } from "@/bridge";
-import { inputMargin, themeSubmitButton } from "@/Form.style";
+
 import {
   profileHeading,
   profileSection,
@@ -16,21 +28,10 @@ import {
   scoreContainer,
   scoreDiv,
 } from "./Profile.style";
-import { useUserDetails, useUserGuard } from "./use-user-details";
+import {useUserDetails, useUserGuard} from "./use-user-details";
 
-import { AnimatedInput } from "@/components/AnimatedInput";
-import { EmailInput } from "@/components/FormFields/Email";
-import { Form } from "@/components/Form";
-import { HaloIcon } from "@/components/Icons/Halo";
-import { InstitutionInput } from "@/components/FormFields/Institution";
-import { Link } from "@/components/ExtLink/ExtLink";
-import { NameInput } from "@/components/FormFields/Name";
-import { Snackbar } from "@/components/Snackbar/Snackbar";
-import { css } from "catom";
-import { editUser } from "@/packages/halo-api/user";
-
-export default function ProfileGuard({ params }) {
-  const { user: username } = params;
+export default function ProfileGuard({params}) {
+  const {user: username} = params;
   const [userDetails, setUser] = useAuthState();
   const normalised = useUserGuard(username, userDetails);
   if (normalised) {
@@ -47,23 +48,17 @@ export default function ProfileGuard({ params }) {
   }
 }
 
-function Profile({
-  username,
-  isAdmin,
-}: {
-  username: string;
-  isAdmin: boolean;
-}) {
-  const { user, error, setUser } = useUserDetails(username);
+function Profile({username, isAdmin}: {username: string; isAdmin: boolean}) {
+  const {user, error, setUser} = useUserDetails(username);
 
-  if (error) return <div class={css({ color: "red" })}>{error}</div>;
+  if (error) return <div class={css({color: "red"})}>{error}</div>;
   if (!user) return <div>Loading...</div>;
   if (user.is_disqualified)
     return <DisqualifiedLoader user={user} isMe={false} />;
   return (
     <ProfileRenderer
       user={user}
-      setUser={(x) => setUser({ user_data: x })}
+      setUser={(x) => setUser({user_data: x})}
       disableEditing={!isAdmin}
       isMe={false}
     />
@@ -81,6 +76,7 @@ function ProfileRenderer({
   disableEditing?: boolean;
   isMe: boolean;
 }) {
+  disableEditing = true;
   const hasSecure = !!user._secure_;
   const _secure_ = hasSecure ? user._secure_ : ({} as SecureUserData);
   const [message, setMessage] = useState("");
@@ -101,8 +97,8 @@ function ProfileRenderer({
     if (!unsavedChanges || loading) return;
     setLoading(true);
     setMessage("Saving..");
-    const { result } = editUser(user.user, { email, name, institution });
-    const { data, error } = await result;
+    const {result} = editUser(user.user, {email, name, institution});
+    const {data, error} = await result;
     setLoading(false);
     if (error) {
       setMessage(error);
@@ -130,7 +126,7 @@ function ProfileRenderer({
         {!isMe && !disableEditing && (
           <Link
             href={`https://admin.halocrypt.com/dash/users/${user.user}`}
-            class={css({ textDecoration: "underline" })}
+            class={css({textDecoration: "underline"})}
           >
             Open admin panel
           </Link>
@@ -150,7 +146,7 @@ function ProfileRenderer({
           wrapperClass={inputMargin}
           disabled={disableEditing}
         />
-        {hasSecure && (
+        {false && (
           <>
             <EmailInput
               email={email}
@@ -214,7 +210,7 @@ function ProfileRenderer({
             <button
               aria-label="Confirm Email"
               class={themeSubmitButton}
-              style={{ maxWidth: "400px" }}
+              style={{maxWidth: "400px"}}
               onClick={() => loadURL("/verify-email")}
             >
               Confirm Email
@@ -226,7 +222,7 @@ function ProfileRenderer({
   );
 }
 
-function SaveButton({ unsavedChanges }: { unsavedChanges: boolean }) {
+function SaveButton({unsavedChanges}: {unsavedChanges: boolean}) {
   return (
     <div class={saveButtonContainer}>
       <button
@@ -239,13 +235,7 @@ function SaveButton({ unsavedChanges }: { unsavedChanges: boolean }) {
   );
 }
 
-export function DisqualifiedLoader({
-  user,
-  isMe,
-}: {
-  user: IUser;
-  isMe: boolean;
-}) {
+export function DisqualifiedLoader({user, isMe}: {user: IUser; isMe: boolean}) {
   return (
     <AsyncComponent
       fallback={<div>Loading...</div>}
