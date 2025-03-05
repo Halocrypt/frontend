@@ -19,6 +19,7 @@ import {SocialLinks} from "./SocialLinks";
 
 export function Nav({path}: {path: string}) {
   const [user] = useAuthState();
+
   const isLoggedIn = !!(user && user.user);
   return (
     <nav class={flex}>

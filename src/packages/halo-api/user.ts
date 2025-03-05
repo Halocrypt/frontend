@@ -2,7 +2,7 @@ import {client, requests} from "@/bridge";
 import usersUnprocessed from "@/data/users.json";
 import {IUser} from "@/interfaces";
 import {userRoutes} from "@/packages/halo-api/api-routes";
-import {AbortableFetchResponse} from "@hydrophobefireman/flask-jwt-jskit";
+type AbortableFetchResponse<T> = ReturnType<typeof requests.get<T>>;
 
 import {RegisterUser} from "./interfaces";
 
@@ -50,7 +50,7 @@ export function requestNewPassword(user: string, handler: string) {
 
 export function setNewPassword(
   user: string,
-  body: {token: string; new_password: string}
+  body: {token: string; new_password: string},
 ) {
   return requests.patchJSON(userRoutes.passwordReset(user), body);
 }

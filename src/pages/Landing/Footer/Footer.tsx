@@ -1,8 +1,9 @@
-import { coloredLink, footer, linkBox, svgContainer } from "./Footer.style";
-
-import { A } from "@hydrophobefireman/ui-lib";
 import { css } from "catom";
+
 import { useIsLoggedIn } from "@/bridge";
+import { A } from "@hydrophobefireman/ui-lib";
+
+import { coloredLink, footer, linkBox, svgContainer } from "./Footer.style";
 
 export function Footer() {
   const loggedIn = useIsLoggedIn();
@@ -10,13 +11,13 @@ export function Footer() {
     <footer class={footer} aria-hidden>
       <div class={linkBox}>
         Think you're ready?{" "}
-        <A
+        {/* <A
           href={loggedIn ? "/play" : "/register"}
           tabIndex={-1}
           class={coloredLink}
         >
           {loggedIn ? "Play" : "Sign Up"}
-        </A>
+        </A> */}
       </div>
 
       <svg

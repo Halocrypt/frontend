@@ -2,7 +2,7 @@ import {requests} from "@/bridge";
 import lb from "@/data/leaderboard.json";
 import {IEvent, INotification, IQuestion, IUser} from "@/interfaces";
 import {playRoutes} from "@/packages/halo-api/api-routes";
-import {AbortableFetchResponse} from "@hydrophobefireman/flask-jwt-jskit";
+type AbortableFetchResponse<T> = ReturnType<typeof requests.get<T>>;
 
 type Events = "main" | "intra";
 const c = new AbortController();

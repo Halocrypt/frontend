@@ -195,7 +195,7 @@ function ProfileRenderer({
         <>
           <button
             aria-label="Logout"
-            onClick={() => client.logout()}
+            onClick={() => client.logoutAll()}
             class={themeSubmitButton}
             style={{
               background: "var(--red)",

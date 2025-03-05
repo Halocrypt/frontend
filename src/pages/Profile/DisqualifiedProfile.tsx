@@ -1,21 +1,22 @@
-import { AnimateLayout } from "@hydrophobefireman/ui-anim";
-import { IUser } from "@/interfaces";
-import { center } from "@/style";
-import { client } from "@/bridge";
-import { css } from "catom";
+import {css} from "catom";
+
+import {themeSubmitButton} from "@/Form.style";
+import {client} from "@/bridge";
+import {useInterval} from "@/hooks/use-interval";
 //@ts-ignore
 import dq from "@/images/dq.jpg";
-import { themeSubmitButton } from "@/Form.style";
-import { useInterval } from "@/hooks/use-interval";
-import { useState } from "@hydrophobefireman/ui-lib";
-export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
+import {IUser} from "@/interfaces";
+import {center} from "@/style";
+import {AnimateLayout} from "@hydrophobefireman/ui-anim";
+import {useState} from "@hydrophobefireman/ui-lib";
+export function Disqualified({user, isMe}: {user: IUser; isMe: boolean}) {
   const username = user.user;
   const reason = user.disqualification_reason
     ? `Reason: ${user.disqualification_reason}`
     : "No reason provided";
   return (
-    <section class={[center, css({ maxWidth: "600px", width: "85vw" })]}>
-      <h1 class={css({ fontSize: "2rem", wordBreak: "break-word" })}>
+    <section class={[center, css({maxWidth: "600px", width: "85vw"})]}>
+      <h1 class={css({fontSize: "2rem", wordBreak: "break-word"})}>
         <span>
           {isMe
             ? "You have been disqualified"
@@ -34,7 +35,7 @@ export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
         })}
       >
         <Deledos />
-        <div class={css({ wordBreak: "break-word" })}>
+        <div class={css({wordBreak: "break-word"})}>
           {!isMe ? (
             reason
           ) : (
@@ -45,7 +46,7 @@ export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
                 Repeat violations might lead to account deletion. That's pretty
                 permanent.
               </b>
-              <div class={css({ marginTop: "2rem" })}>{reason}</div>
+              <div class={css({marginTop: "2rem"})}>{reason}</div>
             </div>
           )}
         </div>
@@ -54,9 +55,9 @@ export function Disqualified({ user, isMe }: { user: IUser; isMe: boolean }) {
         {isMe && (
           <button
             aria-label="Logout"
-            onClick={() => client.logout()}
+            onClick={() => client.logoutAll()}
             class={themeSubmitButton}
-            style={{ background: "var(--red)", marginTop: "1rem" }}
+            style={{background: "var(--red)", marginTop: "1rem"}}
           >
             Logout
           </button>
@@ -79,13 +80,13 @@ function Deledos() {
           src={dq}
           data-i={x}
           class={[
-            x % 2 && css({ filter: "invert(1)" }),
+            x % 2 && css({filter: "invert(1)"}),
             css({
               userSelect: "none",
               pointerEvents: "none",
               height: "4rem",
               borderRadius: "50%",
-              media: { "(max-width:500px)": { height: "3rem" } },
+              media: {"(max-width:500px)": {height: "3rem"}},
             }),
           ]}
         />

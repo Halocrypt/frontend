@@ -115,6 +115,4 @@ docs/
 .yarn/install-state.gz
 .pnp.*
 build/
-__version__.json
 .catom.css
-

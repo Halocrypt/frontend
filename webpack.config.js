@@ -1,23 +1,24 @@
-const path = require("path");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoPrefixPlugin = require("autoprefixer");
 const HTMLInlineCSSWebpackPlugin =
   require("html-inline-css-webpack-plugin").default;
-const WebpackModuleNoModulePlugin = require("@hydrophobefireman/module-nomodule");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const { autoPrefixCSS } = require("catom/dist/css");
+const webpack = require("webpack");
+const {
+  HtmlWebpackEsmodulesPlugin,
+  FontInlineWebpackPlugin,
+} = require("@hydrophobefireman/module-nomodule");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const {autoPrefixCSS} = require("catom/dist/css");
 const babel = require("./.babelconfig");
 const uiConfig = require("./ui.config.json");
 const mode = process.env.NODE_ENV;
 const isProd = mode === "production";
+const {outputDir, staticFilePrefix, inlineCSS, enableCatom, fonts} = uiConfig;
+const path = require("path");
 const science = require("./inject/science");
-const { EnvironmentPlugin } = require("webpack");
-const injectTs = require("./scripts/latest-ts");
 
-injectTs.inject();
-const { outputDir, staticFilePrefix, inlineCSS, enableCatom, fonts } = uiConfig;
+require("dotenv").config();
 
 function prodOrDev(a, b) {
   return isProd ? a : b;
@@ -38,23 +39,17 @@ const jsLoaderOptions = (isLegacy) => ({
 const cssLoaderOptions = {
   test: /\.css$/,
   use: [
-    { loader: MiniCssExtractPlugin.loader },
+    {loader: MiniCssExtractPlugin.loader},
     {
       loader: "css-loader",
-    },
-    {
-      loader: "postcss-loader",
-      options: {
-        postcssOptions: { plugins: [autoPrefixPlugin()] },
-      },
     },
   ],
 };
 const contentLoaderOptions = {
   test: /\.(png|jpg|gif|ico|svg)$/,
   use: uiConfig.preferBase64Images
-    ? [{ loader: "url-loader", options: { fallback: "file-loader" } }]
-    : [{ loader: "file-loader" }],
+    ? [{loader: "url-loader", options: {fallback: "file-loader"}}]
+    : [{loader: "file-loader"}],
 };
 
 function getEnvObject(isLegacy) {
@@ -69,12 +64,12 @@ function getEnvObject(isLegacy) {
   };
 }
 /**
- * @returns {import("webpack").Configuration}
+ * @returns  {import("webpack").Configuration}
  */
 function getCfg(isLegacy) {
   return {
     cache: enableCatom
-      ? { type: "memory" }
+      ? {type: "memory"}
       : {
           type: "filesystem",
           buildDependencies: {
@@ -96,7 +91,7 @@ function getCfg(isLegacy) {
         contentLoaderOptions,
       ],
     },
-    entry: `${__dirname}/src/App.tsx`,
+    entry: path.join(__dirname, "/src/App.tsx"),
     output: {
       publicPath: "/",
       environment: getEnvObject(isLegacy),
@@ -107,12 +102,21 @@ function getCfg(isLegacy) {
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".json"],
-      alias: { "@": srcPath("src") },
+      alias: {"@": srcPath("src"), "@kit": "@hydrophobefireman/kit"},
     },
     mode,
     optimization: {
       concatenateModules: false,
-      minimizer: prodOrDev([new TerserWebpackPlugin({ parallel: true })], []),
+      minimizer: prodOrDev(
+        [
+          new TerserWebpackPlugin({parallel: true}),
+          new CssMinimizerPlugin({
+            minify: CssMinimizerPlugin.lightningCssMinify,
+            parallel: Math.floor(require("os").cpus()?.length / 2) || 1,
+          }),
+        ],
+        [],
+      ),
       splitChunks: {
         chunks: "all",
       },
@@ -125,10 +129,14 @@ function getCfg(isLegacy) {
           compilation,
           files,
           tags,
-          options
+          options,
         ) {
-          let script = await science.script();
-          let css = `<style>${await autoPrefixCSS()}</style>`;
+          let css = uiConfig.enableCatom
+            ? `<style>
+                ${await autoPrefixCSS()}
+               </style>
+          `
+            : "";
           return {
             compilation,
             webpackConfig: compilation.options,
@@ -136,8 +144,8 @@ function getCfg(isLegacy) {
               tags,
               files,
               options: Object.assign(options, {
-                script,
                 css,
+                script: await science.script(),
               }),
             },
           };
@@ -156,22 +164,23 @@ function getCfg(isLegacy) {
             removeRedundantAttributes: true,
             removeComments: true,
           },
-          !1
+          !1,
         ),
       }),
       new MiniCssExtractPlugin({
-        filename: `${staticFilePrefix}/main.[contenthash].css`,
+        filename: `${staticFilePrefix}/main-[contenthash].css`,
       }),
-      isProd &&
-        new OptimizeCSSAssetsPlugin({ cssProcessor: require("cssnano")() }),
       isProd && inlineCSS && new HTMLInlineCSSWebpackPlugin({}),
-      new WebpackModuleNoModulePlugin({
+      new HtmlWebpackEsmodulesPlugin({
         mode: isLegacy ? "legacy" : "modern",
-        fonts,
       }),
-      new EnvironmentPlugin({ IS_INTRA: false }),
+      new FontInlineWebpackPlugin({fonts}),
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: process.env.NODE_ENV,
+        IS_INTRA: "",
+      }),
     ].filter(Boolean),
   };
 }
 
-module.exports = isProd ? [getCfg(false), getCfg(true)] : getCfg(false);
+module.exports = getCfg(false);
