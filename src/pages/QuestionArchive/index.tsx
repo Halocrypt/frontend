@@ -10,12 +10,21 @@ export default function Archive() {
   return (
     <ul class={css({maxWidth: "800px", width: "90%", margin: "auto"})}>
       {questions.data.map((q, i) => (
-        <li class={css({listStyleType: "none"})}>
-          <QuestionContent question={q as IQuestion} index={i} />
-          <span>
-            Answer: <Spoiler text={q._secure_.answer} />
-          </span>
-        </li>
+        <>
+          <li
+            class={css({
+              listStyleType: "none",
+              marginTop: "1rem",
+              marginBottom: "1rem",
+            })}
+          >
+            <QuestionContent question={q as IQuestion} index={i} />
+            <span>
+              Answer: <Spoiler text={q._secure_.answer} />
+            </span>
+          </li>
+          <hr />
+        </>
       ))}
     </ul>
   );
