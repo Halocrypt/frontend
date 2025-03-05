@@ -369,7 +369,7 @@
       "question_number": 27,
       "question_points": 5,
       "event": "main",
-      "question_content": {"type": "link", "content": "https://quic.ml/1beVrj"},
+      "question_content": {"type": "link", "content": "https://quic.h2.workers.dev/1beVrj"},
       "question_hints": [
         {"type": "text", "content": "Bellini"},
         {"type": "text", "content": "Brunswick"}
@@ -591,7 +591,7 @@
         "type": "text",
         "content": "I see now that the circumstances of one's birth are irrelevant; it is what you do with the gift of life that determines who you are. come forth and show your boarding pass since 591 has been your friend so far."
       },
-      "question_hints": [{"type": "text", "content": "https://quic.ml/KmEQNr"}],
+      "question_hints": [{"type": "text", "content": "https://quic.h2.workers.dev/KmEQNr"}],
       "_secure_": {"answer": "elpablogrande"}
     },
     {
@@ -603,7 +603,7 @@
         "type": "text",
         "content": "KaNeKi's website has a small waterfall."
       },
-      "question_hints": [{"type": "link", "content": "https://quic.ml/BRg"}],
+      "question_hints": [{"type": "link", "content": "https://quic.h2.workers.dev/BRg"}],
       "_secure_": {"answer": "boddah"}
     },
     {
