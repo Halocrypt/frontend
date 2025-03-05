@@ -5,7 +5,7 @@ import {userDetails} from "@/packages/halo-api/user";
 import {useEffect, useState} from "@hydrophobefireman/ui-lib";
 
 function getProxyURL(file: string) {
-  return `https://certs.halocrypt.com/${file}`;
+  return `https://certs.halocrypt.com/${file}.png`;
 }
 export function useCertiProxy(impersonate?: string) {
   const error = null;
